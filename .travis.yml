@@ -1,0 +1,19 @@
+language: java
+sudo: required
+#building and running the benchmarks
+script:
+- mvn clean install -f projan/pom.xml
+- java -jar projan/target/projan-0.0.1-SNAPSHOT.jar com.testjan.projan.MyBenchmark.testRef -i 10 -rf csv -rff refBench
+- java -jar projan/target/projan-0.0.1-SNAPSHOT.jar com.testjan.projan.MyBenchmark.testTenDot -i 10 -rf csv -rff testTen
+#don't want an email every time I commit
+notifications:
+email: false
+after_success:
+#installing the required packages for the python script to run
+- sudo apt-get -qq update
+- sudo apt-get install -y python2.7
+- sudo apt-get install -y python-numpy
+- sudo apt-get install -y python-matplotlib
+- chmod +x update-gh.sh 
+#pushes back to github the graph and the results
+- ./update-gh.sh
