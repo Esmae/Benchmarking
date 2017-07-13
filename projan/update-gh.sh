@@ -2,9 +2,10 @@ if [ "$TRAVIS_COMMIT_MESSAGE" != "Travis build pushed to Benchmarking testing" ]
  echo -e "Starting to update Benchmarking testing\n"
 #moving files created in build into home
 #moving scripts to be run into home
-  cp -R test* $HOME
+  cp -R testTen $HOME
   cp -R refBench $HOME
   cp -R projan/normFromRef.py $HOME
+  cp -R timePlot.py $HOME
   
   cd $HOME
   git config --global user.email "travis@travis-ci.org"
