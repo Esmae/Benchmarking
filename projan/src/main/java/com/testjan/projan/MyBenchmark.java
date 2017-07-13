@@ -11,6 +11,7 @@ import org.openjdk.jmh.annotations.Setup;
 import org.openjdk.jmh.annotations.State;
 import org.openjdk.jmh.annotations.Warmup;
 
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import org.eclipse.january.dataset.Dataset;
@@ -19,40 +20,63 @@ import org.eclipse.january.dataset.LinearAlgebra;
 
 @State(Scope.Thread)
 public class MyBenchmark {
-	
+
+	private static Random randGenerator = new Random(1113);
+
 	@State(Scope.Thread)
-	public static class myState{
-		
-		@Param({"6"})
-		public static double noElements1;//the number of elements in the first tensor
-		
-		@Param({"24"})
-		public static double noElements2;//the number of elements in the second tensor
-		
-		
+	public static class myState {
+
+		@Param({ "6" })
+		public static double noElements1;// the number of elements in the first
+											// tensor
+
+		@Param({ "24" })
+		public static double noElements2;// the number of elements in the second
+											// tensor
+
 		static Dataset dataset1;
 		static Dataset dataset2;
-		
+
 		@Setup(Level.Trial)
-		public void doSetup(){
+		public void doSetup() {
 			dataset1 = DatasetFactory.createRange(noElements1);
 			dataset2 = DatasetFactory.createRange(noElements2);
-			
-			dataset1 = dataset1.reshape(1,3,2);
-			dataset2 = dataset2.reshape(4,2,3);
+
+			dataset1 = dataset1.reshape(1, 3, 2);
+			dataset2 = dataset2.reshape(4, 2, 3);
 		}
-		
-		
+
 	}
-	
+
+	@State(Scope.Thread)
+	public static class myRefState {
+
+		static Reference myRef;
+
+		private static double size;// the number of elements in the reference
+									// dataset
+
+		@Setup(Level.Trial)
+		public void doRefSetup() {
+			myRef = new Reference(size);
+		}
+	}
+
 	@Benchmark
 	@BenchmarkMode(Mode.Throughput)
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
-	public Dataset testTenDot(myState theState){
-		return LinearAlgebra.tensorDotProduct(myState.dataset1, myState.dataset2, new int[]{1,2},new int[]{2,1});
+	public double testRef(myRefState theRefState){
+		return myRefState.myRef.addNum(myRefState.size);
 	}
-	
-	
-	
+
+	@Benchmark
+	@BenchmarkMode(Mode.Throughput)
+	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
+	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
+	public Dataset testTenDot(myState theState) {
+		return LinearAlgebra.tensorDotProduct(myState.dataset1, myState.dataset2, new int[] { 1, 2 },
+				new int[] { 2, 1 });
+	}
+
 }
