@@ -1,4 +1,5 @@
 language: java
+dist: trusty
 sudo: required
 #building and running the benchmarks
 script:
@@ -7,7 +8,7 @@ script:
 - java -jar projan/target/projan-0.0.1-SNAPSHOT.jar com.testjan.projan.MyBenchmark.testTenDot -i 10 -rf csv -rff testTen
 #don't want an email every time I commit
 notifications:
-email: false
+  email: false
 after_success:
 #installing the required packages for the python script to run
 - sudo apt-get -qq update
