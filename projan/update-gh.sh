@@ -5,7 +5,7 @@ if [ "$TRAVIS_COMMIT_MESSAGE" != "Travis build pushed to Benchmarking testing" ]
   cp -R testTen $HOME
   cp -R refBench $HOME
   cp -R projan/normFromRef.py $HOME
-  cp -R timePlot.py $HOME
+  cp -R projan/timePlot.py $HOME
   
   cd $HOME
   git config --global user.email "travis@travis-ci.org"
@@ -23,7 +23,7 @@ python normFromRef.py
   mv testing/projan/normData/testTenNorm testing/projan/normData/testTenNorm."$today"  
   
 #putting the files in local repo
-  cp -Rf $HOME/test* testing/projan/data
+  cp -Rf $HOME/testTen testing/projan/data
   cp -Rf $HOME/refBench testing/projan
   
 
