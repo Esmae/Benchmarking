@@ -17,7 +17,7 @@ after_success:
 #installing the required packages for the python script to run
 #- sudo apt-get update
 #- sudo apt-get install -y python2.7
-#- sudo apt-get install -y python-numpy
+- sudo apt-get install -y python-numpy
 #- sudo apt-get install -y python-matplotlib
 - chmod +x projan/update-gh.sh 
 #pushes back to github the graph and the results
