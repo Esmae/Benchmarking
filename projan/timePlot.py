@@ -9,8 +9,8 @@ listScore = []
 listCommit = []
 
 #opening the file which holds the data with time
-f = open("testing/projan/dataWithTime","a")
-with open("testing/projan/timeNorm") as g:
+f = open("gh-pages/projan/dataWithTime","a")
+with open("gh-pages/projan/timeNorm") as g:
     i = int(1)
     for line in g:
         #skipping writing the first line as this contains the header
@@ -22,7 +22,7 @@ f.close()
 g.close()
 
 
-with open("testing/projan/dataWithTime50") as csvfile:
+with open("gh-pages/projan/dataWithTime50") as csvfile:
     #reading in the data against commits/time file
     reader = csv.DictReader(csvfile)
     i = int(0)

@@ -1,5 +1,5 @@
-if [ "$TRAVIS_COMMIT_MESSAGE" != "Travis build pushed to Benchmarking testing" ]; then
- echo -e "Starting to update Benchmarking testing\n"
+if [ "$TRAVIS_COMMIT_MESSAGE" != "Travis build pushed to Benchmarking gh-pages" ]; then
+ echo -e "Starting to update Benchmarking gh-pages\n"
 #moving files created in build into home
 #moving scripts to be run into home
   ls
@@ -12,7 +12,7 @@ if [ "$TRAVIS_COMMIT_MESSAGE" != "Travis build pushed to Benchmarking testing" ]
   git config --global user.email "travis@travis-ci.org"
   git config --global user.name "Travis"
   #cloning the relevant repo
-  git clone --quiet --branch=testing https://${TOKEN}@github.com/Esmae/Benchmarking.git  testing> /dev/null
+  git clone --quiet --branch=gh-pages https://${TOKEN}@github.com/Esmae/Benchmarking.git  gh-pages> /dev/null
   
 #normalising the benchmarking data just collected
 python normFromRef.py
@@ -21,15 +21,15 @@ python normFromRef.py
 #attaching the time and date to the data files
   today=$(date +%Y-%m-%d_%H-%M)
   mv testTen testTen."$today"
-  mv testing/projan/normData/testTenNorm testing/projan/normData/testTenNorm."$today"  
+  mv gh-pages/projan/normData/testTenNorm gh-pages/projan/normData/testTenNorm."$today"  
   
 #putting the files in local repo
-  cp -Rf $HOME/testTen testing/projan/data
-  cp -Rf $HOME/refBench testing/projan
+  cp -Rf testTen* gh-pages/projan/data
+  cp -Rf refBench gh-pages/projan
   
 
   
-  #need to change the python script if change the name of the folder the clone is going into (currently it's called testing)
+  #need to change the python script if change the name of the folder the clone is going into (currently it's called gh-pages)
   #calls the python script that creates the 'with time' plot
   python timePlot.py
 
@@ -38,13 +38,13 @@ python normFromRef.py
   cp -Rf TimePlotTen.png testing/projan/figures
  
   
-  cd testing
+  cd gh-pages
  #adding the new files and changing files so they are ready to commit 
   git add -f --ignore-removal .
 #commiting the added changes
-  git commit -m "Travis build pushed to Benchmarking testing"
-#pushes the changes the github on the testing branch of Benchmarking
-  git push -fq https://${TOKEN}@github.com/Esmae/Benchmarking.git testing > /dev/null
+  git commit -m "Travis build pushed to Benchmarking gh-pages"
+#pushes the changes the github on the gh-pages branch of Benchmarking
+  git push -fq https://${TOKEN}@github.com/Esmae/Benchmarking.git gh-pages > /dev/null
 
   echo -e "Success? \n"
 fi

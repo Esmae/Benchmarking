@@ -20,7 +20,7 @@ for row in reader:
 ref.close()
         
 fileList = ["testTen"]
-fileListNorm = ["testing/projan/normData/testTen"]
+fileListNorm = ["gh-pages/projan/normData/testTen"]
 for i in range(0,len(fileList)):
     noNorm = open(fileList[i], "rb")
     reader = csv.reader(noNorm)
