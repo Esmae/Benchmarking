@@ -1,6 +1,6 @@
 language: java
 dist: trusty
-sudo: required
+sudo: false
 branches:
   only:
   - gh-pages
@@ -15,15 +15,6 @@ script:
 notifications:
   email: false
 after_success:
-#installing the required packages for the python script to run
-#- python -V
-#- sudo apt-get update
-#- sudo apt-get install -y python2.7
-#- sudo apt-get install -y python-numpy
-#- easy_install numpy
-#- easy_install matplotlib
-#- sudo apt-get install -y python-matplotlib
-#- python -V
 - chmod +x projan/update-gh.sh 
 #pushes back to github the graph and the results
 - ./projan/update-gh.sh
