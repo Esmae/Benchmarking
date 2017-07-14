@@ -1,6 +1,10 @@
 language: java
 dist: trusty
 sudo: required
+branches:
+  only:
+  - gh-pages
+  - /.*/
 #building and running the benchmarks
 script:
 - mvn clean install -f projan/pom.xml
