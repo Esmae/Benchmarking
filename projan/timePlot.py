@@ -10,7 +10,7 @@ listCommit = []
 
 #opening the file which holds the data with time
 f = open("gh-pages/projan/dataWithTime","a")
-with open("gh-pages/projan/normData/timeNorm") as g:
+with open("gh-pages/projan/normData/testTenNorm") as g:
     i = int(1)
     for line in g:
         #skipping writing the first line as this contains the header

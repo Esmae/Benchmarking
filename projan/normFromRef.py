@@ -19,8 +19,8 @@ for row in reader:
         
 ref.close()
         
-fileList = ["testTen","timeNorm"]
-fileListNorm = ["gh-pages/projan/normData/testTen","gh-pages/projan/normData/timeNorm"]
+fileList = ["testTen"]
+fileListNorm = ["gh-pages/projan/normData/testTenNorm"]
 for i in range(0,len(fileList)):
     noNorm = open(fileList[i], "rb")
     reader = csv.reader(noNorm)
