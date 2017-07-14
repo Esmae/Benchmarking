@@ -1,1 +1,1 @@
-Benchmark,Mode,Threads,Samples,Score,Score Error (99.9%),Unit,Param: noRows
+Benchmark,Mode,Threads,Samples,Score,Score Error (99.9%),Unit,Param: noRowscom.testjan.projan.MyBenchmark.testTenDot,thrpt,1,100,0.00256642508322,0.000126195651764,ops/s,6,24
