@@ -1,3 +1,6 @@
+#!/usr/bin/env python2.7
+# -*- coding: utf-8 -*-
+
 import numpy as np
 import matplotlib as mpl
 mpl.use("Agg")
