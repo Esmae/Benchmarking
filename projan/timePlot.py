@@ -10,7 +10,7 @@ listCommit = []
 
 #opening the file which holds the data with time
 f = open("gh-pages/projan/dataWithTime","a")
-with open("gh-pages/projan/timeNorm") as g:
+with open("gh-pages/projan/normData/timeNorm") as g:
     i = int(1)
     for line in g:
         #skipping writing the first line as this contains the header
@@ -22,7 +22,7 @@ f.close()
 g.close()
 
 
-with open("gh-pages/projan/dataWithTime50") as csvfile:
+with open("gh-pages/projan/dataWithTime") as csvfile:
     #reading in the data against commits/time file
     reader = csv.DictReader(csvfile)
     i = int(0)
@@ -41,7 +41,7 @@ mplot.plot(arrCommit,arrScore,'k')
 #labeling the graph
 mplot.xlabel('Relative commit number (highest is most recent)')
 mplot.ylabel('Relative Throughput Score/ op/s')
-mplot.title('Score over time, noRows=50')
+mplot.title('Score over time')
 
 #saving the plot as a png file
 mplot.savefig("TimePlot.png")
@@ -61,6 +61,6 @@ else:
     #labeling the graph
     mplot.xlabel('Relative commit number (highest is most recent)')
     mplot.ylabel('Relative Throughput Score/ op/s')
-    mplot.title('Score over last 10, noRows=50')
+    mplot.title('Score over last 10')
     #saving the plot as a png file
 mplot.savefig("TimePlotTen.png")
