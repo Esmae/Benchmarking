@@ -1,4 +1,9 @@
 package com.testjan.projan;
+/*
+ * used to create some reference benchmarking data
+ * creates Dataset of a size given by the parameter passed to the constructor
+ * Puts random numbers in the Dataset then sums the numbers
+ */
 
 import java.util.Random;
 

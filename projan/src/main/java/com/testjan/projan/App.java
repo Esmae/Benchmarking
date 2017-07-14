@@ -6,7 +6,7 @@ import org.eclipse.january.dataset.Dataset;
 import org.eclipse.january.dataset.DatasetFactory;
 import org.eclipse.january.dataset.LinearAlgebra;
 /**
- * Hello world!
+ *A testing class for how to use Datasets
  *
  */
 public class App 
