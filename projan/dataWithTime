@@ -5,3 +5,4 @@ com.testjan.projan.MyBenchmark.testTenDot,thrpt,1,100,0.00251250089299,7.4994111
 com.testjan.projan.MyBenchmark.testTenDot,thrpt,1,100,0.00258553232282,6.7963680585e-05,ops/s,6,24
 com.testjan.projan.MyBenchmark.testTenDot,thrpt,1,100,0.000995187973064,0.000248411677469,ops/s,6,24
 com.testjan.projan.MyBenchmark.testTenDot,thrpt,1,100,0.00110386777,0.000279701208082,ops/s,6,24
+com.testjan.projan.MyBenchmark.testTenDot,thrpt,1,100,0.00264589545557,0.000198270259893,ops/s,6,24
