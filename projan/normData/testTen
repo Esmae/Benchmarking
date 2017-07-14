@@ -1,2 +1,2 @@
 Benchmark,Mode,Threads,Samples,Score,Score Error (99.9%),Unit,Param: noElements1,Param: noElements2
-com.testjan.projan.MyBenchmark.testTenDot,thrpt,1,100,0.00255063042513,0.000156569399403,ops/s,6,24
+com.testjan.projan.MyBenchmark.testTenDot,thrpt,1,100,0.00265836671261,6.70921030666e-05,ops/s,6,24
