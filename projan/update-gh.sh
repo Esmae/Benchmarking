@@ -35,8 +35,8 @@ python normFromRef.py
   python timePlot.py
 
   #putting the new 'with time' plot in the repo (possibly overwritting the latest one)
-  cp -Rf TimePlot.png testing/projan/figures
-  cp -Rf TimePlotTen.png testing/projan/figures
+  cp -Rf TimePlot.png gh-pages/projan/figures
+  cp -Rf TimePlotTen.png gh-pages/projan/figures
  
   
   cd gh-pages
