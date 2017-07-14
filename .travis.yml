@@ -18,8 +18,8 @@ after_success:
 - python -V
 #- sudo apt-get update
 #- sudo apt-get install -y python2.7
-#- sudo apt-get install -y python-numpy
-- easy_install numpy
+- sudo apt-get install -y python-numpy
+#- easy_install numpy
 - sudo apt-get install -y python-matplotlib
 - python -V
 - chmod +x projan/update-gh.sh 
