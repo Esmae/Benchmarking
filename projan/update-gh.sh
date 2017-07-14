@@ -21,7 +21,7 @@ python normFromRef.py
 #attaching the time and date to the data files
   today=$(date +%Y-%m-%d_%H-%M)
   mv testTen testTen."$today"
-  mv gh-pages/projan/normData/testTenNorm gh-pages/projan/normData/testTenNorm."$today"  
+  #mv gh-pages/projan/normData/testTenNorm gh-pages/projan/normData/testTenNorm."$today"  
   
 #putting the files in local repo
   cp -Rf testTen* gh-pages/projan/data
