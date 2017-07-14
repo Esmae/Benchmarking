@@ -16,8 +16,8 @@ notifications:
 after_success:
 #installing the required packages for the python script to run
 - python -V
-- sudo apt-get update
-- sudo apt-get install -y python2.7
+#- sudo apt-get update
+#- sudo apt-get install -y python2.7
 - sudo apt-get install -y python-numpy
 - sudo apt-get install -y python-matplotlib
 - python -V
