@@ -15,7 +15,7 @@ if [ "$TRAVIS_COMMIT_MESSAGE" != "Travis build pushed to Benchmarking gh-pages" 
   
 #normalising the benchmarking data just collected
 echo -e "calling normFromRef"
-python2.7 normFromRef.py
+python normFromRef.py
 
 
 #attaching the time and date to the data files
@@ -33,7 +33,7 @@ python2.7 normFromRef.py
   #need to change the python script if change the name of the folder the clone is going into (currently it's called gh-pages)
   #calls the python script that creates the 'with time' plot
   echo -e "calling timePlot"
-  python2.7 timePlot.py
+  python timePlot.py
 
   #putting the new 'with time' plot in the repo (possibly overwritting the latest one)
   cp -Rf TimePlot.png gh-pages/projan/figures
