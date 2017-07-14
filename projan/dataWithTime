@@ -1,18 +1,10 @@
 Benchmark,Mode,Threads,Samples,Score,Score Error (99.9%),Unit,Param: noRows
-com.testjan.projan.MyBenchmark.testTenDot,thrpt,1,100,0.00256642508322,0.000126195651764,ops/s,6,24
-com.testjan.projan.MyBenchmark.testTenDot,thrpt,1,100,0.00264843318881,0.000138357156018,ops/s,6,24
-com.testjan.projan.MyBenchmark.testTenDot,thrpt,1,100,0.00251250089299,7.49941112322e-05,ops/s,6,24
-com.testjan.projan.MyBenchmark.testTenDot,thrpt,1,100,0.00258553232282,6.7963680585e-05,ops/s,6,24
-com.testjan.projan.MyBenchmark.testTenDot,thrpt,1,100,0.000995187973064,0.000248411677469,ops/s,6,24
-com.testjan.projan.MyBenchmark.testTenDot,thrpt,1,100,0.00110386777,0.000279701208082,ops/s,6,24
-com.testjan.projan.MyBenchmark.testTenDot,thrpt,1,100,0.00264589545557,0.000198270259893,ops/s,6,24
 com.testjan.projan.MyBenchmark.testTenDot01,thrpt,1,100,0.000245367362136,2.56376880433e-05,ops/s,125,125
 com.testjan.projan.MyBenchmark.testTenDot02,thrpt,1,100,0.000241699478083,2.44175060556e-05,ops/s,125,125
 com.testjan.projan.MyBenchmark.testTenDot10,thrpt,1,100,0.000248822862589,2.7981121637e-05,ops/s,125,125
 com.testjan.projan.MyBenchmark.testTenDot12,thrpt,1,100,0.000241292317973,2.83739517311e-05,ops/s,125,125
 com.testjan.projan.MyBenchmark.testTenDot20,thrpt,1,100,0.000238814518649,2.57229803143e-05,ops/s,125,125
 com.testjan.projan.MyBenchmark.testTenDot21,thrpt,1,100,0.000268179348349,2.31666087806e-05,ops/s,125,125
-com.testjan.projan.MyBenchmark.testTenDot,thrpt,1,100,0.00231821207989,0.000232473082467,ops/s,6,24
 com.testjan.projan.MyBenchmark.testTenDot01,thrpt,1,100,0.000252609802125,2.58634382502e-05,ops/s,125,125
 com.testjan.projan.MyBenchmark.testTenDot02,thrpt,1,100,0.000123995416432,2.28222854477e-05,ops/s,125,125
 com.testjan.projan.MyBenchmark.testTenDot10,thrpt,1,100,0.000126192494725,2.36773981539e-05,ops/s,125,125
