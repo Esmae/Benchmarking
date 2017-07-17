@@ -27,11 +27,11 @@ public class MyBenchmark {
 	@State(Scope.Thread)
 	public static class myState {
 
-		@Param({ "9" })
+		@Param({ "75" })
 		public static double noElements1;// the number of elements in the first
 											// tensor
 
-		@Param({ "9" })
+		@Param({ "75" })
 		public static double noElements2;// the number of elements in the second
 											// tensor
 
@@ -44,8 +44,8 @@ public class MyBenchmark {
 			dataset1 = DatasetFactory.createRange(noElements1);
 			dataset2 = DatasetFactory.createRange(noElements2);
 
-			dataset1 = dataset1.reshape(3, 3);
-			dataset2 = dataset2.reshape(3, 3);
+			dataset1 = dataset1.reshape(3,5,5);
+			dataset2 = dataset2.reshape(3,5,5);
 		}
 
 	}
@@ -87,25 +87,9 @@ public class MyBenchmark {
 	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	public Dataset testTenDot1001(myState theState) {
 		return LinearAlgebra.tensorDotProduct(myState.dataset1, myState.dataset2, new int[] { 1, 0 },
-				new int[] { 0, 1 });
-	}
-
-	@Benchmark
-	@BenchmarkMode(Mode.Throughput)
-	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
-	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
-	public Dataset testTenDot0110(myState theState) {
-		return LinearAlgebra.tensorDotProduct(myState.dataset1, myState.dataset2, new int[] { 0, 1 },
 				new int[] { 1, 0 });
 	}
 
-	@Benchmark
-	@BenchmarkMode(Mode.Throughput)
-	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
-	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
-	public Dataset testTenDot1010(myState theState) {
-		return LinearAlgebra.tensorDotProduct(myState.dataset1, myState.dataset2, new int[] { 1, 0 },
-				new int[] { 1, 0 });
-	}
+	
 
 }
