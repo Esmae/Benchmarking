@@ -27,11 +27,11 @@ public class MyBenchmark {
 	@State(Scope.Thread)
 	public static class myState {
 
-		@Param({ "125000000" })
+		@Param({ "125000" })
 		public static double noElements1;// the number of elements in the first
 											// tensor
 
-		@Param({ "125000000" })
+		@Param({ "125000" })
 		public static double noElements2;// the number of elements in the second
 											// tensor
 
@@ -44,8 +44,8 @@ public class MyBenchmark {
 			dataset1 = DatasetFactory.createRange(noElements1);
 			dataset2 = DatasetFactory.createRange(noElements2);
 
-			dataset1 = dataset1.reshape(500,500,500);
-			dataset2 = dataset2.reshape(500,500,500);
+			dataset1 = dataset1.reshape(50,50,50);
+			dataset2 = dataset2.reshape(50,50,50);
 		}
 
 	}
