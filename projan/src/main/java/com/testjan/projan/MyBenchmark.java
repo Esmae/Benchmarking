@@ -86,8 +86,8 @@ public class MyBenchmark {
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	public Dataset testTenDot02(myState theState) {
-		return LinearAlgebra.tensorDotProduct(myState.dataset1, myState.dataset2, new int[] { 0, 1 },
-				new int[] { 0,2});
+		return LinearAlgebra.tensorDotProduct(myState.dataset1, myState.dataset2, new int[] { 0, 2 },
+				new int[] { 0,1});
 	}
 	
 	@Benchmark
@@ -95,8 +95,8 @@ public class MyBenchmark {
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	public Dataset testTenDot10(myState theState) {
-		return LinearAlgebra.tensorDotProduct(myState.dataset1, myState.dataset2, new int[] { 0, 1 },
-				new int[] { 1,0 });
+		return LinearAlgebra.tensorDotProduct(myState.dataset1, myState.dataset2, new int[] { 1, 0 },
+				new int[] { 0,1 });
 	}
 	
 	@Benchmark
@@ -104,8 +104,8 @@ public class MyBenchmark {
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	public Dataset testTenDot12(myState theState) {
-		return LinearAlgebra.tensorDotProduct(myState.dataset1, myState.dataset2, new int[] { 0, 1 },
-				new int[] { 1,2});
+		return LinearAlgebra.tensorDotProduct(myState.dataset1, myState.dataset2, new int[] { 1, 2 },
+				new int[] { 0,1});
 	}
 	
 	@Benchmark
@@ -113,8 +113,8 @@ public class MyBenchmark {
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	public Dataset testTenDot20(myState theState) {
-		return LinearAlgebra.tensorDotProduct(myState.dataset1, myState.dataset2, new int[] { 0, 1 },
-				new int[] { 2,0});
+		return LinearAlgebra.tensorDotProduct(myState.dataset1, myState.dataset2, new int[] { 2, 0 },
+				new int[] { 0,1});
 	}
 	
 	@Benchmark
@@ -122,8 +122,8 @@ public class MyBenchmark {
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	public Dataset testTenDot21(myState theState) {
-		return LinearAlgebra.tensorDotProduct(myState.dataset1, myState.dataset2, new int[] { 0, 1 },
-				new int[] { 2,1});
+		return LinearAlgebra.tensorDotProduct(myState.dataset1, myState.dataset2, new int[] { 2, 1 },
+				new int[] { 0,1});
 }
 
 	
