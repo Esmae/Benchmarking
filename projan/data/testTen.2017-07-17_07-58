@@ -1,0 +1,7 @@
+"Benchmark","Mode","Threads","Samples","Score","Score Error (99.9%)","Unit","Param: noElements1","Param: noElements2"
+"com.testjan.projan.MyBenchmark.testTenDot01","thrpt",1,200,79176.578094,1556.008482,"ops/s",125,125
+"com.testjan.projan.MyBenchmark.testTenDot02","thrpt",1,200,74977.742882,3022.894674,"ops/s",125,125
+"com.testjan.projan.MyBenchmark.testTenDot10","thrpt",1,200,78003.464439,1844.745606,"ops/s",125,125
+"com.testjan.projan.MyBenchmark.testTenDot12","thrpt",1,200,75906.508597,2605.585297,"ops/s",125,125
+"com.testjan.projan.MyBenchmark.testTenDot20","thrpt",1,200,73264.085188,3020.424290,"ops/s",125,125
+"com.testjan.projan.MyBenchmark.testTenDot21","thrpt",1,200,78232.956591,1769.302595,"ops/s",125,125

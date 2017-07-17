@@ -114,3 +114,9 @@ com.testjan.projan.MyBenchmark.testTenDot10,thrpt,1,200,0.000305926319781,8.2209
 com.testjan.projan.MyBenchmark.testTenDot12,thrpt,1,200,0.000291527056205,1.2000591287e-05,ops/s,125,125
 com.testjan.projan.MyBenchmark.testTenDot20,thrpt,1,200,0.000305319755917,6.62470799077e-06,ops/s,125,125
 com.testjan.projan.MyBenchmark.testTenDot21,thrpt,1,200,0.000299186056743,9.29464684237e-06,ops/s,125,125
+com.testjan.projan.MyBenchmark.testTenDot01,thrpt,1,200,0.000313430586471,6.15965810606e-06,ops/s,125,125
+com.testjan.projan.MyBenchmark.testTenDot02,thrpt,1,200,0.000296808961557,1.19665142561e-05,ops/s,125,125
+com.testjan.projan.MyBenchmark.testTenDot10,thrpt,1,200,0.00030878666639,7.30266085118e-06,ops/s,125,125
+com.testjan.projan.MyBenchmark.testTenDot12,thrpt,1,200,0.000300485599141,1.0314541843e-05,ops/s,125,125
+com.testjan.projan.MyBenchmark.testTenDot20,thrpt,1,200,0.000290025228931,1.19567349258e-05,ops/s,125,125
+com.testjan.projan.MyBenchmark.testTenDot21,thrpt,1,200,0.000309695140355,7.00401006642e-06,ops/s,125,125
