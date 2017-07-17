@@ -44,8 +44,8 @@ public class MyBenchmark {
 			dataset1 = DatasetFactory.createRange(noElements1);
 			dataset2 = DatasetFactory.createRange(noElements2);
 
-			dataset1 = dataset1.reshape(3,5,5);
-			dataset2 = dataset2.reshape(3,5,5);
+			dataset1 = dataset1.reshape(5,3,5);
+			dataset2 = dataset2.reshape(5,3,5);
 		}
 
 	}
@@ -76,7 +76,7 @@ public class MyBenchmark {
 	@BenchmarkMode(Mode.Throughput)
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
-	public Dataset testTenDot3(myState theState) {
+	public Dataset testTenDot5(myState theState) {
 		return LinearAlgebra.tensorDotProduct(myState.dataset1, myState.dataset2, new int[] { 0, 1 },
 				new int[] { 0, 1 });
 	}
@@ -85,7 +85,7 @@ public class MyBenchmark {
 	@BenchmarkMode(Mode.Throughput)
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
-	public Dataset testTenDot5(myState theState) {
+	public Dataset testTenDot3(myState theState) {
 		return LinearAlgebra.tensorDotProduct(myState.dataset1, myState.dataset2, new int[] { 1, 0 },
 				new int[] { 1, 0 });
 	}
