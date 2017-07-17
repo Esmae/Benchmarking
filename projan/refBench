@@ -1,2 +1,2 @@
 "Benchmark","Mode","Threads","Samples","Score","Score Error (99.9%)","Unit"
-"com.testjan.projan.MyBenchmark.testRef","thrpt",1,200,243176986.201861,6072691.179265,"ops/s"
+"com.testjan.projan.MyBenchmark.testRef","thrpt",1,200,222022576.517516,8717126.914086,"ops/s"
