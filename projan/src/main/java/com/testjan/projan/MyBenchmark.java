@@ -78,7 +78,7 @@ public class MyBenchmark {
 	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	public Dataset testTenDot01(myState theState) {
 		return LinearAlgebra.tensorDotProduct(myState.dataset1, myState.dataset2, new int[] { 2, 1 },
-				new int[] { 0,1});
+				new int[] { 2,1});
 	}
 	
 	@Benchmark
@@ -87,43 +87,10 @@ public class MyBenchmark {
 	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	public Dataset testTenDot02(myState theState) {
 		return LinearAlgebra.tensorDotProduct(myState.dataset1, myState.dataset2, new int[] { 2, 1 },
-				new int[] { 0,2});
-	}
-	
-	@Benchmark
-	@BenchmarkMode(Mode.Throughput)
-	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
-	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
-	public Dataset testTenDot10(myState theState) {
-		return LinearAlgebra.tensorDotProduct(myState.dataset1, myState.dataset2, new int[] { 2, 1 },
-				new int[] { 1,0 });
-	}
-	
-	@Benchmark
-	@BenchmarkMode(Mode.Throughput)
-	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
-	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
-	public Dataset testTenDot12(myState theState) {
-		return LinearAlgebra.tensorDotProduct(myState.dataset1, myState.dataset2, new int[] { 2, 1 },
 				new int[] { 1,2});
 	}
 	
-	@Benchmark
-	@BenchmarkMode(Mode.Throughput)
-	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
-	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
-	public Dataset testTenDot20(myState theState) {
-		return LinearAlgebra.tensorDotProduct(myState.dataset1, myState.dataset2, new int[] { 2, 1 },
-				new int[] { 2,0});
-	}
-	
-	@Benchmark
-	@BenchmarkMode(Mode.Throughput)
-	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
-	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
-	public Dataset testTenDot21(myState theState) {
-		return LinearAlgebra.tensorDotProduct(myState.dataset1, myState.dataset2, new int[] { 2, 1 },
-				new int[] { 2,1});
+
 }
 
 	
