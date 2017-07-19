@@ -22,7 +22,7 @@ with open("gh-pages/projan/normData/testTenNorm") as g:
         i = i+1
 
 f.close()
-g.close()
+
 
 
 with open("gh-pages/projan/dataWithTime") as csvfile:
@@ -54,12 +54,11 @@ listLen = len(listScore)
 if listLen <= 10:
     mplot.savefig("TimePlotTen.png")
 else:
-    listTenScore = []
+#putting the last 10 values in listTenScore
+    listTenScore = listScore[-10::1]
     mplot.clf()
-    for i in range(0,10):
-        listTenScore.append(listScore[listLen-10+i])
     arrTenScore = np.asarray(listTenScore)
-    arrTenCommit = np.asarray([0,1,2,3,4,5,6,7,8,9])
+    arrTenCommit = np.arange(10)
     mplot.plot(arrTenCommit,arrTenScore,'k')
     #labeling the graph
     mplot.xlabel('Relative commit number (highest is most recent)')

@@ -18,6 +18,20 @@ for row in reader:
     i = i + 1
         
 ref.close()
+
+#opening the file which holds the refData with time
+with(open("gh-pages/projan/refBenchWithTime","a") as f:
+    with open("gh-pages/projan/refBench") as g:
+	    i = int(1)
+	    for line in g:
+		#skipping writing the first line as this contains the header
+		if i!=1:
+		    f.write(line)
+		i = i+1
+
+
+
+	
         
 fileList = ["testTen"]
 fileListNorm = ["gh-pages/projan/normData/testTenNorm"]
