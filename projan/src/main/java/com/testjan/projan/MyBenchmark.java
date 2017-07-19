@@ -26,14 +26,27 @@ public class MyBenchmark {
 
 	@State(Scope.Thread)
 	public static class myState {
-
-		@Param({ "1000000" })
-		public static double noElements1;// the number of elements in the first
-											// tensor
-
-		@Param({ "1000000" })
-		public static double noElements2;// the number of elements in the second
-											// tensor
+		//first data set parameters
+		@Param({"3"})
+		public static int oneS1;//the size of the first axis for the first DataSet
+		
+		@Param({"3"})
+		public static int oneS2;//the size of the second axis for the first DataSet
+		
+		@Param({"3"})
+		public static int oneS3;//the size of the third axis for the first DataSet
+		
+		
+		//second data set parameters
+		@Param({"3"})
+		public static int twoS1;//the size of the first axis for the second DataSet
+		
+		@Param({"3"})
+		public static int twoS2;//the size of the second axis for the second DataSet
+		
+		@Param({"3"})
+		public static int twoS3;//the size of the third axis for the second DataSet
+		 
 
 		static Dataset dataset1;
 		static Dataset dataset2;
@@ -41,11 +54,11 @@ public class MyBenchmark {
 		@Setup(Level.Trial)
 		public void doSetup() {
 			// creating two cube tensors, 5x5x5
-			dataset1 = DatasetFactory.createRange(noElements1);
-			dataset2 = DatasetFactory.createRange(noElements2);
+			dataset1 = DatasetFactory.createRange(oneS1*oneS2*oneS3);
+			dataset2 = DatasetFactory.createRange(twoS1*twoS2*twoS3);
 
-			dataset1 = dataset1.reshape(100,100,100);
-			dataset2 = dataset2.reshape(100,100,100);
+			dataset1 = dataset1.reshape(oneS1,oneS2,oneS3);
+			dataset2 = dataset2.reshape(twoS1,twoS2,twoS3);
 		}
 
 	}
