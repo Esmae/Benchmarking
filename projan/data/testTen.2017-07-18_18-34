@@ -1,0 +1,3 @@
+"Benchmark","Mode","Threads","Samples","Score","Score Error (99.9%)","Unit","Param: noElements1","Param: noElements2"
+"com.testjan.projan.MyBenchmark.testTenDot0101","thrpt",1,150,0.434431,0.015547,"ops/s",1000000,1000000
+"com.testjan.projan.MyBenchmark.testTenDot1010","thrpt",1,150,0.418721,0.013017,"ops/s",1000000,1000000

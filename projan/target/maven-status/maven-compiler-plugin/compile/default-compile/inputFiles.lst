@@ -1,5 +1,11 @@
+<<<<<<< HEAD
 /home/fkb72128/workspace/JanProj/projan/src/main/java/com/testjan/projan/OrigTensorDot.java
 /home/fkb72128/workspace/JanProj/projan/src/main/java/com/testjan/projan/Reference.java
 /home/fkb72128/workspace/JanProj/projan/src/main/java/com/testjan/projan/App.java
 /home/fkb72128/workspace/JanProj/projan/src/main/java/com/testjan/projan/MyBenchmark.java
 /home/fkb72128/workspace/JanProj/projan/src/main/java/com/testjan/projan/MyTensorDot.java
+=======
+C:\Users\Esmae\git\Benchmarking\projan\src\main\java\com\testjan\projan\App.java
+C:\Users\Esmae\git\Benchmarking\projan\src\main\java\com\testjan\projan\MyBenchmark.java
+C:\Users\Esmae\git\Benchmarking\projan\src\main\java\com\testjan\projan\Reference.java
+>>>>>>> branch 'gh-pages' of https://github.com/Esmae/Benchmarking.git
