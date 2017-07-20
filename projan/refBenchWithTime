@@ -1,3 +1,4 @@
 Benchmark,Mode,Threads,Samples,Score,Score Error (99.9%),Unit,Param: noRows
 "com.testjan.projan.MyBenchmark.testRef","thrpt",1,200,171032978.835031,9567533.316868,"ops/s"
 "com.testjan.projan.MyBenchmark.testRef","thrpt",1,200,218737171.253898,7788847.370924,"ops/s"
+"com.testjan.projan.MyBenchmark.testRef","thrpt",1,200,117890633.297924,5045606.019843,"ops/s"
