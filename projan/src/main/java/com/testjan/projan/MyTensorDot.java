@@ -110,10 +110,7 @@ public class MyTensorDot {
 		while (ita.hasNext()) {
 			SliceIterator itb = b.getSliceIteratorFromAxes(null, bchoice);
 			final int[] bpos = itb.getPos();
-			//adding in a print statement to see exactly what it's doing
-			for(int i=0;i<bpos.length;i++){
-				System.out.println(bpos[i]);
-			}
+			
 			while (itb.hasNext()) {
 				double sum = 0.0;
 				double com = 0.0;
@@ -147,21 +144,5 @@ public class MyTensorDot {
 		return data;
 	}
 	
-	public static void main(String args[]){
-		
-		  Dataset dataset1 = DatasetFactory.createFromObject(new double[] { 0,1,2, 3, 4, 5});
-	        
-	        dataset1 = dataset1.reshape(1,3,2);
-	        Dataset dataset2 = DatasetFactory.createFromObject(new double[] {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23});
-	        dataset2 = dataset2.reshape(4,2,3);
-	        
-	        Dataset result = tensorDotProduct(dataset1, dataset2,new int[]{1,2},new int[]{2,1});
-	        
-	        result = result.reshape(4);
-	        
-	        for(int i=0;i<4;i++){
-	        	System.out.println(result.getDouble(i));
-	        }
-
-	}
+	
 }
