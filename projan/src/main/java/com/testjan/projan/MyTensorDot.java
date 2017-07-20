@@ -55,7 +55,7 @@ public class MyTensorDot {
 		
 		//simple bubble sort,ordering with respect to subbstride
 		for(int i=0;i<subbstride.length-1;i++){
-			for(int j=0;j<subbstride.length;j++){
+			for(int j=0;j<subbstride.length-1;j++){
 				if(subbstride[j]<subbstride[j+1]){
 					//swapping the stride values
 					int temp = subbstride[j];
