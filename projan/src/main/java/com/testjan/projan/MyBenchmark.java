@@ -27,24 +27,24 @@ public class MyBenchmark {
 	@State(Scope.Thread)
 	public static class myState {
 		//first data set parameters
-		@Param({"3"})
+		@Param({"100"})
 		public static int oneS1;//the size of the first axis for the first DataSet
 		
-		@Param({"3"})
+		@Param({"100"})
 		public static int oneS2;//the size of the second axis for the first DataSet
 		
-		@Param({"3"})
+		@Param({"100"})
 		public static int oneS3;//the size of the third axis for the first DataSet
 		
 		
 		//second data set parameters
-		@Param({"3"})
+		@Param({"100"})
 		public static int twoS1;//the size of the first axis for the second DataSet
 		
-		@Param({"3"})
+		@Param({"100"})
 		public static int twoS2;//the size of the second axis for the second DataSet
 		
-		@Param({"3"})
+		@Param({"100"})
 		public static int twoS3;//the size of the third axis for the second DataSet
 		 
 
@@ -89,19 +89,21 @@ public class MyBenchmark {
 	@BenchmarkMode(Mode.Throughput)
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
-	public Dataset testTenDot0101(myState theState) {
-		return LinearAlgebra.tensorDotProduct(myState.dataset1, myState.dataset2, new int[] { 0, 1 },
-				new int[] { 0,1});
+	public Dataset testTenDotOrig(myState theState) {
+		return OrigTensorDot.tensorDotProduct(myState.dataset1, myState.dataset2, new int[] { 1, 0 },
+				new int[] { 1,0});
 	}
 	
 	@Benchmark
 	@BenchmarkMode(Mode.Throughput)
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
-	public Dataset testTenDot1010(myState theState) {
-		return LinearAlgebra.tensorDotProduct(myState.dataset1, myState.dataset2, new int[] { 1, 0 },
+	public Dataset testTenDotMine(myState theState) {
+		return MyTensorDot.tensorDotProduct(myState.dataset1, myState.dataset2, new int[] { 1, 0 },
 				new int[] { 1,0});
 	}
+	
+	
 	
 
 

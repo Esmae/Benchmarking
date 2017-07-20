@@ -1,5 +1,9 @@
 package com.testjan.projan;
 
+/**
+ * The original tensorDotProduct from Eclipse January
+ */
+
 import java.util.Arrays;
 
 import org.eclipse.january.dataset.DTypeUtils;
@@ -8,28 +12,42 @@ import org.eclipse.january.dataset.DatasetFactory;
 import org.eclipse.january.dataset.SliceIterator;
 
 public class OrigTensorDot {
+
+	/**
+	 * Calculate the tensor dot product over given axes. This is the sum of
+	 * products of elements selected from the given axes in each dataset
+	 * 
+	 * @param a
+	 * @param b
+	 * @param axisa
+	 *            axis dimensions in a to sum over (can be -ve)
+	 * @param axisb
+	 *            axis dimensions in b to sum over (can be -ve)
+	 * @return tensor dot product
+	 */
 	public static Dataset tensorDotProduct(final Dataset a, final Dataset b, final int[] axisa, final int[] axisb) {
 		if (axisa.length != axisb.length) {
 			throw new IllegalArgumentException("Numbers of summing axes must be same");
 		}
-		final int[] ashape = a.getShapeRef();//array of lengths for each dimension
+		final int[] ashape = a.getShapeRef();
 		final int[] bshape = b.getShapeRef();
-		final int arank = ashape.length; //the rank of the tensors
+		final int arank = ashape.length;
 		final int brank = bshape.length;
-		final int[] aaxes = new int[axisa.length];//stores axisa values for between 0 and arank
+		final int[] aaxes = new int[axisa.length];
 		final int[] baxes = new int[axisa.length];
 		for (int i = 0; i < axisa.length; i++) {
 			int n;
 
-			//performs checks that axisa and axisb arguments are valid
 			n = axisa[i];
-			if (n < 0) n += arank;
+			if (n < 0)
+				n += arank;
 			if (n < 0 || n >= arank)
 				throw new IllegalArgumentException("Summing axis outside valid rank of 1st dataset");
 			aaxes[i] = n;
 
 			n = axisb[i];
-			if (n < 0) n += brank;
+			if (n < 0)
+				n += brank;
 			if (n < 0 || n >= brank)
 				throw new IllegalArgumentException("Summing axis outside valid rank of 2nd dataset");
 			baxes[i] = n;
@@ -42,16 +60,15 @@ public class OrigTensorDot {
 		final boolean[] bchoice = new boolean[brank];
 		Arrays.fill(achoice, true);
 		Arrays.fill(bchoice, true);
-		//axes passed in argument array can put to false
-		for (int i = 0; i < aaxes.length; i++) { // flag which axes to iterate over
+		for (int i = 0; i < aaxes.length; i++) { // flag which axes to iterate
+													// over
 			achoice[aaxes[i]] = false;
 			bchoice[baxes[i]] = false;
 		}
-		//calculating the rank of the result tensor
-		int drank = arank + brank - 2*aaxes.length;
+
+		int drank = arank + brank - 2 * aaxes.length;
 		int[] dshape = new int[drank];
 		int d = 0;
-		//calculating the lengths of each axis
 		for (int i = 0; i < arank; i++) {
 			if (achoice[i])
 				dshape[d++] = ashape[i];
@@ -60,7 +77,6 @@ public class OrigTensorDot {
 			if (bchoice[i])
 				dshape[d++] = bshape[i];
 		}
-		//deciding the best datatype
 		int dtype = DTypeUtils.getBestDType(a.getDType(), b.getDType());
 		@SuppressWarnings("deprecation")
 		Dataset data = DatasetFactory.zeros(dshape, dtype);
@@ -90,8 +106,8 @@ public class OrigTensorDot {
 						} else
 							break;
 					}
-					//Kahan's summation algorithm - used to reduce errors due to summing finite precision floating point numbers
-					if (e == -1) break;
+					if (e == -1)
+						break;
 					final double y = a.getDouble(apos) * b.getDouble(bpos) - com;
 					final double t = sum + y;
 					com = (t - sum) - y;
@@ -103,5 +119,4 @@ public class OrigTensorDot {
 
 		return data;
 	}
-
 }

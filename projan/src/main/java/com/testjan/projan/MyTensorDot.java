@@ -1,12 +1,17 @@
 package com.testjan.projan;
 
 import java.util.Arrays;
+import java.util.TreeMap;
 
+import org.eclipse.january.dataset.AbstractDataset;
 import org.eclipse.january.dataset.DTypeUtils;
 import org.eclipse.january.dataset.Dataset;
 import org.eclipse.january.dataset.DatasetFactory;
 import org.eclipse.january.dataset.LinearAlgebra;
 import org.eclipse.january.dataset.SliceIterator;
+
+//TODO: Questions
+//Why final?
 
 public class MyTensorDot {
 	public static Dataset tensorDotProduct(final Dataset a, final Dataset b, final int[] axisa, final int[] axisb) {
@@ -38,6 +43,38 @@ public class MyTensorDot {
 			if (ashape[aaxes[i]] != bshape[n])
 				throw new IllegalArgumentException("Summing axes do not have matching lengths");
 		}
+		
+		//TODO: Finish adding your stuff
+	// ordering by the strides of b
+		final int[] bstride= AbstractDataset.createStrides(b, new int[]{0});
+	
+		final int[] subbstride = new int[baxes.length];
+		for(int i=0;i<baxes.length;i++){
+			subbstride[i]=bstride[baxes[i]];
+		}
+		
+		//simple bubble sort,ordering with respect to subbstride
+		for(int i=0;i<subbstride.length-1;i++){
+			for(int j=0;j<subbstride.length;j++){
+				if(subbstride[j]<subbstride[j+1]){
+					//swapping the stride values
+					int temp = subbstride[j];
+					subbstride[j]=subbstride[j+1];
+					subbstride[j+1]=temp;
+					//swapping the a axes values
+					temp = aaxes[j];
+					aaxes[j]=aaxes[j+1];
+					aaxes[j+1]=temp;
+					//swapping the b axes values
+					temp = baxes[j];
+					baxes[j]=baxes[j+1];
+					baxes[j+1]=temp;
+				}
+			}
+		}
+
+		
+		
 
 		final boolean[] achoice = new boolean[arank];
 		final boolean[] bchoice = new boolean[brank];
