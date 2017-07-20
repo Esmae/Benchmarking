@@ -90,8 +90,8 @@ public class MyBenchmark {
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	public Dataset testTenDotOrig(myState theState) {
-		return OrigTensorDot.tensorDotProduct(myState.dataset1, myState.dataset2, new int[] { 1, 0 },
-				new int[] { 1,0});
+		return OrigTensorDot.tensorDotProduct(myState.dataset1, myState.dataset2, new int[] { 0, 1 },
+				new int[] { 0,1});
 	}
 	
 	@Benchmark
@@ -99,8 +99,8 @@ public class MyBenchmark {
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	public Dataset testTenDotMine(myState theState) {
-		return MyTensorDot.tensorDotProduct(myState.dataset1, myState.dataset2, new int[] { 1, 0 },
-				new int[] { 1,0});
+		return MyTensorDot.tensorDotProduct(myState.dataset1, myState.dataset2, new int[] { 0, 1 },
+				new int[] { 0,1});
 	}
 	
 	
