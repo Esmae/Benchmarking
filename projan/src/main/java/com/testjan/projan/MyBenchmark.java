@@ -51,7 +51,7 @@ public class MyBenchmark {
 		static Dataset dataset1;
 		static Dataset dataset2;
 		
-		private static int[] axesOrder = new int[]{1,2};
+		private static int[] axesOrder = new int[]{2,1};
 		
 
 		@Setup(Level.Trial)
@@ -92,7 +92,7 @@ public class MyBenchmark {
 	@BenchmarkMode(Mode.Throughput)
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
-	public Dataset testTenDotOrig1212(myState theState) {
+	public Dataset testTenDotOrig2121(myState theState) {
 		return OrigTensorDot.tensorDotProduct(myState.dataset1, myState.dataset2, myState.axesOrder,
 				myState.axesOrder);
 	}
@@ -101,7 +101,7 @@ public class MyBenchmark {
 	@BenchmarkMode(Mode.Throughput)
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
-	public Dataset testTenDotMine1212(myState theState) {
+	public Dataset testTenDotMine2121(myState theState) {
 		return MyTensorDot.tensorDotProduct(myState.dataset1, myState.dataset2, myState.axesOrder,
 				myState.axesOrder);
 	}
