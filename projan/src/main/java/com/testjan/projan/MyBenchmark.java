@@ -86,7 +86,7 @@ public class MyBenchmark {
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	public double testRef(myRefState theRefState) {
-		return myRefState.myRef.addNum(myRefState.size);
+		return theRefState.myRef.addNum(theRefState.size);
 	}
 
 	@Benchmark
@@ -94,8 +94,8 @@ public class MyBenchmark {
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	public Dataset testTenDotOrig2121(myState theState) {
-		return OrigTensorDot.tensorDotProduct(myState.dataset1, myState.dataset2, myState.axesOrder,
-				myState.axesOrder);
+		return OrigTensorDot.tensorDotProduct(theState.dataset1, theState.dataset2, theState.axesOrder,
+				theState.axesOrder);
 	}
 	
 	@Benchmark
@@ -103,8 +103,8 @@ public class MyBenchmark {
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	public Dataset testTenDotMine2121(myState theState) {
-		return MyTensorDot.tensorDotProduct(myState.dataset1, myState.dataset2, myState.axesOrder,
-				myState.axesOrder);
+		return MyTensorDot.tensorDotProduct(theState.dataset1, theState.dataset2, theState.axesOrder,
+				theState.axesOrder);
 	}
 	
 	
@@ -122,8 +122,8 @@ public class MyBenchmark {
 	@BenchmarkMode(Mode.Throughput)
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
-	public int[] testCreateSlides() {
-		return AbstractDataset.createStrides(myState.dataset2, new int[]{0});
+	public int[] testCreateSlides(myState theState) {
+		return AbstractDataset.createStrides(theState.dataset2, new int[]{0});
 	}
 
 }
