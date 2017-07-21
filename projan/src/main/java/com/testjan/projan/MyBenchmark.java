@@ -17,6 +17,7 @@ import org.openjdk.jmh.annotations.Warmup;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
+import org.eclipse.january.dataset.AbstractDataset;
 import org.eclipse.january.dataset.Dataset;
 import org.eclipse.january.dataset.DatasetFactory;
 import org.eclipse.january.dataset.LinearAlgebra;
@@ -121,8 +122,8 @@ public class MyBenchmark {
 	@BenchmarkMode(Mode.Throughput)
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
-	public int testSwapRows() {
-		return Reference.swapRows(myState.axesOrder, myState.axesOrder, myState.axesOrder);
+	public int[] testCreateSlides() {
+		return AbstractDataset.createStrides(myState.dataset2, new int[]{0});
 	}
 
 }

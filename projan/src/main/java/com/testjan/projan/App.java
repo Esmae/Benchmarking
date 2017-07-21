@@ -16,9 +16,9 @@ public class App {
 		DoubleDataset dataset2 = DatasetFactory.createRange(80000000);
 		dataset2.resize(200, 200, 200);
 
-		MyTensorDot.tensorDotProduct(dataset1, dataset2, new int[] { 2, 1 }, new int[] { 2, 1 });
+		MyTensorDot.tensorDotProduct(dataset1, dataset2, new int[] { 1, 2 }, new int[] { 1, 2 });
 		System.out.println("\ndone1");
-		OrigTensorDot.tensorDotProduct(dataset1, dataset2, new int[] { 2, 1 }, new int[] { 2, 1 });
+		OrigTensorDot.tensorDotProduct(dataset1, dataset2, new int[] { 1, 2 }, new int[] { 1, 2 });
 		System.out.println("\ndone2");
 
 	}
