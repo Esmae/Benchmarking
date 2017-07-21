@@ -46,6 +46,18 @@ public class MyTensorDot {
 		
 		//TODO: Finish adding your stuff
 	// ordering by the strides of b
+		
+		/*//TODO: remove debugging print statements
+		System.out.println("\n\n aaxes start");
+		for(int i=0;i<aaxes.length;i++){
+			System.out.print(aaxes[i] + "\t");
+		}
+		
+		System.out.println("\n\n baxes start");
+		for(int i=0;i<baxes.length;i++){
+			System.out.print(baxes[i] + "\t");
+		}*/
+		
 		final int[] bstride= AbstractDataset.createStrides(b, new int[]{0});
 	
 		final int[] subbstride = new int[baxes.length];
@@ -72,6 +84,17 @@ public class MyTensorDot {
 				}
 			}
 		}
+		
+		/*//TODO: remove debugging print statements
+		System.out.println("\n\n aaxes end ");
+		for(int i=0;i<aaxes.length;i++){
+			System.out.print(aaxes[i] + "\t");
+		}
+		
+		System.out.println("\n\n baxes end ");
+		for(int i=0;i<baxes.length;i++){
+			System.out.print(baxes[i] + "\t");
+		}*/
 
 		
 		

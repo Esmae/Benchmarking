@@ -31,4 +31,31 @@ public class Reference {
 		}
 		return sum;
 	}
+	
+	//TODO: delete this, used to see why this is making code run slow
+	public static int swapRows(int[] aaxes,int[] baxes,int[] subbstride){
+		//simple bubble sort,ordering with respect to subbstride
+		for(int i=0;i<subbstride.length-1;i++){
+			for(int j=0;j<subbstride.length-1;j++){
+				if(subbstride[j]<subbstride[j+1]){
+					//swapping the stride values
+					int temp = subbstride[j];
+					subbstride[j]=subbstride[j+1];
+					subbstride[j+1]=temp;
+					//swapping the a axes values
+					temp = aaxes[j];
+					aaxes[j]=aaxes[j+1];
+					aaxes[j+1]=temp;
+					//swapping the b axes values
+					temp = baxes[j];
+					baxes[j]=baxes[j+1];
+					baxes[j+1]=temp;
+				}
+			}
+		}
+		
+		
+		
+		return aaxes[0]+baxes[0]+subbstride[0];
+	}
 }
