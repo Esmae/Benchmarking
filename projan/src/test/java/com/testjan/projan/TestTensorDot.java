@@ -30,8 +30,20 @@ public class TestTensorDot {
 	private double[] expect1DTensor = { 50, 140, 230, 320 };
 
 	@Test
-	public void testTensorDotProduct() {
-		Dataset result = LinearAlgebra.tensorDotProduct(dataset1, dataset2, new int[] { 1, 2 }, new int[] { 2, 1 });
+	public void testTensorDotProductOrig() {
+		Dataset result = OrigTensorDot.tensorDotProduct(dataset1, dataset2, new int[] { 1, 2 }, new int[] { 2, 1 });
+		//converting to a 1D DataSet
+		result = result.reshape(4);
+		for (int i = 0; i < 4; i++) {
+			//testing each element individually
+			Assert.assertEquals(expect1DTensor[i], result.getDouble(i), 0.0001);
+		}
+
+	}
+	
+	@Test
+	public void testTensorDotProductMine() {
+		Dataset result = MyTensorDot.tensorDotProduct(dataset1, dataset2, new int[] { 1, 2 }, new int[] { 2, 1 });
 		//converting to a 1D DataSet
 		result = result.reshape(4);
 		for (int i = 0; i < 4; i++) {
