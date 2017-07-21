@@ -50,6 +50,9 @@ public class MyBenchmark {
 
 		static Dataset dataset1;
 		static Dataset dataset2;
+		
+		private static int[] axesOrder = new int[]{1,2};
+		
 
 		@Setup(Level.Trial)
 		public void doSetup() {
@@ -90,8 +93,8 @@ public class MyBenchmark {
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	public Dataset testTenDotOrig1212(myState theState) {
-		return OrigTensorDot.tensorDotProduct(myState.dataset1, myState.dataset2, new int[] { 1, 2 },
-				new int[] { 1,2});
+		return OrigTensorDot.tensorDotProduct(myState.dataset1, myState.dataset2, myState.axesOrder,
+				myState.axesOrder);
 	}
 	
 	@Benchmark
@@ -99,8 +102,8 @@ public class MyBenchmark {
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	public Dataset testTenDotMine1212(myState theState) {
-		return MyTensorDot.tensorDotProduct(myState.dataset1, myState.dataset2, new int[] { 1, 2 },
-				new int[] { 1,2});
+		return MyTensorDot.tensorDotProduct(myState.dataset1, myState.dataset2, myState.axesOrder,
+				myState.axesOrder);
 	}
 	
 	
@@ -119,7 +122,7 @@ public class MyBenchmark {
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	public int testSwapRows() {
-		return Reference.swapRows(new int[] { 1, 2 }, new int[] { 1, 2 }, new int[] { 1, 2 });
+		return Reference.swapRows(myState.axesOrder, myState.axesOrder, myState.axesOrder);
 	}
 
 }
