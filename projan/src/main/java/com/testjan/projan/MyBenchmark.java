@@ -26,31 +26,27 @@ public class MyBenchmark {
 
 	@State(Scope.Thread)
 	public static class myState {
-		// first data set parameters
-		@Param({ "100" })
-		public static int oneS1;// the size of the first axis for the first
-								// DataSet
-
-		@Param({ "100" })
-		public static int oneS2;// the size of the second axis for the first
-								// DataSet
-
-		@Param({ "100" })
-		public static int oneS3;// the size of the third axis for the first
-								// DataSet
-
-		// second data set parameters
-		@Param({ "100" })
-		public static int twoS1;// the size of the first axis for the second
-								// DataSet
-
-		@Param({ "100" })
-		public static int twoS2;// the size of the second axis for the second
-								// DataSet
-
-		@Param({ "100" })
-		public static int twoS3;// the size of the third axis for the second
-								// DataSet
+		//first data set parameters
+		@Param({"100"})
+		public static int oneS1;//the size of the first axis for the first DataSet
+		
+		@Param({"100"})
+		public static int oneS2;//the size of the second axis for the first DataSet
+		
+		@Param({"100"})
+		public static int oneS3;//the size of the third axis for the first DataSet
+		
+		
+		//second data set parameters
+		@Param({"100"})
+		public static int twoS1;//the size of the first axis for the second DataSet
+		
+		@Param({"100"})
+		public static int twoS2;//the size of the second axis for the second DataSet
+		
+		@Param({"100"})
+		public static int twoS3;//the size of the third axis for the second DataSet
+		 
 
 		static Dataset dataset1;
 		static Dataset dataset2;
@@ -58,11 +54,11 @@ public class MyBenchmark {
 		@Setup(Level.Trial)
 		public void doSetup() {
 			// creating two cube tensors, 5x5x5
-			dataset1 = DatasetFactory.createRange(oneS1 * oneS2 * oneS3);
-			dataset2 = DatasetFactory.createRange(twoS1 * twoS2 * twoS3);
+			dataset1 = DatasetFactory.createRange(oneS1*oneS2*oneS3);
+			dataset2 = DatasetFactory.createRange(twoS1*twoS2*twoS3);
 
-			dataset1 = dataset1.reshape(oneS1, oneS2, oneS3);
-			dataset2 = dataset2.reshape(twoS1, twoS2, twoS3);
+			dataset1 = dataset1.reshape(oneS1,oneS2,oneS3);
+			dataset2 = dataset2.reshape(twoS1,twoS2,twoS3);
 		}
 
 	}
@@ -93,18 +89,28 @@ public class MyBenchmark {
 	@BenchmarkMode(Mode.Throughput)
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
-	public Dataset testTenDotOrig(myState theState) {
-		return OrigTensorDot.tensorDotProduct(myState.dataset1, myState.dataset2, new int[] { 0, 1 },
-				new int[] { 0, 1 });
+	public Dataset testTenDotOrig1212(myState theState) {
+		return OrigTensorDot.tensorDotProduct(myState.dataset1, myState.dataset2, new int[] { 1, 2 },
+				new int[] { 1,2});
 	}
-
+	
 	@Benchmark
 	@BenchmarkMode(Mode.Throughput)
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
-	public Dataset testTenDotMine(myState theState) {
-		return MyTensorDot.tensorDotProduct(myState.dataset1, myState.dataset2, new int[] { 0, 1 }, new int[] { 0, 1 });
+	public Dataset testTenDotMine1212(myState theState) {
+		return MyTensorDot.tensorDotProduct(myState.dataset1, myState.dataset2, new int[] { 1, 2 },
+				new int[] { 1,2});
 	}
+	
+	
+	
+
+
+
+	
+
+
 
 	//TODO: remove this, for testing testing timing only
 	//why is my code running slower
