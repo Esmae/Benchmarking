@@ -1,13 +1,13 @@
 package com.testjan.projan;
 
 import java.util.Arrays;
-import java.util.TreeMap;
+import java.util.Collections;
 
+import org.apache.commons.lang.ArrayUtils;
 import org.eclipse.january.dataset.AbstractDataset;
 import org.eclipse.january.dataset.DTypeUtils;
 import org.eclipse.january.dataset.Dataset;
 import org.eclipse.january.dataset.DatasetFactory;
-import org.eclipse.january.dataset.LinearAlgebra;
 import org.eclipse.january.dataset.SliceIterator;
 
 //TODO: Questions
@@ -22,8 +22,8 @@ public class MyTensorDot {
 		final int[] bshape = b.getShapeRef();
 		final int arank = ashape.length; //the rank of the tensors
 		final int brank = bshape.length;
-		final int[] aaxes = new int[axisa.length];//stores axisa values for between 0 and arank
-		final int[] baxes = new int[axisa.length];
+		int[] aaxes = new int[axisa.length];//stores axisa values for between 0 and arank
+		int[] baxes = new int[axisa.length];
 		for (int i = 0; i < axisa.length; i++) {
 			int n;
 
@@ -46,55 +46,24 @@ public class MyTensorDot {
 		
 		//TODO: Finish adding your stuff
 	// ordering by the strides of b
-		
-		/*//TODO: remove debugging print statements
-		System.out.println("\n\n aaxes start");
-		for(int i=0;i<aaxes.length;i++){
-			System.out.print(aaxes[i] + "\t");
-		}
-		
-		System.out.println("\n\n baxes start");
-		for(int i=0;i<baxes.length;i++){
-			System.out.print(baxes[i] + "\t");
-		}*/
-		
-		final int[] bstride= AbstractDataset.createStrides(b, new int[]{0});
+		int[] offset = new int[1];
+		final int[] bstride= AbstractDataset.createStrides(b, offset);
 	
 		final int[] subbstride = new int[baxes.length];
 		for(int i=0;i<baxes.length;i++){
 			subbstride[i]=bstride[baxes[i]];
 		}
+		//TODO:Write new sort and get rid of old stuff, test then get rid of testing
+		//writing a new sorting section that uses comparator
+		Integer[] aList = ArrayUtils.toObject(aaxes);
+		Collections.sort(Arrays.asList(aList),new StrideSort(bstride));
+		aaxes = ArrayUtils.toPrimitive(aList);
 		
-		//simple bubble sort,ordering with respect to subbstride
-		for(int i=0;i<subbstride.length-1;i++){
-			for(int j=0;j<subbstride.length-1;j++){
-				if(subbstride[j]<subbstride[j+1]){
-					//swapping the stride values
-					int temp = subbstride[j];
-					subbstride[j]=subbstride[j+1];
-					subbstride[j+1]=temp;
-					//swapping the a axes values
-					temp = aaxes[j];
-					aaxes[j]=aaxes[j+1];
-					aaxes[j+1]=temp;
-					//swapping the b axes values
-					temp = baxes[j];
-					baxes[j]=baxes[j+1];
-					baxes[j+1]=temp;
-				}
-			}
-		}
+		Integer[] bList = ArrayUtils.toObject(baxes);
+		Collections.sort(Arrays.asList(bList),new StrideSort(bstride));
+		baxes = ArrayUtils.toPrimitive(bList);
 		
-		/*//TODO: remove debugging print statements
-		System.out.println("\n\n aaxes end ");
-		for(int i=0;i<aaxes.length;i++){
-			System.out.print(aaxes[i] + "\t");
-		}
 		
-		System.out.println("\n\n baxes end ");
-		for(int i=0;i<baxes.length;i++){
-			System.out.print(baxes[i] + "\t");
-		}*/
 
 		
 		

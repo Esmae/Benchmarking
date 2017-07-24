@@ -14,13 +14,13 @@ import org.openjdk.jmh.annotations.Setup;
 import org.openjdk.jmh.annotations.State;
 import org.openjdk.jmh.annotations.Warmup;
 
-import java.util.Random;
+
 import java.util.concurrent.TimeUnit;
 
 import org.eclipse.january.dataset.AbstractDataset;
 import org.eclipse.january.dataset.Dataset;
 import org.eclipse.january.dataset.DatasetFactory;
-import org.eclipse.january.dataset.LinearAlgebra;
+
 
 @State(Scope.Thread)
 public class MyBenchmark {
@@ -122,7 +122,7 @@ public class MyBenchmark {
 	@BenchmarkMode(Mode.Throughput)
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
-	public int[] testCreateSlides() {
+	public int[] testCreateSlides(myState theState) {
 		return AbstractDataset.createStrides(myState.dataset2, new int[]{0});
 	}
 
