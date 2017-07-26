@@ -17,7 +17,7 @@ import org.openjdk.jmh.annotations.Warmup;
 
 import java.util.concurrent.TimeUnit;
 
-import org.eclipse.january.dataset.AbstractDataset;
+
 import org.eclipse.january.dataset.Dataset;
 import org.eclipse.january.dataset.DatasetFactory;
 
@@ -29,30 +29,30 @@ public class MyBenchmark {
 	public static class myState {
 		//first data set parameters
 		@Param({"100"})
-		public static int oneS1;//the size of the first axis for the first DataSet
+		public int oneS1;//the size of the first axis for the first DataSet
 		
 		@Param({"100"})
-		public static int oneS2;//the size of the second axis for the first DataSet
+		public int oneS2;//the size of the second axis for the first DataSet
 		
 		@Param({"100"})
-		public static int oneS3;//the size of the third axis for the first DataSet
+		public int oneS3;//the size of the third axis for the first DataSet
 		
 		
 		//second data set parameters
 		@Param({"100"})
-		public static int twoS1;//the size of the first axis for the second DataSet
+		public int twoS1;//the size of the first axis for the second DataSet
 		
 		@Param({"100"})
-		public static int twoS2;//the size of the second axis for the second DataSet
+		public int twoS2;//the size of the second axis for the second DataSet
 		
 		@Param({"100"})
-		public static int twoS3;//the size of the third axis for the second DataSet
+		public int twoS3;//the size of the third axis for the second DataSet
 		 
 
-		static Dataset dataset1;
-		static Dataset dataset2;
+		Dataset dataset1;
+		Dataset dataset2;
 		
-		private static int[] axesOrder = new int[]{1,2};
+		private int[] axesOrder = new int[]{1,2};
 		
 
 		@Setup(Level.Trial)
@@ -70,9 +70,9 @@ public class MyBenchmark {
 	@State(Scope.Thread)
 	public static class myRefState {
 
-		static Reference myRef;
+		Reference myRef;
 
-		private static double size;// the number of elements in the reference
+		private double size;// the number of elements in the reference
 									// dataset
 
 		@Setup(Level.Trial)
@@ -107,7 +107,7 @@ public class MyBenchmark {
 				theState.axesOrder);
 	}
 	
-	
+}	
 	
 
 

@@ -1,5 +1,7 @@
 package com.testjan.projan;
-
+/**
+ * Comparator that sorts based on the elements in refArray
+ */
 import java.util.Comparator;
 
 
@@ -12,7 +14,8 @@ public class StrideSort implements Comparator<Integer>{
 		refArray = arrayRef;
 	}
 	
-	//standard sort
+	
+	//want the element that corresponds to the largest element in refArray to be first
 	public int compare(Integer o1, Integer o2) {
 		return refArray[o2]-refArray[o1];
 	}

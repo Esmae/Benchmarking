@@ -1,6 +1,11 @@
 package com.testjan.projan;
 
+import java.util.Arrays;
+import java.util.Collections;
+
+import org.apache.commons.lang.ArrayUtils;
 import org.eclipse.january.dataset.AbstractDataset;
+import org.eclipse.january.dataset.Dataset;
 import org.eclipse.january.dataset.DatasetFactory;
 import org.eclipse.january.dataset.DoubleDataset;
 
@@ -11,28 +16,19 @@ import org.eclipse.january.dataset.DoubleDataset;
 public class App {
 	public static void main(String[] args) {
 
+		Integer[] myArray = new Integer[]{3,4,2,5,1};
+		Collections.sort(Arrays.asList(myArray));
+		int[] array1 = ArrayUtils.toPrimitive(myArray);
+		System.out.println(	Arrays.toString(array1));
 		
-		
-		
-		
-		DoubleDataset dataset1 = DatasetFactory.createRange(10000000);
-		dataset1.resize(100, 100, 100);
+		/*Dataset dataset1 = DatasetFactory.createRange(125);
+		Dataset dataset2 = DatasetFactory.createRange(125);
 
-		DoubleDataset dataset2 = DatasetFactory.createRange(10000000);
-		dataset2.resize(100, 100, 100);
+		dataset1 = dataset1.reshape(5, 5, 5);
+		dataset2 = dataset2.reshape(5, 5, 5);
+		Dataset result = MyTensorDot.tensorDotProduct(dataset1, dataset2, new int[] { 1, 2 }, new int[] { 2, 0 });*/
 		
-		int[] myArray1 = AbstractDataset.createStrides(dataset2, new int[]{0});
-		int[] myArray2 = AbstractDataset.createStrides(dataset2, new int[]{0});
 		
-		for(int i=0;i<myArray1.length;i++){
-			System.out.println(myArray1[i]);
-		}
-		for(int i=0;i<myArray2.length;i++){
-			System.out.println(myArray2[i]);
-		}
-
-		MyTensorDot.tensorDotProduct(dataset1, dataset2, new int[] { 2, 1 }, new int[] { 2, 0 });
-		System.out.println("\ndone1");
 		
 
 	}

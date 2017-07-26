@@ -43,29 +43,40 @@ public class MyTensorDot {
 			if (ashape[aaxes[i]] != bshape[n])
 				throw new IllegalArgumentException("Summing axes do not have matching lengths");
 		}
+		//Start of my Code
+		//getting the strides of the dataSets
+		int[] aoffset = new int[1];
+		final int[] astride= AbstractDataset.createStrides(a, aoffset);
+		int[] boffset = new int[1];
+		final int[] bstride= AbstractDataset.createStrides(b, boffset);
 		
-		//TODO: Finish adding your stuff
-	// ordering by the strides of b
-		int[] offset = new int[1];
-		final int[] bstride= AbstractDataset.createStrides(b, offset);
-	
-		final int[] subbstride = new int[baxes.length];
-		for(int i=0;i<baxes.length;i++){
-			subbstride[i]=bstride[baxes[i]];
+		//deciding on which dataSets strides to base ordering on
+		double amultstride = 1.0;
+		double bmultstride = 1.0;
+		for(int i=0;i<aaxes.length;i++){
+			amultstride *= astride[aaxes[i]];
+			bmultstride *= bstride[baxes[i]];
 		}
-		//TODO:Write new sort and get rid of old stuff, test then get rid of testing
-		//writing a new sorting section that uses comparator
-		Integer[] aList = ArrayUtils.toObject(aaxes);
-		Collections.sort(Arrays.asList(aList),new StrideSort(bstride));
-		aaxes = ArrayUtils.toPrimitive(aList);
-		
-		Integer[] bList = ArrayUtils.toObject(baxes);
-		Collections.sort(Arrays.asList(bList),new StrideSort(bstride));
-		baxes = ArrayUtils.toPrimitive(bList);
 		
 		
-
-		
+		if(amultstride>bmultstride){
+			//want to order based on the strides of a
+			Integer[] aaxesobj = ArrayUtils.toObject(aaxes);
+			Integer[] baxesobj = ArrayUtils.toObject(baxes);
+			Collections.sort(Arrays.asList(aaxesobj),new StrideSort(astride));//sorts aaxes
+			Collections.sort(Arrays.asList(baxesobj),new StrideSortTwo(astride,aaxes,baxes));//sorts baxes, based on how aaxes was sorted
+			aaxes = ArrayUtils.toPrimitive(aaxesobj);
+			baxes = ArrayUtils.toPrimitive(baxesobj);
+			
+		}else{//want to order based on the strides of b
+			Integer[] aaxesobj = ArrayUtils.toObject(aaxes);
+			Integer[] baxesobj = ArrayUtils.toObject(baxes);
+			Collections.sort(Arrays.asList(baxesobj),new StrideSort(bstride));//sorts baxes
+			Collections.sort(Arrays.asList(aaxesobj),new StrideSortTwo(bstride,baxes,aaxes));//sorts aaxes based on how baxes was sorted
+			aaxes = ArrayUtils.toPrimitive(aaxesobj);
+			baxes = ArrayUtils.toPrimitive(baxesobj);
+		}
+		//End of my Code
 		
 
 		final boolean[] achoice = new boolean[arank];

@@ -6,10 +6,10 @@ package com.testjan.projan;
 
 import org.eclipse.january.dataset.Dataset;
 import org.eclipse.january.dataset.DatasetFactory;
-import org.eclipse.january.dataset.LinearAlgebra;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
 
 public class TestTensorDot {
 
