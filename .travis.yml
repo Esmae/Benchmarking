@@ -9,8 +9,8 @@ install: "pip install -r requirements.txt"
 #building and running the benchmarks
 script:
 - mvn clean install -f projan/pom.xml
-- java -jar projan/target/projan-0.0.1-SNAPSHOT.jar com.testjan.projan.MyBenchmark.testRef -i 20 -rf csv -rff refBench
-- java -jar projan/target/projan-0.0.1-SNAPSHOT.jar com.testjan.projan.MyBenchmark.testTenDot -i 15 -rf csv -rff testTen
+- java -jar projan/target/projan-0.0.1-SNAPSHOT.jar com.testjan.projan.MyBenchmarkMult.testRef -i 20 -rf csv -rff refBench
+- java -jar projan/target/projan-0.0.1-SNAPSHOT.jar com.testjan.projan.MyBenchmarkAdd.testAddTranspose -i 1 -rf csv -rff testTen
 #don't want an email every time I commit
 notifications:
   email: false
