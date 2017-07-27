@@ -10,8 +10,6 @@ import org.eclipse.january.dataset.Dataset;
 import org.eclipse.january.dataset.DatasetFactory;
 import org.eclipse.january.dataset.SliceIterator;
 
-//TODO: Questions
-//Why final?
 
 public class MyTensorDot {
 	public static Dataset tensorDotProduct(final Dataset a, final Dataset b, final int[] axisa, final int[] axisb) {
@@ -109,11 +107,10 @@ public class MyTensorDot {
 
 		SliceIterator ita = a.getSliceIteratorFromAxes(null, achoice);
 		int l = 0;
-		final int[] apos = ita.getPos();
+		final int[] apos = ita.getPos();//this is a reference not a copy, so changes to ita will change apos and vice versa
 		while (ita.hasNext()) {
 			SliceIterator itb = b.getSliceIteratorFromAxes(null, bchoice);
 			final int[] bpos = itb.getPos();
-			
 			while (itb.hasNext()) {
 				double sum = 0.0;
 				double com = 0.0;
@@ -124,10 +121,10 @@ public class MyTensorDot {
 					for (; e >= 0; e--) {
 						int ai = aaxes[e];
 						int bi = baxes[e];
-
-						apos[ai]++;
+						apos[ai]++;//the first time, the -1's go to zeros
 						bpos[bi]++;
 						if (apos[ai] == ashape[ai]) {
+							//resetting to zero as have gone to the end of the axis
 							apos[ai] = 0;
 							bpos[bi] = 0;
 						} else
@@ -143,7 +140,6 @@ public class MyTensorDot {
 				data.setObjectAbs(l++, sum);
 			}
 		}
-
 		return data;
 	}
 	

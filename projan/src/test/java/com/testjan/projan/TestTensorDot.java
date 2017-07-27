@@ -25,7 +25,7 @@ public class TestTensorDot {
 
 		dataset1 = dataset1.reshape(1, 3, 2);
 		dataset2 = dataset2.reshape(4, 2, 3);
-	}
+	} 
 //the expected answer for this particular calculation of the tensor dot product
 	private double[] expect1DTensor = { 50, 140, 230, 320 };
 
@@ -42,8 +42,20 @@ public class TestTensorDot {
 	}
 	
 	@Test
-	public void testTensorDotProductMine() {
+	public void testTensorDotProductMine1() {
 		Dataset result = MyTensorDot.tensorDotProduct(dataset1, dataset2, new int[] { 1, 2 }, new int[] { 2, 1 });
+		//converting to a 1D DataSet
+		result = result.reshape(4);
+		for (int i = 0; i < 4; i++) {
+			//testing each element individually
+			Assert.assertEquals(expect1DTensor[i], result.getDouble(i), 0.0001);
+		}
+
+	}
+	
+	@Test
+	public void testTensorDotProductMine2() {
+		Dataset result = MyTensorDot.tensorDotProduct(dataset2, dataset1, new int[] { 1, 2 }, new int[] { 2, 1 });
 		//converting to a 1D DataSet
 		result = result.reshape(4);
 		for (int i = 0; i < 4; i++) {

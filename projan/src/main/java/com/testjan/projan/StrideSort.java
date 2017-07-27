@@ -16,8 +16,10 @@ public class StrideSort implements Comparator<Integer>{
 	
 	
 	//want the element that corresponds to the largest element in refArray to be first
+	@Override
 	public int compare(Integer o1, Integer o2) {
 		return refArray[o2]-refArray[o1];
 	}
 	
 }
+ 

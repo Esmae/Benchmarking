@@ -23,7 +23,7 @@ public class TestComparators {
 	 * Sets up the test case arrays
 	 */
 	@BeforeClass
-	public static void setUpClass(){
+	public static void setUpClass(){ 
 		refArray = new int[]{40,25,70,80,33};
 		firstArray = new int[]{2,4,3,1};
 		secondArray = new int[]{4,3,0,1};

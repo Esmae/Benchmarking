@@ -23,7 +23,7 @@ import org.eclipse.january.dataset.DatasetFactory;
 
 
 @State(Scope.Thread)
-public class MyBenchmark {
+public class MyBenchmarkMult {
 
 	@State(Scope.Thread)
 	public static class myState {
@@ -58,7 +58,7 @@ public class MyBenchmark {
 
 		@Setup(Level.Trial)
 		public void doSetup() {
-			// creating two cube tensors, 5x5x5
+			// creating two cube tensors
 			dataset1 = DatasetFactory.createRange(oneS1*oneS2*oneS3);
 			dataset2 = DatasetFactory.createRange(twoS1*twoS2*twoS3);
 
