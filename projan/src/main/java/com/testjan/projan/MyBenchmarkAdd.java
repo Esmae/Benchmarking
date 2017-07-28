@@ -27,13 +27,13 @@ public class MyBenchmarkAdd {
 	@State(Scope.Thread)
 	public static class myState{
 		//data set parameters
-		@Param({"200"})
+		@Param({"250"})
 		public int S1;//the size of the first axis for the DataSet
 		
-		@Param({"200"})
+		@Param({"250"})
 		public int S2;//the size of the second axis for the DataSet
 		
-		@Param({"200"})
+		@Param({"250"})
 		public int S3;//the size of the third axis for the DataSet
 		
 		Dataset dataset;//original dataset
