@@ -3,56 +3,48 @@ Normalising the benchmarking data with respect to the reference benchmark run
 """
 
 import csv
-#set default normalisation to be 1, i.e. no normalisation
-normalise = float(1.0)
 
 #reading in the actual normalisation
-ref = open("refBench", "rb")
-reader = csv.reader(ref)
-i = 0
-for row in reader:
-    if i != 0:
-        #skipping the first row as this is the header
-        #the file should only contain 1 other row
-        normalise = row[4]
-    i = i + 1
-        
-ref.close()
-
+def readRef(filename):
+    with (open(filename,"rb")) as ref:
+        reader = csv.reader(ref)
+        i = 0
+        for row in reader:
+            if i != 0:
+                #skipping the first row as this is the header
+                #the file should only contain 1 other row
+                return row[4]
+            i = i + 1
+ 
+       
 #opening the file which holds the refData with time
-with(open("gh-pages/projan/refBenchWithTime","a")) as f:
-    with open("gh-pages/projan/refBench") as g:
-	    i = int(1)
-	    for line in g:
-		#skipping writing the first line as this contains the header
-		if i!=1:
-		    f.write(line)
-		i = i+1
+def appendData(dataToAdd,filename):
+    with open(filename,"a") as f:
+        with open(dataToAdd) as g:
+            i=int(1)
+            for line in g:
+                #skipping writing the first line as this contains the header
+                if i!=1:
+                    f.write(line)
+                i=i+1
 
+#normalising the data
+def normaliseFile(unNormFile,normFile,normalisation):
+    with open(unNormFile, "rb") as noNorm:
+        with open(normFile, "wb") as norm:
+            reader = csv.reader(noNorm)
+            writer = csv.writer(norm)
+            j=0
+            for row in reader:
+                if j!=0:
+                    #normalising the score
+                    row[4] = str(float(row[4])/float(normalisation))
+                    #normalising the error associated with the score
+                    row[5] = str(float(row[5])/float(normalisation))
+                writer.writerow(row)
+                j=j+1
 
-
-	
-        
-fileList = ["testTen"]
-fileListNorm = ["gh-pages/projan/normData/testTenNorm"]
-for i in range(0,len(fileList)):
-    noNorm = open(fileList[i], "rb")
-    reader = csv.reader(noNorm)
-    norm = open(fileListNorm[i], "wb")
-    writer = csv.writer(norm)
-
-
-    j = 0
-    for row in reader:
-        if j != 0:
-            #normalising the score
-            row[4] = str(float(row[4])/float(normalise))
-            #normalising the error associated with the score
-            row[5] = str(float(row[5])/float(normalise))
-        writer.writerow(row)
-        j = j + 1
-            
-    #closing the files so they are updated
-    noNorm.close()    
-    norm.close()
-
+normalise = readRef("refBench")
+appendData("gh-pages/projan/refBench","gh-pages/projan/refBenchWithTime")
+normaliseFile("testTen","gh-pages/projan/normData/testTenNorm",normalise)
+appendData("gh-pages/projan/normData/testTenNorm","gh-pages/projan/dataWithTime")
