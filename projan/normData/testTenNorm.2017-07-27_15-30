@@ -1,0 +1,3 @@
+Benchmark,Mode,Threads,Samples,Score,Score Error (99.9%),Unit,Param: S1,Param: S2,Param: S3
+com.testjan.projan.MyBenchmarkAdd.testAdd,thrpt,1,150,2.25798865866e-08,1.05419784202e-09,ops/s,200,200,200
+com.testjan.projan.MyBenchmarkAdd.testAddTranspose,thrpt,1,150,1.93655032251e-08,9.09690309523e-10,ops/s,200,200,200
