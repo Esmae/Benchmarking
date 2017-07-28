@@ -27,13 +27,13 @@ public class MyBenchmarkAdd {
 	@State(Scope.Thread)
 	public static class myState{
 		//data set parameters
-		@Param({"100"})
+		@Param({"200"})
 		public int S1;//the size of the first axis for the DataSet
 		
-		@Param({"100"})
+		@Param({"200"})
 		public int S2;//the size of the second axis for the DataSet
 		
-		@Param({"100"})
+		@Param({"200"})
 		public int S3;//the size of the third axis for the DataSet
 		
 		Dataset dataset;//original dataset
@@ -50,7 +50,11 @@ public class MyBenchmarkAdd {
 		}
 		
 	}
-	
+	/**
+	 * Benchmarking adding a tensor to itself
+	 * @param theState
+	 * @return
+	 */
 	@Benchmark
 	@BenchmarkMode(Mode.Throughput)
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
@@ -58,13 +62,17 @@ public class MyBenchmarkAdd {
 	public Dataset testAdd(myState theState){
 		return Addition.add(theState.dataset,theState.dataset);
 	}
-	
+	/**
+	 * Benchmarking adding a transposed view of a tensor to itself
+	 * @param theState
+	 * @return
+	 */
 	@Benchmark
 	@BenchmarkMode(Mode.Throughput)
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	public Dataset testAddTranspose(myState theState){
-		return Addition.add(theState.dataset,theState.datasetT);
+		return Addition.add(theState.datasetT,theState.datasetT);
 	}
 	
 	
