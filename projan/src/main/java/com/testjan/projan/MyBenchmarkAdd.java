@@ -16,7 +16,7 @@ import org.openjdk.jmh.annotations.State;
 import org.openjdk.jmh.annotations.Warmup;
 
 /**
- * Benchmarks the addition of two tensors (identical), before and after one has been transposed
+ * Benchmarks the addition of two tensors (identical), before and after taking a transpose view
  * 
  *
  */
@@ -52,7 +52,7 @@ public class MyBenchmarkAdd {
 	}
 	/**
 	 * Benchmarking adding a tensor to itself
-	 * @param theState
+	 * @param theState - contains the dataset
 	 * @return
 	 */
 	@Benchmark
@@ -64,7 +64,7 @@ public class MyBenchmarkAdd {
 	}
 	/**
 	 * Benchmarking adding a transposed view of a tensor to itself
-	 * @param theState
+	 * @param theState - contains the dataset
 	 * @return
 	 */
 	@Benchmark

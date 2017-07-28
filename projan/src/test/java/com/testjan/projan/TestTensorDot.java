@@ -26,9 +26,12 @@ public class TestTensorDot {
 		dataset1 = dataset1.reshape(1, 3, 2);
 		dataset2 = dataset2.reshape(4, 2, 3);
 	} 
-//the expected answer for this particular calculation of the tensor dot product
+	//the expected answer for this particular calculation of the tensor dot product
 	private double[] expect1DTensor = { 50, 140, 230, 320 };
 
+	/**
+	 * Runs a test case for the Original Tensor Dot Product Method 
+	 */
 	@Test
 	public void testTensorDotProductOrig() {
 		Dataset result = OrigTensorDot.tensorDotProduct(dataset1, dataset2, new int[] { 1, 2 }, new int[] { 2, 1 });
@@ -41,26 +44,26 @@ public class TestTensorDot {
 
 	}
 	
+	/**
+	 * Runs a test case for my Tensor Dot Product
+	 * Needs two cases because want covereage of if else statement 
+	 */
 	@Test
 	public void testTensorDotProductMine1() {
-		Dataset result = MyTensorDot.tensorDotProduct(dataset1, dataset2, new int[] { 1, 2 }, new int[] { 2, 1 });
+		Dataset result1 = MyTensorDot.tensorDotProduct(dataset1, dataset2, new int[] { 1, 2 }, new int[] { 2, 1 });
 		//converting to a 1D DataSet
-		result = result.reshape(4);
+		result1 = result1.reshape(4);
 		for (int i = 0; i < 4; i++) {
 			//testing each element individually
-			Assert.assertEquals(expect1DTensor[i], result.getDouble(i), 0.0001);
+			Assert.assertEquals(expect1DTensor[i], result1.getDouble(i), 0.0001);
 		}
-
-	}
-	
-	@Test
-	public void testTensorDotProductMine2() {
-		Dataset result = MyTensorDot.tensorDotProduct(dataset2, dataset1, new int[] { 1, 2 }, new int[] { 2, 1 });
+		
+		Dataset result2 = MyTensorDot.tensorDotProduct(dataset2, dataset1, new int[] { 1, 2 }, new int[] { 2, 1 });
 		//converting to a 1D DataSet
-		result = result.reshape(4);
+		result2 = result2.reshape(4);
 		for (int i = 0; i < 4; i++) {
 			//testing each element individually
-			Assert.assertEquals(expect1DTensor[i], result.getDouble(i), 0.0001);
+			Assert.assertEquals(expect1DTensor[i], result2.getDouble(i), 0.0001);
 		}
 
 	}

@@ -12,6 +12,19 @@ import org.eclipse.january.dataset.SliceIterator;
 
 
 public class MyTensorDot {
+	/**
+	 * Modified version of OrigTensorDot - changes the order in which iterated through to a more optimal one
+	 *Calculate the tensor dot product over given axes. This is the sum of
+	 * products of elements selected from the given axes in each dataset
+	 * 
+	 * @param a
+	 * @param b
+	 * @param axisa
+	 *            axis dimensions in a to sum over (can be -ve)
+	 * @param axisb
+	 *            axis dimensions in b to sum over (can be -ve)
+	 * @return tensor dot product
+	 */
 	public static Dataset tensorDotProduct(final Dataset a, final Dataset b, final int[] axisa, final int[] axisb) {
 		if (axisa.length != axisb.length) {
 			throw new IllegalArgumentException("Numbers of summing axes must be same");

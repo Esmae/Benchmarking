@@ -12,9 +12,9 @@ import org.apache.commons.lang.ArrayUtils;
 public class StrideSortTwo implements Comparator<Integer> {
 
 	// make sure no method in this class changes these arrays
-	private final int[] refArray1;
+	private final int[] refArray1;//the reference array in which comparisons are made when refArray2 is sorted
 	private final int[] refArray2;
-	private final int[] toSort;
+	private final int[] toSort;//the array which is sorted based on how the elements in refArray2 were moved when it was sorted
 
 	/**
 	 * 
@@ -56,7 +56,7 @@ public class StrideSortTwo implements Comparator<Integer> {
 	 * @param i2
 	 * @return
 	 */
-	public int compareTwo(int i1, int i2) {
+	private int compareTwo(int i1, int i2) {
 		return refArray1[refArray2[i2]] - refArray1[refArray2[i1]];
 	}
 }

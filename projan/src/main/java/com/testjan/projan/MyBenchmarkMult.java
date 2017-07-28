@@ -82,14 +82,23 @@ public class MyBenchmarkMult {
 		}
 	}
 
+	/**
+	 * Running the reference benchmark so can more easily compare tests on different builds
+	 * @param theRefState - contains the datasets
+	 * @return
+	 */
 	@Benchmark
 	@BenchmarkMode(Mode.Throughput)
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	public double testRef(myRefState theRefState) {
-		return theRefState.myRef.addNum(theRefState.size);
+		return theRefState.myRef.addNum();
 	}
-
+	/**
+	 * Performing the tensor Dot Product on axes {1,2} on Original tensorDotProduct method   
+	 * @param theState - contains the datasets
+	 * @return
+	 */
 	@Benchmark
 	@BenchmarkMode(Mode.Throughput)
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
@@ -98,7 +107,11 @@ public class MyBenchmarkMult {
 		return OrigTensorDot.tensorDotProduct(theState.dataset1, theState.dataset2, theState.axesOrder12,
 				theState.axesOrder12);
 	}
-	
+	/**
+	 * Performing the tensor Dot Product on axes {1,2} on new tensorDotProduct method   
+	 * @param theState - contains the datasets
+	 * @return
+	 */
 	@Benchmark
 	@BenchmarkMode(Mode.Throughput)
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
@@ -107,6 +120,11 @@ public class MyBenchmarkMult {
 		return MyTensorDot.tensorDotProduct(theState.dataset1, theState.dataset2, theState.axesOrder12,
 				theState.axesOrder12);
 	}
+	/**
+	 * Performing the tensor Dot Product on axes {2,1} on Original tensorDotProduct method   
+	 * @param theState - contains the datasets
+	 * @return
+	 */
 	@Benchmark
 	@BenchmarkMode(Mode.Throughput)
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
@@ -115,7 +133,11 @@ public class MyBenchmarkMult {
 		return OrigTensorDot.tensorDotProduct(theState.dataset1, theState.dataset2, theState.axesOrder21,
 				theState.axesOrder21);
 	}
-	
+	/**
+	 * Performing the tensor Dot Product on axes {2,1} on new tensorDotProduct method   
+	 * @param theState - contains the datasets
+	 * @return
+	 */
 	@Benchmark
 	@BenchmarkMode(Mode.Throughput)
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
