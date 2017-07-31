@@ -45,6 +45,6 @@ def normaliseFile(unNormFile,normFile,normalisation):
                 j=j+1
 
 normalise = readRef("refBench")
-appendData("gh-pages/projan/refBench","gh-pages/projan/refBenchWithTime")
-normaliseFile("testTen","gh-pages/projan/normData/testTenNorm",normalise)
-appendData("gh-pages/projan/normData/testTenNorm","gh-pages/projan/dataWithTime")
+appendData("Benchmarking/projan/refBench","Benchmarking/projan/refBenchWithTime")
+normaliseFile("testTen","Benchmarking/projan/normData/testTenNorm",normalise)
+appendData("Benchmarking/projan/normData/testTenNorm","Benchmarking/projan/dataWithTime")

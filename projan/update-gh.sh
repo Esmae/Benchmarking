@@ -11,7 +11,7 @@ if [ "$TRAVIS_COMMIT_MESSAGE" != "Travis build pushed to Benchmarking gh-pages" 
   git config --global user.email "travis@travis-ci.org"
   git config --global user.name "Travis"
   #cloning the relevant repo
-  git clone --quiet --branch=gh-pages https://${TOKEN}@github.com/Esmae/Benchmarking.git  gh-pages> /dev/null
+  git clone --quiet --branch=gh-pages https://${TOKEN}@github.com/Esmae/Benchmarking.git  Benchmarking> /dev/null
   
 #normalising the benchmarking data just collected
 echo -e "calling normFromRef"
@@ -21,23 +21,23 @@ python normFromRef.py
 #attaching the time and date to the data files
   today=$(date +%Y-%m-%d_%H-%M)
   mv testTen testTen."$today"
-  cp gh-pages/projan/normData/testTenNorm gh-pages/projan/normData/testTenNorm."$today" 
+  cp Benchmarking/projan/normData/testTenNorm Benchmarking/projan/normData/testTenNorm."$today" 
    
   
 #putting the files in local repo
-  cp -Rf testTen* gh-pages/projan/data
-  cp -Rf refBench gh-pages/projan
+  cp -Rf testTen* Benchmarking/projan/data
+  cp -Rf refBench Benchmarking/projan
   
 
   
-  #need to change the python script if change the name of the folder the clone is going into (currently it's called gh-pages)
+  
   #calls the python script that creates the 'with time' plot
   echo -e "calling timePlot"
   python timePlot.py
 
   #putting the new 'with time' plot in the repo (possibly overwritting the latest one)
-  cp -Rf TimePlot.png gh-pages/projan/figures
-  cp -Rf TimePlotTen.png gh-pages/projan/figures
+  cp -Rf TimePlot.png Benchmarking/projan/figures
+  cp -Rf TimePlotTen.png Benchmarking/projan/figures
  
   
   cd gh-pages

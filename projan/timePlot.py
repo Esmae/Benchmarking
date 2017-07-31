@@ -49,4 +49,4 @@ def PlotData(filename,savefigure,savefigure10):
 
     
     
-PlotData("gh-pages/projan/dataWithTime","TimePlot.png","TimePlotTen.png")
+PlotData("Benchmarking/projan/dataWithTime","TimePlot.png","TimePlotTen.png")
