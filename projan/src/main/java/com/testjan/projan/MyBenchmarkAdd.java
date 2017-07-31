@@ -24,7 +24,7 @@ import org.openjdk.jmh.annotations.Warmup;
 @State(Scope.Thread)
 public class MyBenchmarkAdd {
 	
-	@State(Scope.Thread)
+	@State(Scope.Thread) 
 	public static class myState{
 		//data set parameters
 		@Param({"250"})
@@ -51,7 +51,7 @@ public class MyBenchmarkAdd {
 		
 	}
 	/**
-	 * Benchmarking adding a tensor to itself
+	 * Benchmarking adding a tensor to itself, with original iterator
 	 * @param theState - contains the dataset
 	 * @return
 	 */
@@ -59,11 +59,11 @@ public class MyBenchmarkAdd {
 	@BenchmarkMode(Mode.Throughput)
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
-	public Dataset testAdd(myState theState){
+	public Dataset testAddOrig(myState theState){
 		return Addition.add(theState.dataset,theState.dataset);
 	}
 	/**
-	 * Benchmarking adding a transposed view of a tensor to itself
+	 * Benchmarking adding a transposed view of a tensor to itself, with original iterator
 	 * @param theState - contains the dataset
 	 * @return
 	 */
@@ -71,8 +71,33 @@ public class MyBenchmarkAdd {
 	@BenchmarkMode(Mode.Throughput)
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
-	public Dataset testAddTranspose(myState theState){
+	public Dataset testAddTransposeOrig(myState theState){
 		return Addition.add(theState.datasetT,theState.datasetT);
+	}
+	
+	/**
+	 * Benchmarking adding a tensor to itself, with my iterator
+	 * @param theState - contains the dataset
+	 * @return
+	 */
+	@Benchmark
+	@BenchmarkMode(Mode.Throughput)
+	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
+	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
+	public Dataset testAddMine(myState theState){
+		return Addition.myAdd(theState.dataset,theState.dataset);
+	}
+	/**
+	 * Benchmarking adding a transposed view of a tensor to itself, with my iterator
+	 * @param theState - contains the dataset
+	 * @return
+	 */
+	@Benchmark
+	@BenchmarkMode(Mode.Throughput)
+	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
+	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
+	public Dataset testAddTransposeMine(myState theState){
+		return Addition.myAdd(theState.datasetT,theState.datasetT);
 	}
 	
 	

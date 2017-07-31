@@ -1,3 +1,4 @@
-com/testjan/projan/TestComparators.class
 com/testjan/projan/TestTensorDot.class
+com/testjan/projan/TestComparators.class
+com/testjan/projan/TestMyPosIterator.class
 com/testjan/projan/TestAddition.class
