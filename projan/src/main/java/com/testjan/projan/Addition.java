@@ -75,5 +75,37 @@ public class Addition {
 		}
 	}
 	
+	public static Dataset myAddRev(Dataset a, Dataset b){
+		if(!Arrays.equals(a.getShape(), b.getShape())){
+			throw new IllegalArgumentException("Tensors to add must have the same shape");
+		}else{
+			//creating a result Dataset
+			Dataset result = DatasetFactory.zeros(a.getShape());
+			
+			//want to order based on the strides of a - doesn't matter which tensor to use as both have the same shape
+			int[] aoffset = new int[1];
+			final int[] astride= AbstractDataset.createStrides(a, aoffset);
+			int[] aaxes = new int[a.getRank()];
+			//initialising aaxes
+			for(int i=0;i<a.getRank();i++){
+				aaxes[i]=i;
+			}
+		
+			
+			Integer[] aaxesobj = ArrayUtils.toObject(aaxes);
+			Collections.sort(Arrays.asList(aaxesobj),new StrideSort(astride));//sorts aaxes
+			aaxes = ArrayUtils.toPrimitive(aaxesobj);
+			ArrayUtils.reverse(aaxes);
+			MyPositionIterator ita = new MyPositionIterator(a.getShape(),aaxes);//iterating through all three tensors in the same way
+																				//so only need one iterator
+			final int[] apos = ita.getPos();
+			while(ita.hasNext()){
+				//adding elements
+				result.set(a.getDouble(apos) + b.getDouble(apos), apos);
+			}
+			return result;
+		}
+	}
+	
 	
 } 
