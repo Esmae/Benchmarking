@@ -40,7 +40,7 @@ python normFromRef.py
   cp -Rf TimePlotTen.png Benchmarking/projan/figures
  
   
-  cd gh-pages
+  cd Benchmarking
  #adding the new files and changing files so they are ready to commit 
   git add -f --ignore-removal .
 #commiting the added changes
