@@ -102,6 +102,13 @@ public class MyBenchmarkAdd {
 	public Dataset testAddTransposeMineRev(myState theState){
 		return Addition.myAddRev(theState.datasetT,theState.datasetT);
 	}
+	@Benchmark
+	@BenchmarkMode(Mode.Throughput)
+	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
+	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
+	public Dataset testAddMineRev(myState theState){
+		return Addition.myAddRev(theState.dataset,theState.dataset);
+	}
 	
 	
 }
