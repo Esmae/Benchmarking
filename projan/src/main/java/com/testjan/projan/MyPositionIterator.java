@@ -14,6 +14,23 @@ public class MyPositionIterator {
 	
 
 	/**
+	 * Constructor for a Position Iterator
+	 * @param theShape
+	 */
+	public MyPositionIterator(int[] theShape){
+		int[] theAxesOrder = new int[theShape.length];
+		for(int i=0;i<theAxesOrder.length;i++){
+			theAxesOrder[i] = i;
+		}
+		endrank = theShape.length - 1;
+		shape = theShape;
+		axesOrder = theAxesOrder;
+		pos = new int[endrank + 1];
+		reset();
+	}
+	
+	
+	/**
 	 * Constructor for a Position Iterator that iterates through the axes using
 	 * theAxesOrder, where the first axis given will be the outer loop and the
 	 * last axis given will be the inner loop

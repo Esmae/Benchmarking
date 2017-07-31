@@ -60,7 +60,7 @@ public class MyBenchmarkAdd {
 	}
 	/**
 	 * Benchmarking adding a transposed view of a tensor to itself, with original iterator
-	 * @param theState - contains the dataset
+	 * @param theState - contains the dataset 
 	 * @return
 	 */
 	@Benchmark

@@ -27,7 +27,7 @@ public class Addition {
 		}else{
 			//creating a result Dataset
 			Dataset result = DatasetFactory.zeros(a.getShape());
-			OrigPositionIterator ita = new OrigPositionIterator(a.getShape());//iterating through all three tensors in the same way, so only need one iterator
+			MyPositionIterator ita = new MyPositionIterator(a.getShape());//iterating through all three tensors in the same way, so only need one iterator
 			final int[] apos = ita.getPos();
 			while(ita.hasNext()){
 				result.set(a.getDouble(apos) + b.getDouble(apos), apos);
