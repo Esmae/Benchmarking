@@ -27,7 +27,7 @@ public class MyBenchmarkAdd {
 	@State(Scope.Thread) 
 	public static class myState{
 		//data set parameters
-		@Param({"300"})
+		@Param({"250"})
 		public int S;//the size of all the axes for the symmetric DataSet
 		
 		
