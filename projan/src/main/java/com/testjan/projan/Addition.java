@@ -7,7 +7,6 @@ import org.apache.commons.lang.ArrayUtils;
 import org.eclipse.january.dataset.AbstractDataset;
 import org.eclipse.january.dataset.Dataset;
 import org.eclipse.january.dataset.DatasetFactory;
-import org.eclipse.january.dataset.PositionIterator;
 
 /**
  * Contains a method for the addition of two tensors of the same shape
@@ -28,7 +27,7 @@ public class Addition {
 		}else{
 			//creating a result Dataset
 			Dataset result = DatasetFactory.zeros(a.getShape());
-			PositionIterator ita = a.getPositionIterator(null);//iterating through all three tensors in the same way, so only need one iterator
+			OrigPositionIterator ita = new OrigPositionIterator(a.getShape());//iterating through all three tensors in the same way, so only need one iterator
 			final int[] apos = ita.getPos();
 			while(ita.hasNext()){
 				result.set(a.getDouble(apos) + b.getDouble(apos), apos);
@@ -59,6 +58,8 @@ public class Addition {
 			for(int i=0;i<a.getRank();i++){
 				aaxes[i]=i;
 			}
+		
+			
 			Integer[] aaxesobj = ArrayUtils.toObject(aaxes);
 			Collections.sort(Arrays.asList(aaxesobj),new StrideSort(astride));//sorts aaxes
 			aaxes = ArrayUtils.toPrimitive(aaxesobj);
