@@ -27,14 +27,10 @@ public class MyBenchmarkAdd {
 	@State(Scope.Thread) 
 	public static class myState{
 		//data set parameters
-		@Param({"250"})
-		public int S1;//the size of the first axis for the DataSet
+		@Param({"300"})
+		public int S;//the size of all the axes for the symmetric DataSet
 		
-		@Param({"250"})
-		public int S2;//the size of the second axis for the DataSet
 		
-		@Param({"250"})
-		public int S3;//the size of the third axis for the DataSet
 		
 		Dataset dataset;//original dataset
 		Dataset datasetT;//transposed dataset
@@ -42,10 +38,10 @@ public class MyBenchmarkAdd {
 		@Setup(Level.Trial)
 		public void doSetup(){
 			//creating cubic tensors
-			dataset = DatasetFactory.createRange(S1*S2*S3);
-			dataset = dataset.reshape(S1,S2,S3);
-			datasetT = DatasetFactory.createRange(S1*S2*S3);
-			datasetT = datasetT.reshape(S1,S2,S3);
+			dataset = DatasetFactory.createRange(S*S*S);
+			dataset = dataset.reshape(S,S,S);
+			datasetT = DatasetFactory.createRange(S*S*S);
+			datasetT = datasetT.reshape(S,S,S);
 			datasetT = datasetT.getTransposedView(1,0,2);//swapping the first and second axes round
 		}
 		
