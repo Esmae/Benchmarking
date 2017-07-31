@@ -309,3 +309,7 @@ com.testjan.projan.MyBenchmarkAdd.testAddMine,thrpt,1,200,1.56012165565e-08,4.43
 com.testjan.projan.MyBenchmarkAdd.testAddOrig,thrpt,1,200,1.6701111556e-08,6.14682744143e-10,ops/s,60
 com.testjan.projan.MyBenchmarkAdd.testAddTransposeMine,thrpt,1,200,5.46191163931e-09,8.83652700348e-11,ops/s,60
 com.testjan.projan.MyBenchmarkAdd.testAddTransposeOrig,thrpt,1,200,4.39824330425e-09,7.79813501734e-11,ops/s,60
+com.testjan.projan.MyBenchmarkAdd.testAddMine,thrpt,1,200,1.35410027417e-08,3.56428239447e-10,ops/s,60
+com.testjan.projan.MyBenchmarkAdd.testAddOrig,thrpt,1,200,1.53995653596e-08,2.66699223661e-10,ops/s,60
+com.testjan.projan.MyBenchmarkAdd.testAddTransposeMine,thrpt,1,200,6.47817530143e-09,4.38693784142e-10,ops/s,60
+com.testjan.projan.MyBenchmarkAdd.testAddTransposeOrig,thrpt,1,200,3.38868727461e-09,2.09800434047e-10,ops/s,60
