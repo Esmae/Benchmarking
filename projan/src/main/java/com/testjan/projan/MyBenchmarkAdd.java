@@ -51,13 +51,13 @@ public class MyBenchmarkAdd {
 	 * @param theState - contains the dataset
 	 * @return
 	 */
-	/*@Benchmark
+	@Benchmark
 	@BenchmarkMode(Mode.Throughput)
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	public Dataset testAddOrig(myState theState){
 		return Addition.add(theState.dataset,theState.dataset);
-	}*/
+	}
 	/**
 	 * Benchmarking adding a transposed view of a tensor to itself, with original iterator
 	 * @param theState - contains the dataset 
@@ -76,13 +76,13 @@ public class MyBenchmarkAdd {
 	 * @param theState - contains the dataset
 	 * @return
 	 */
-/*	@Benchmark
+	@Benchmark
 	@BenchmarkMode(Mode.Throughput)
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	public Dataset testAddMine(myState theState){
 		return Addition.myAdd(theState.dataset,theState.dataset);
-	}*/
+	}
 	/**
 	 * Benchmarking adding a transposed view of a tensor to itself, with my iterator
 	 * @param theState - contains the dataset
