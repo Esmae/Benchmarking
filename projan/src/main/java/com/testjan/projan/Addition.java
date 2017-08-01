@@ -107,5 +107,19 @@ public class Addition {
 		}
 	}
 	
+	//TODO: Delete after tested
+	public static Dataset addRight(Dataset a,Dataset b){
+		//creating a result Dataset
+		Dataset result = DatasetFactory.zeros(a.getShape());
+		MyPositionIterator ita = new MyPositionIterator(a.getShape(),new int[]{3,2,1,0});//iterating through all three tensors in the same way
+		//so only need one iterator
+		final int[] apos = ita.getPos();
+		while(ita.hasNext()){
+			//adding elements
+			result.set(a.getDouble(apos) + b.getDouble(apos), apos);
+		}
+		return result;
+	}
+	
 	
 } 
