@@ -32,22 +32,37 @@ public class MyBenchmarkAdd {
 		
 		
 		
-		Dataset dataset;//original dataset
-		Dataset datasetT;//transposed dataset
-		Dataset datasetTT;//A dataset that has been transposed and then tranposed back
+		Dataset dataseta;//original dataset
+		Dataset datasetTa;//transposed dataset
+		Dataset datasetTTa;//A dataset that has been transposed and then tranposed back
+		
+		Dataset datasetb;//original dataset
+		Dataset datasetTb;//transposed dataset
+		Dataset datasetTTb;//A dataset that has been transposed and then tranposed back
 		
 		@Setup(Level.Trial)
 		public void doSetup(){
 			//creating cubic tensors
-			dataset = DatasetFactory.createRange(S*S*S*S);
-			dataset = dataset.reshape(S,S,S,S);
-			datasetT = DatasetFactory.createRange(S*S*S*S);
-			datasetT = datasetT.reshape(S,S,S,S);
-			datasetT = datasetT.getTransposedView(3,1,2,0);//swapping axes round
-			datasetTT = DatasetFactory.createRange(S*S*S*S);
-			datasetTT = datasetT.reshape(S,S,S,S);
-			datasetTT = datasetTT.getTransposedView(3,1,2,0);
-			datasetTT = datasetTT.getTransposedView(3,1,2,0);
+			dataseta = DatasetFactory.createRange(S*S*S*S);
+			dataseta = dataseta.reshape(S,S,S,S);
+			datasetTa = DatasetFactory.createRange(S*S*S*S);
+			datasetTa = datasetTa.reshape(S,S,S,S);
+			datasetTa = datasetTa.getTransposedView(3,1,2,0);//swapping axes round
+			datasetTTa = DatasetFactory.createRange(S*S*S*S);
+			datasetTTa = datasetTa.reshape(S,S,S,S);
+			datasetTTa = datasetTTa.getTransposedView(3,1,2,0);
+			datasetTTa = datasetTTa.getTransposedView(3,1,2,0);
+			
+			datasetb = DatasetFactory.createRange(S*S*S*S);
+			datasetb = datasetb.reshape(S,S,S,S);
+			datasetTb = DatasetFactory.createRange(S*S*S*S);
+			datasetTb = datasetTb.reshape(S,S,S,S);
+			datasetTb = datasetTb.getTransposedView(3,1,2,0);//swapping axes round
+			datasetTTb = DatasetFactory.createRange(S*S*S*S);
+			datasetTTb = datasetTb.reshape(S,S,S,S);
+			datasetTTb = datasetTTb.getTransposedView(3,1,2,0);
+			datasetTTb = datasetTTb.getTransposedView(3,1,2,0);
+			
 			
 		}
 		
@@ -62,7 +77,7 @@ public class MyBenchmarkAdd {
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	public Dataset testAddOrig(myState theState){
-		return Addition.add(theState.dataset,theState.dataset);
+		return Addition.add(theState.dataseta,theState.datasetb);
 	}*/
 	/**
 	 * Benchmarking adding a transposed view of a tensor to itself, with original iterator
@@ -74,7 +89,7 @@ public class MyBenchmarkAdd {
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	public Dataset testAddTransposeOrig(myState theState){
-		return Addition.add(theState.datasetT,theState.datasetT);
+		return Addition.add(theState.datasetTa,theState.datasetTb);
 	}*/
 	
 	/**
@@ -87,7 +102,7 @@ public class MyBenchmarkAdd {
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	public Dataset testAddMine(myState theState){
-		return Addition.myAdd(theState.dataset,theState.dataset);
+		return Addition.myAdd(theState.dataseta,theState.datasetb);
 	}
 	/**
 	 * Benchmarking adding a transposed view of a tensor to itself, with my iterator
@@ -99,28 +114,28 @@ public class MyBenchmarkAdd {
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	public Dataset testAddTransposeMine(myState theState){
-		return Addition.myAdd(theState.datasetT,theState.datasetT);
+		return Addition.myAdd(theState.datasetTa,theState.datasetTb);
 	}
 /*	@Benchmark
 	@BenchmarkMode(Mode.Throughput)
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	public Dataset testAddTransposeMineRev(myState theState){
-		return Addition.myAddRev(theState.datasetT,theState.datasetT);
+		return Addition.myAddRev(theState.datasetTa,theState.datasetTb);
 	}*/
 	/*@Benchmark
 	@BenchmarkMode(Mode.Throughput)
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	public Dataset testAddMineRev(myState theState){
-		return Addition.myAddRev(theState.dataset,theState.dataset);
+		return Addition.myAddRev(theState.dataseta,theState.datasetb);
 	}*/
 	@Benchmark
 	@BenchmarkMode(Mode.Throughput)
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	public Dataset testAddTTMine(myState theState){
-		return Addition.myAdd(theState.datasetTT,theState.datasetTT);
+		return Addition.myAdd(theState.datasetTTa,theState.datasetTTb);
 	}
 	
 	
