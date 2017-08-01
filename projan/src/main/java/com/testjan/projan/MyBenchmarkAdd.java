@@ -42,7 +42,7 @@ public class MyBenchmarkAdd {
 			dataset = dataset.reshape(S,S,S,S);
 			datasetT = DatasetFactory.createRange(S*S*S*S);
 			datasetT = datasetT.reshape(S,S,S,S);
-			datasetT = datasetT.getTransposedView(3,2,1,0);//swapping axes round
+			datasetT = datasetT.getTransposedView(3,1,2,0);//swapping axes round
 		}
 		
 	}
