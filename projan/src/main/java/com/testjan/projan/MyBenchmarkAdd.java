@@ -34,6 +34,7 @@ public class MyBenchmarkAdd {
 		
 		Dataset dataset;//original dataset
 		Dataset datasetT;//transposed dataset
+		Dataset datasetTT;//A dataset that has been transposed and then tranposed back
 		
 		@Setup(Level.Trial)
 		public void doSetup(){
@@ -43,6 +44,10 @@ public class MyBenchmarkAdd {
 			datasetT = DatasetFactory.createRange(S*S*S*S);
 			datasetT = datasetT.reshape(S,S,S,S);
 			datasetT = datasetT.getTransposedView(3,1,2,0);//swapping axes round
+			datasetTT = DatasetFactory.createRange(S*S*S*S);
+			datasetTT = datasetTT.getTransposedView(3,1,2,0);
+			datasetTT = datasetTT.getTransposedView(3,1,2,0);
+			
 		}
 		
 	}
@@ -113,8 +118,8 @@ public class MyBenchmarkAdd {
 	@BenchmarkMode(Mode.Throughput)
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
-	public Dataset testAddMineRightT(myState theState){
-		return Addition.addRight(theState.datasetT,theState.datasetT);
+	public Dataset testAddTTMine(myState theState){
+		return Addition.myAdd(theState.datasetTT,theState.datasetTT);
 	}
 	
 	
