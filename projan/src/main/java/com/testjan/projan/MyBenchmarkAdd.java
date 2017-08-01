@@ -45,6 +45,7 @@ public class MyBenchmarkAdd {
 			datasetT = datasetT.reshape(S,S,S,S);
 			datasetT = datasetT.getTransposedView(3,1,2,0);//swapping axes round
 			datasetTT = DatasetFactory.createRange(S*S*S*S);
+			datasetTT = datasetT.reshape(S,S,S,S);
 			datasetTT = datasetTT.getTransposedView(3,1,2,0);
 			datasetTT = datasetTT.getTransposedView(3,1,2,0);
 			
