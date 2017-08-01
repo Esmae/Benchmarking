@@ -3,7 +3,8 @@ package com.testjan.projan;
 import org.eclipse.january.dataset.Dataset;
 import org.eclipse.january.dataset.DatasetFactory;
 
-public class AppTT {
+public class AppDoubleT {
+	
 	public static void main(String[] args) {
 		Dataset a = DatasetFactory.createRange(3*3);
 		a = a.reshape(3,3);
