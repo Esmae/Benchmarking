@@ -4,7 +4,10 @@
 /home/fkb72128/workspace/JanProj/projan/src/main/java/com/testjan/projan/App.java
 /home/fkb72128/workspace/JanProj/projan/src/main/java/com/testjan/projan/MyTensorDot.java
 /home/fkb72128/workspace/JanProj/projan/src/main/java/com/testjan/projan/StrideSortTwo.java
+/home/fkb72128/workspace/JanProj/projan/src/main/java/com/testjan/projan/MyStrideIterator.java
+/home/fkb72128/workspace/JanProj/projan/src/main/java/com/testjan/projan/MyBenchmarkSum.java
 /home/fkb72128/workspace/JanProj/projan/src/main/java/com/testjan/projan/AppT.java
+/home/fkb72128/workspace/JanProj/projan/src/main/java/com/testjan/projan/SumDataset.java
 /home/fkb72128/workspace/JanProj/projan/src/main/java/com/testjan/projan/MyBenchmarkAdd.java
 /home/fkb72128/workspace/JanProj/projan/src/main/java/com/testjan/projan/Addition.java
 /home/fkb72128/workspace/JanProj/projan/src/main/java/com/testjan/projan/OrigPositionIterator.java

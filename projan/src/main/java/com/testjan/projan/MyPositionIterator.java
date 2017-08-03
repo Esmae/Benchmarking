@@ -74,7 +74,7 @@ public class MyPositionIterator {
 	}
 
 	/**
-	 * Resest the iterator position so it can be used again All elements of pos
+	 * Resets the iterator position so it can be used again All elements of pos
 	 * are set to zero apart from the element which will be first incremented in
 	 * hasNext which is set to -1
 	 */

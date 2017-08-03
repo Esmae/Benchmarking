@@ -42,7 +42,7 @@ public class MyBenchmarkAdd {
 		
 		@Setup(Level.Trial)
 		public void doSetup(){
-			//creating cubic tensors
+			//creating rank 4 tensors
 			dataseta = DatasetFactory.createRange(S*S*S*S);
 			dataseta = dataseta.reshape(S,S,S,S);
 			datasetTa = DatasetFactory.createRange(S*S*S*S);
