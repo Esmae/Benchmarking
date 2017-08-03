@@ -1,0 +1,5 @@
+"Benchmark","Mode","Threads","Samples","Score","Score Error (99.9%)","Unit","Param: S"
+"com.testjan.projan.MyBenchmarkSum.testSumMyStrideIta","thrpt",1,200,53.874998,1.426496,"ops/s",60
+"com.testjan.projan.MyBenchmarkSum.testSumMyStrideItaT","thrpt",1,200,3.027804,0.068784,"ops/s",60
+"com.testjan.projan.MyBenchmarkSum.testSumOrigIta","thrpt",1,200,54.751261,1.353726,"ops/s",60
+"com.testjan.projan.MyBenchmarkSum.testSumOrigItaT","thrpt",1,200,2.967563,0.086206,"ops/s",60
