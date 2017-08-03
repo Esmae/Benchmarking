@@ -10,10 +10,10 @@ import org.eclipse.january.dataset.DatasetFactory;
 public class App {
 	public static void main(String[] args) {
 			
-			Dataset c = DatasetFactory.createRange(3*3);
-			c = c.reshape(3,3);
-			Dataset d = DatasetFactory.createRange(3*3);
-			d = d.reshape(3,3);
+			Dataset c = DatasetFactory.createRange(60*60*60*60);
+			c = c.reshape(60,60,60,60);
+			Dataset d = DatasetFactory.createRange(60*60*60*60);
+			d = d.reshape(60,60,60,60);
 			Addition.myAdd(c, d);
 			while (true) {
 				Addition.myAdd(c, d);

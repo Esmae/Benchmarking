@@ -3,6 +3,7 @@ com/testjan/projan/generated/MyBenchmarkMult_myRefState_jmhType.java
 com/testjan/projan/generated/MyBenchmarkMult_jmhType_B2.java
 com/testjan/projan/generated/MyBenchmarkMult_myState_jmhType_B3.class
 com/testjan/projan/generated/MyBenchmarkAdd_jmhType_B1.class
+com/testjan/projan/generated/MyBenchmarkAdd_testAddTTMine_jmhTest.java
 com/testjan/projan/generated/MyBenchmarkMult_jmhType.java
 com/testjan/projan/generated/MyBenchmarkAdd_myState_jmhType.class
 com/testjan/projan/generated/MyBenchmarkMult_testTenDotOrig1212_jmhTest.class
@@ -10,7 +11,6 @@ META-INF/BenchmarkList
 com/testjan/projan/generated/MyBenchmarkMult_jmhType_B1.class
 com/testjan/projan/generated/MyBenchmarkMult_testTenDotMine1212_jmhTest.java
 com/testjan/projan/generated/MyBenchmarkMult_myState_jmhType.class
-com/testjan/projan/generated/MyBenchmarkAdd_testAddTransposeOrig_jmhTest.class
 com/testjan/projan/generated/MyBenchmarkMult_testRef_jmhTest.java
 com/testjan/projan/MyTensorDot.class
 com/testjan/projan/generated/MyBenchmarkMult_myState_jmhType_B2.class
@@ -25,6 +25,7 @@ com/testjan/projan/Addition.class
 com/testjan/projan/generated/MyBenchmarkMult_jmhType_B3.java
 com/testjan/projan/OrigTensorDot.class
 com/testjan/projan/generated/MyBenchmarkMult_testTenDotOrig2121_jmhTest.class
+com/testjan/projan/AppT.class
 com/testjan/projan/generated/MyBenchmarkAdd_jmhType_B3.class
 com/testjan/projan/generated/MyBenchmarkAdd_testAddMine_jmhTest.class
 com/testjan/projan/generated/MyBenchmarkAdd_testAddTransposeMine_jmhTest.class
@@ -35,17 +36,16 @@ com/testjan/projan/generated/MyBenchmarkMult_testTenDotMine2121_jmhTest.class
 com/testjan/projan/generated/MyBenchmarkMult_myRefState_jmhType_B3.java
 META-INF/CompilerHints
 com/testjan/projan/StrideSort.class
-com/testjan/projan/generated/MyBenchmarkAdd_testAddOrig_jmhTest.java
 com/testjan/projan/StrideSortTwo.class
 com/testjan/projan/Reference.class
 com/testjan/projan/generated/MyBenchmarkAdd_myState_jmhType_B1.java
 com/testjan/projan/generated/MyBenchmarkMult_myState_jmhType_B1.class
 com/testjan/projan/MyBenchmarkMult$myRefState.class
-com/testjan/projan/generated/MyBenchmarkAdd_testAddTransposeOrig_jmhTest.java
 com/testjan/projan/generated/MyBenchmarkMult_testTenDotMine2121_jmhTest.java
 com/testjan/projan/generated/MyBenchmarkAdd_jmhType_B1.java
 com/testjan/projan/generated/MyBenchmarkAdd_myState_jmhType_B1.class
 com/testjan/projan/generated/MyBenchmarkAdd_testAddMine_jmhTest.java
+com/testjan/projan/AppDoubleT.class
 com/testjan/projan/generated/MyBenchmarkAdd_myState_jmhType_B2.java
 com/testjan/projan/generated/MyBenchmarkMult_myState_jmhType_B3.java
 com/testjan/projan/generated/MyBenchmarkMult_myRefState_jmhType_B2.java
@@ -54,11 +54,11 @@ com/testjan/projan/generated/MyBenchmarkMult_jmhType_B3.class
 com/testjan/projan/MyBenchmarkMult$myState.class
 com/testjan/projan/generated/MyBenchmarkMult_myRefState_jmhType_B1.class
 com/testjan/projan/MyBenchmarkAdd.class
-com/testjan/projan/generated/MyBenchmarkAdd_testAddOrig_jmhTest.class
 com/testjan/projan/generated/MyBenchmarkAdd_jmhType_B2.class
 com/testjan/projan/generated/MyBenchmarkMult_myRefState_jmhType_B3.class
 com/testjan/projan/generated/MyBenchmarkMult_testTenDotMine1212_jmhTest.class
 com/testjan/projan/generated/MyBenchmarkAdd_jmhType.java
+com/testjan/projan/generated/MyBenchmarkAdd_testAddTTMine_jmhTest.class
 com/testjan/projan/MyBenchmarkAdd$myState.class
 com/testjan/projan/generated/MyBenchmarkAdd_jmhType.class
 com/testjan/projan/generated/MyBenchmarkMult_jmhType_B1.java
