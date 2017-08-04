@@ -75,7 +75,7 @@ public class MyBenchmarkSum {
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	public double testSumMyStrideIta(myState theState){
-		return SumDataset.sumOrigIterator(theState.dataset);
+		return SumDataset.sumMyStrideIterator(theState.dataset);
 	}
 	/**
 	 * Benchmarks the summation of a transposed dataset using MyStrideIterator
@@ -87,7 +87,57 @@ public class MyBenchmarkSum {
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	public double testSumMyStrideItaT(myState theState){
-		return SumDataset.sumOrigIterator(theState.datasetT);
+		return SumDataset.sumMyStrideIterator(theState.datasetT);
+	}
+	
+	
+	/**
+	 * Benchmarks the summation of a dataset using MyStrideIterator
+	 * @param theState
+	 * @return
+	 */
+	@Benchmark
+	@BenchmarkMode(Mode.Throughput)
+	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
+	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
+	public double testSumMyStrideIta2(myState theState){
+		return SumDataset.sumMyStrideIterator2(theState.dataset);
+	}
+	/**
+	 * Benchmarks the summation of a transposed dataset using MyStrideIterator
+	 * @param theState
+	 * @return
+	 */
+	@Benchmark
+	@BenchmarkMode(Mode.Throughput)
+	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
+	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
+	public double testSumMyStrideItaT2(myState theState){
+		return SumDataset.sumMyStrideIterator2(theState.datasetT);
+	}
+	/**
+	 * Benchmarks the summation of a dataset using MyStrideIterator
+	 * @param theState
+	 * @return
+	 */
+	@Benchmark
+	@BenchmarkMode(Mode.Throughput)
+	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
+	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
+	public double testSumMyIndexIta(myState theState){
+		return SumDataset.sumMyIndexIterator(theState.dataset);
+	}
+	/**
+	 * Benchmarks the summation of a transposed dataset using MyStrideIterator
+	 * @param theState
+	 * @return
+	 */
+	@Benchmark
+	@BenchmarkMode(Mode.Throughput)
+	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
+	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
+	public double testSumMyIndexItaT(myState theState){
+		return SumDataset.sumMyIndexIterator(theState.datasetT);
 	}
 	
 }

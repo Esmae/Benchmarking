@@ -72,25 +72,25 @@ public class MyBenchmarkAdd {
 	 * @param theState - contains the dataset
 	 * @return
 	 */
-/*	@Benchmark
+	@Benchmark
 	@BenchmarkMode(Mode.Throughput)
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	public Dataset testAddOrig(myState theState){
 		return Addition.add(theState.dataseta,theState.datasetb);
-	}*/
+	}
 	/**
 	 * Benchmarking adding a transposed view of a tensor to itself, with original iterator
 	 * @param theState - contains the dataset 
 	 * @return
 	 */
-	/*@Benchmark
+	@Benchmark
 	@BenchmarkMode(Mode.Throughput)
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	public Dataset testAddTransposeOrig(myState theState){
 		return Addition.add(theState.datasetTa,theState.datasetTb);
-	}*/
+	}
 	
 	/**
 	 * Benchmarking adding a tensor to itself, with my iterator
@@ -116,20 +116,6 @@ public class MyBenchmarkAdd {
 	public Dataset testAddTransposeMine(myState theState){
 		return Addition.myAdd(theState.datasetTa,theState.datasetTb);
 	}
-/*	@Benchmark
-	@BenchmarkMode(Mode.Throughput)
-	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
-	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
-	public Dataset testAddTransposeMineRev(myState theState){
-		return Addition.myAddRev(theState.datasetTa,theState.datasetTb);
-	}*/
-	/*@Benchmark
-	@BenchmarkMode(Mode.Throughput)
-	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
-	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
-	public Dataset testAddMineRev(myState theState){
-		return Addition.myAddRev(theState.dataseta,theState.datasetb);
-	}*/
 	@Benchmark
 	@BenchmarkMode(Mode.Throughput)
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)

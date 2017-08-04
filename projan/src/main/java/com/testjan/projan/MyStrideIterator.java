@@ -13,7 +13,6 @@ public class MyStrideIterator {
 	private int[] shape;
 	private int endrank;
 	private int[] pos;
-	int imax;
 	private int[] strideOrder;
 	public int index;
 
@@ -50,7 +49,37 @@ public class MyStrideIterator {
 	public int[] getShape() {
 		return shape;
 	}
-
+	/**
+	 * 
+	 * @return the strides of the corresponding dataset
+	 */
+	public int[] getStride(){
+		return stride;
+	}
+	/**
+	 * 
+	 * @return the deltas of the corresponding dataset
+	 */
+	public int[] getDelta(){
+		return delta;
+	}
+	/**
+	 * 
+	 * @return the order in which to iterate through the strides of the corresponding dataset
+	 */
+	public int[] getStrideOrder(){
+		return strideOrder;
+	}
+	/**
+	 * 
+	 * @return the rank of the corresponding dataset
+	 */
+	public int getRank(){
+		return endrank + 1;
+	}
+	
+	
+	
 	/**
 	 * 
 	 * @return current position in dataset
@@ -62,6 +91,7 @@ public class MyStrideIterator {
 	/**
 	 * Returns true is there is another iteration, and moves onto the next
 	 * Position
+	 * Runs about 50% faster than hasNext2()
 	 * 
 	 * @return
 	 */
@@ -78,7 +108,36 @@ public class MyStrideIterator {
 			}
 			pos[axis] = 0;
 			index -= delta[axis]; // reset this dimension
+			 			
+			
 		}
+		return j >= 0;
+	}
+	
+	/**
+	 * Returns true is there is another iteration, and moves onto the next
+	 * Position
+	 * Runs slower than hasNext()
+	 * @return
+	 */
+	public boolean hasNext2(){
+		int j = endrank;
+		for (; j >= 0; j--) {
+			
+			int axis = strideOrder[j];
+			int p = pos[axis] + 1 ;//running slow?, spends ~90% of time on this line
+			if (p < shape[axis]) {
+				pos[axis] = p;
+				break;
+			}
+			pos[axis] = 0;
+		}
+		
+		index = 0;
+		for(int i=0;i<=endrank;i++){
+			index += pos[i]*stride[i];
+		}
+		
 		return j >= 0;
 	}
 
