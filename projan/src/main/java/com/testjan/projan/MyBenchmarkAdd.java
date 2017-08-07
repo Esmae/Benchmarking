@@ -4,8 +4,6 @@ import java.util.concurrent.TimeUnit;
 
 import org.eclipse.january.dataset.Dataset;
 import org.eclipse.january.dataset.DatasetFactory;
-import org.eclipse.january.dataset.PositionIterator;
-import org.junit.Assert;
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.BenchmarkMode;
 import org.openjdk.jmh.annotations.Level;
@@ -155,7 +153,7 @@ public class MyBenchmarkAdd {
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	public Dataset testAddTTMine(myState theState){
-		return Addition.myAdd(theState.datasetTTa,theState.datasetTTb);
+		return Addition.myAdd(theState.datasetTTa,theState.datasetTTa);
 	}
 	
 	
