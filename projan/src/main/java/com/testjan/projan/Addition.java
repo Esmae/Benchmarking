@@ -50,7 +50,7 @@ public class Addition {
 			//creating a result Dataset
 			Dataset result = DatasetFactory.zeros(a.getShape());
 			
-			//want to order based on the strides of a - doesn't matter which tensor to use as both have the same shape
+			//want to order based on the strides of a
 			int[] aoffset = new int[1];
 			final int[] astride= AbstractDataset.createStrides(a, aoffset);
 			int[] aaxes = new int[a.getRank()];
@@ -62,6 +62,58 @@ public class Addition {
 			
 			Integer[] aaxesobj = ArrayUtils.toObject(aaxes);
 			Collections.sort(Arrays.asList(aaxesobj),new StrideSort(astride));//sorts aaxes
+			aaxes = ArrayUtils.toPrimitive(aaxesobj);
+			
+			MyPositionIterator ita = new MyPositionIterator(a.getShape(),aaxes);//iterating through all three tensors in the same way
+																				//so only need one iterator
+			final int[] apos = ita.getPos();
+			while(ita.hasNext()){
+				//adding elements
+				result.set(a.getDouble(apos) + b.getDouble(apos), apos);
+			}
+			
+			return result;
+		}
+	}
+	
+	/**
+	 * Adding two datasets of the same shape a and b, iterates through axes based on their strides
+	 * If the datasets aren't the same shape, throws an IllegalArgumentException
+	 * Unlike myAdd, compares the strides of the two dataset to see how to order the strides 
+	 * rather than just ordering based on the strides of a
+	 * @param a
+	 * @param b
+	 * @return
+	 */
+	public static Dataset myAdd2(Dataset a, Dataset b){
+		if(!Arrays.equals(a.getShape(), b.getShape())){
+			throw new IllegalArgumentException("Tensors to add must have the same shape");
+		}else{
+			//creating a result Dataset
+			Dataset result = DatasetFactory.zeros(a.getShape());
+			
+			//'multiplying' the strides from the two datasets
+			int[] aoffset = new int[1];
+			final int[] astride= AbstractDataset.createStrides(a, aoffset);
+			int[] boffset = new int[1];
+			final int[] bstride= AbstractDataset.createStrides(b, boffset);
+			
+			final int[] strideMult = new int[astride.length];
+			for(int i=0;i<strideMult.length;i++){
+				strideMult[i] = astride[i]*bstride[i]; 
+			}
+			
+			
+			
+			int[] aaxes = new int[a.getRank()];
+			//initialising aaxes
+			for(int i=0;i<a.getRank();i++){
+				aaxes[i]=i;
+			}
+		
+			
+			Integer[] aaxesobj = ArrayUtils.toObject(aaxes);
+			Collections.sort(Arrays.asList(aaxesobj),new StrideSort(strideMult));//sorts aaxes
 			aaxes = ArrayUtils.toPrimitive(aaxesobj);
 			
 			MyPositionIterator ita = new MyPositionIterator(a.getShape(),aaxes);//iterating through all three tensors in the same way

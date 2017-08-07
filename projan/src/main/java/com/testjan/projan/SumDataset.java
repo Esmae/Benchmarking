@@ -88,6 +88,7 @@ public class SumDataset {
 	
 	/**
 	 * Sums the elements in the dataset in index order
+	 * Doesn't use an iterator object
 	 * @param a: the dataset
 	 * @return
 	 */

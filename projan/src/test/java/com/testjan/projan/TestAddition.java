@@ -66,6 +66,20 @@ public class TestAddition {
 	}
 	
 	/**
+	 * Tests the addition of two tensors using MyPositionIterator, by converting to a 1D dataset and comparing each element in turn with expect
+	 */
+	@Test
+	public void testMyAdd2(){
+		Dataset result = Addition.myAdd2(dataset1, dataset2);
+		//converting to a 1D dataset
+		result = result.reshape(result.getSize());
+		for(int i=0;i<expect.length;i++){
+			//testing each element individually
+			Assert.assertEquals(expect[i], result.getInt(i));
+		}
+	}
+	
+	/**
 	 * Testing that add throws an exception when it should
 	 */
 	@Test
