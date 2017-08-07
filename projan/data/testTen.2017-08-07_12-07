@@ -1,0 +1,7 @@
+"Benchmark","Mode","Threads","Samples","Score","Score Error (99.9%)","Unit","Param: S"
+"com.testjan.projan.MyBenchmarkAdd.testAddMine2_12","thrpt",1,200,1.252401,0.021939,"ops/s",60
+"com.testjan.projan.MyBenchmarkAdd.testAddMine2_13","thrpt",1,200,2.421035,0.039765,"ops/s",60
+"com.testjan.projan.MyBenchmarkAdd.testAddMine2_14","thrpt",1,200,2.462706,0.045295,"ops/s",60
+"com.testjan.projan.MyBenchmarkAdd.testAddMine_12","thrpt",1,200,2.721260,0.060330,"ops/s",60
+"com.testjan.projan.MyBenchmarkAdd.testAddMine_13","thrpt",1,200,1.743701,0.032496,"ops/s",60
+"com.testjan.projan.MyBenchmarkAdd.testAddMine_14","thrpt",1,200,1.977849,0.054611,"ops/s",60
