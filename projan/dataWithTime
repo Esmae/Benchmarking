@@ -380,3 +380,5 @@ com.testjan.projan.MyBenchmarkAdd.testAddMine_0123,thrpt,1,200,1.32056390194e-08
 com.testjan.projan.MyBenchmarkAdd.testAddMine_3210,thrpt,1,200,4.32819934531e-09,2.40579345204e-10,ops/s,60
 com.testjan.projan.MyBenchmarkAdd.testAddMine_3210x2,thrpt,1,200,1.1964814614e-08,2.53315735905e-10,ops/s,60
 com.testjan.projan.MyBenchmarkAdd.testAddMine_untranposed,thrpt,1,200,1.50239756797e-08,2.12277792971e-10,ops/s,60
+com.testjan.projan.MyBenchmarkAdd.testAddMine_3210x2,thrpt,1,200,1.15976800321e-08,2.23792818529e-10,ops/s,60
+com.testjan.projan.MyBenchmarkAdd.testAddTTMine,thrpt,1,200,3.44227008407e-09,8.64410469309e-11,ops/s,60
