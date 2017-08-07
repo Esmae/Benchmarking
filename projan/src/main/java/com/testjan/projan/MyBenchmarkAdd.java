@@ -166,7 +166,7 @@ public class MyBenchmarkAdd {
 	@BenchmarkMode(Mode.Throughput)
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
-	public Dataset testAddMine_12(myState theState){
+	public Dataset testAddMine_testing1(myState theState){
 		return Addition.myAdd(theState.dataset1,theState.dataset2);
 	}
 	/**
@@ -179,8 +179,8 @@ public class MyBenchmarkAdd {
 	@BenchmarkMode(Mode.Throughput)
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
-	public Dataset testAddMine_13(myState theState){
-		return Addition.myAdd(theState.dataset1,theState.dataset3);
+	public Dataset testAddMine_testing2(myState theState){
+		return Addition.myAdd(theState.dataset1,theState.dataset1);
 	}
 	/**
 	 * Benchmarking adding two tensors (with strides - as they have been transposed)
@@ -192,8 +192,8 @@ public class MyBenchmarkAdd {
 	@BenchmarkMode(Mode.Throughput)
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
-	public Dataset testAddMine_14(myState theState){
-		return Addition.myAdd(theState.dataset1,theState.dataset4);
+	public Dataset testAddMine_testing3(myState theState){
+		return Addition.myAdd(theState.dataseta,theState.dataseta);
 	}/**
 	 * Benchmarking adding two tensors (with strides - as they have been transposed)
 	 * using iterator in myAdd2
