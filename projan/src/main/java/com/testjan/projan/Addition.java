@@ -2,6 +2,7 @@ package com.testjan.projan;
 
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
 
 import org.apache.commons.lang.ArrayUtils;
 import org.eclipse.january.dataset.AbstractDataset;
@@ -61,7 +62,8 @@ public class Addition {
 		
 			
 			Integer[] aaxesobj = ArrayUtils.toObject(aaxes);
-			Collections.sort(Arrays.asList(aaxesobj),new StrideSort(astride));//sorts aaxes
+			List<Integer> aList = Arrays.asList(aaxesobj);
+			Collections.sort(aList,new StrideSort(astride));//sorts aaxes
 			aaxes = ArrayUtils.toPrimitive(aaxesobj);
 			
 			MyPositionIterator ita = new MyPositionIterator(a.getShape(),aaxes);//iterating through all three tensors in the same way

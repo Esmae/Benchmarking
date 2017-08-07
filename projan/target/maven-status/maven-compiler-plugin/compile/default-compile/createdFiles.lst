@@ -6,8 +6,8 @@ com/testjan/projan/generated/MyBenchmarkAdd_testAddTTMine_jmhTest.java
 com/testjan/projan/generated/MyBenchmarkSum_myState_jmhType.class
 com/testjan/projan/generated/MyBenchmarkAdd_myState_jmhType.class
 com/testjan/projan/generated/MyBenchmarkSum_testSumMyStrideItaT_jmhTest.class
-com/testjan/projan/generated/MyBenchmarkAdd_testAddMine2_3210x2_jmhTest.class
 com/testjan/projan/generated/MyBenchmarkSum_jmhType_B3.class
+com/testjan/projan/generated/MyBenchmarkAdd_testAddMine2_3210x2_jmhTest.class
 com/testjan/projan/generated/MyBenchmarkMult_jmhType_B1.class
 com/testjan/projan/generated/MyBenchmarkSum_testSumOrigItaT_jmhTest.class
 com/testjan/projan/generated/MyBenchmarkMult_testTenDotMine1212_jmhTest.java
@@ -110,8 +110,8 @@ com/testjan/projan/generated/MyBenchmarkMult_myRefState_jmhType_B1.class
 com/testjan/projan/generated/MyBenchmarkAdd_testAddMine2_0123_jmhTest.class
 com/testjan/projan/generated/MyBenchmarkAdd_testAddOrig_jmhTest.class
 com/testjan/projan/generated/MyBenchmarkAdd_testAddMine2_3210_jmhTest.java
-com/testjan/projan/generated/MyBenchmarkAdd_jmhType_B2.class
 com/testjan/projan/generated/MyBenchmarkSum_testSumMyStrideIta_jmhTest.class
+com/testjan/projan/generated/MyBenchmarkAdd_jmhType_B2.class
 com/testjan/projan/generated/MyBenchmarkAdd_jmhType.java
 com/testjan/projan/generated/MyBenchmarkAdd_testAddTTMine_jmhTest.class
 com/testjan/projan/generated/MyBenchmarkMult_jmhType_B1.java
