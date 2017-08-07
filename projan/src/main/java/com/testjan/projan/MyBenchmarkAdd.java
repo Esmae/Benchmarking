@@ -4,6 +4,8 @@ import java.util.concurrent.TimeUnit;
 
 import org.eclipse.january.dataset.Dataset;
 import org.eclipse.january.dataset.DatasetFactory;
+import org.eclipse.january.dataset.PositionIterator;
+import org.junit.Assert;
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.BenchmarkMode;
 import org.openjdk.jmh.annotations.Level;
@@ -14,6 +16,7 @@ import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.Setup;
 import org.openjdk.jmh.annotations.State;
 import org.openjdk.jmh.annotations.Warmup;
+
 
 /**
  * Benchmarks the addition of two tensors (identical), before and after taking a transpose view
@@ -72,18 +75,22 @@ public class MyBenchmarkAdd {
 			
 			//Creating the datasets used for comparing ordering strides 
 			//when adding two datasets that don't have the same strides
-			dataset1 = DatasetFactory.createRange(S*S*S*S);
+			dataset1 = DatasetFactory.createRange(S*S*S*S);//untranposed tensor
 			dataset1 = dataset1.reshape(S,S,S,S);
-			dataset2 = DatasetFactory.createRange(S*S*S*S);
+			
+			dataset2 = DatasetFactory.createRange(S*S*S*S);//tranposed tensor in name only
 			dataset2 = dataset2.reshape(S,S,S,S);
-			dataset3 = DatasetFactory.createRange(S*S*S*S);
+			dataset2 = dataset2.getTransposedView(0,1,2,3);
+			
+			dataset3 = DatasetFactory.createRange(S*S*S*S);//3210 tranposed tensor
 			dataset3 = dataset3.reshape(S,S,S,S);
-			dataset4 = DatasetFactory.createRange(S*S*S*S);
+			dataset3 = dataset3.getTransposedView(3,2,1,0);
+			
+			dataset4 = DatasetFactory.createRange(S*S*S*S);//double tranposed 3210 tensor (so not actually tranposed really)
 			dataset4 = dataset4.reshape(S,S,S,S);
-			dataset1 = dataset1.getTransposedView(0,1,2,3);
-			dataset2 = dataset2.getTransposedView(0,2,1,3);
-			dataset3 = dataset3.getTransposedView(1,2,3,0);
-			dataset4 = dataset4.getTransposedView(1,3,0,2);
+			dataset4 = dataset4.getTransposedView(3,2,1,0);
+			dataset4 = dataset4.getTransposedView(3,2,1,0);
+
 			
 			
 		}
@@ -158,7 +165,7 @@ public class MyBenchmarkAdd {
 	
 	/**
 	 * Benchmarking adding two tensors (with strides - as they have been transposed)
-	 * using iterator in myAdd2
+	 * using iterator in myAdd
 	 * @param theState - contains the datasets
 	 * @return
 	 */
@@ -166,25 +173,12 @@ public class MyBenchmarkAdd {
 	@BenchmarkMode(Mode.Throughput)
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
-	public Dataset testAddMine_testing1(myState theState){
-		return Addition.myAdd(theState.dataset1,theState.dataset2);
-	}
-	/**
-	 * Benchmarking adding two tensors (with strides - as they have been transposed)
-	 * using iterator in myAdd2
-	 * @param theState - contains the datasets
-	 * @return
-	 */
-	@Benchmark
-	@BenchmarkMode(Mode.Throughput)
-	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
-	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
-	public Dataset testAddMine_testing2(myState theState){
+	public Dataset testAddMine_untranposed(myState theState){
 		return Addition.myAdd(theState.dataset1,theState.dataset1);
 	}
 	/**
 	 * Benchmarking adding two tensors (with strides - as they have been transposed)
-	 * using iterator in myAdd2
+	 * using iterator in myAdd
 	 * @param theState - contains the datasets
 	 * @return
 	 */
@@ -192,9 +186,37 @@ public class MyBenchmarkAdd {
 	@BenchmarkMode(Mode.Throughput)
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
-	public Dataset testAddMine_testing3(myState theState){
-		return Addition.myAdd(theState.datasetTa,theState.datasetTb);
-	}/**
+	public Dataset testAddMine_0123(myState theState){
+		return Addition.myAdd(theState.dataset2,theState.dataset2);
+	}
+	/**
+	 * Benchmarking adding two tensors (with strides - as they have been transposed)
+	 * using iterator in myAdd
+	 * @param theState - contains the datasets
+	 * @return
+	 */
+	@Benchmark
+	@BenchmarkMode(Mode.Throughput)
+	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
+	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
+	public Dataset testAddMine_3210(myState theState){
+		return Addition.myAdd(theState.dataset3,theState.dataset3);
+	}
+	/**
+	 * Benchmarking adding two tensors (with strides - as they have been transposed)
+	 * using iterator in myAdd
+	 * @param theState - contains the datasets
+	 * @return
+	 */
+	@Benchmark
+	@BenchmarkMode(Mode.Throughput)
+	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
+	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
+	public Dataset testAddMine_3210x2(myState theState){
+		return Addition.myAdd(theState.dataset4,theState.dataset4);
+	}
+	
+	/**
 	 * Benchmarking adding two tensors (with strides - as they have been transposed)
 	 * using iterator in myAdd2
 	 * @param theState - contains the datasets
@@ -204,8 +226,8 @@ public class MyBenchmarkAdd {
 	@BenchmarkMode(Mode.Throughput)
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
-	public Dataset testAddMine2_12(myState theState){
-		return Addition.myAdd2(theState.dataset1,theState.dataset2);
+	public Dataset testAddMine2_untranposed(myState theState){
+		return Addition.myAdd2(theState.dataset1,theState.dataset1);
 	}
 	/**
 	 * Benchmarking adding two tensors (with strides - as they have been transposed)
@@ -217,8 +239,8 @@ public class MyBenchmarkAdd {
 	@BenchmarkMode(Mode.Throughput)
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
-	public Dataset testAddMine2_13(myState theState){
-		return Addition.myAdd2(theState.dataset1,theState.dataset3);
+	public Dataset testAddMine2_0123(myState theState){
+		return Addition.myAdd2(theState.dataset2,theState.dataset2);
 	}
 	/**
 	 * Benchmarking adding two tensors (with strides - as they have been transposed)
@@ -230,8 +252,29 @@ public class MyBenchmarkAdd {
 	@BenchmarkMode(Mode.Throughput)
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
-	public Dataset testAddMine2_14(myState theState){
-		return Addition.myAdd2(theState.dataset1,theState.dataset4);
+	public Dataset testAddMine2_3210(myState theState){
+		return Addition.myAdd2(theState.dataset3,theState.dataset3);
 	}
+	/**
+	 * Benchmarking adding two tensors (with strides - as they have been transposed)
+	 * using iterator in myAdd2
+	 * @param theState - contains the datasets
+	 * @return
+	 */
+	@Benchmark
+	@BenchmarkMode(Mode.Throughput)
+	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
+	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
+	public Dataset testAddMine2_3210x2(myState theState){
+		return Addition.myAdd2(theState.dataset4,theState.dataset4);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }
