@@ -1,0 +1,4 @@
+"Benchmark","Mode","Threads","Samples","Score","Score Error (99.9%)","Unit","Param: S"
+"com.testjan.projan.MyBenchmarkAdd.testAddMine_testing1","thrpt",1,200,2.613673,0.069787,"ops/s",60
+"com.testjan.projan.MyBenchmarkAdd.testAddMine_testing2","thrpt",1,200,3.015305,0.071957,"ops/s",60
+"com.testjan.projan.MyBenchmarkAdd.testAddMine_testing3","thrpt",1,200,0.799281,0.017819,"ops/s",60
