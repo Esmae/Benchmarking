@@ -193,7 +193,7 @@ public class MyBenchmarkAdd {
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	public Dataset testAddMine_testing3(myState theState){
-		return Addition.myAdd(theState.dataseta,theState.dataseta);
+		return Addition.myAdd(theState.datasetTa,theState.datasetTb);
 	}/**
 	 * Benchmarking adding two tensors (with strides - as they have been transposed)
 	 * using iterator in myAdd2
