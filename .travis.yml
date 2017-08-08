@@ -9,7 +9,7 @@ install: "pip install -r requirements.txt"
 script:
 - mvn clean install -f projan/pom.xml
 - java -jar projan/target/projan-0.0.1-SNAPSHOT.jar com.testjan.projan.MyBenchmarkMult.testRef -i 20 -rf csv -rff refBench
-- java -jar projan/target/projan-0.0.1-SNAPSHOT.jar com.testjan.projan.MyBenchmarkAdd.testAddMine_untransposed com.testjan.projan.MyBenchmarkAdd.testAddMine_3210 com.testjan.projan.MyBenchmarkAdd.testAddOrig com.testjan.projan.MyBenchmarkAdd.testAddTransposeOrig  -i 15 -rf csv -rff testTen
+- java -jar projan/target/projan-0.0.1-SNAPSHOT.jar com.testjan.projan.MyBenchmarkAdd.testAddMine_3210 -i 15 -rf csv -rff testTen
 #don't want an email every time I commit
 notifications:
   email: false
