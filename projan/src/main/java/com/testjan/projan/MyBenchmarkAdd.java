@@ -226,7 +226,7 @@ public class MyBenchmarkAdd {
 	@BenchmarkMode(Mode.Throughput)
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
-	public Dataset testAddMine2_untranposed(myState theState){
+	public Dataset testAddMine2_untransposed(myState theState){
 		return Addition.myAdd2(theState.dataset1,theState.dataset1);
 	}
 	/**
