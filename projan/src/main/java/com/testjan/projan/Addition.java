@@ -3,6 +3,7 @@ package com.testjan.projan;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.lang.Math;
 
 import org.apache.commons.lang.ArrayUtils;
 import org.eclipse.january.dataset.AbstractDataset;
@@ -73,7 +74,8 @@ public class Addition {
 			final int[] apos = ita.getPos();
 			while(ita.hasNext()){
 				//adding elements
-				result.set(a.getDouble(apos) + b.getDouble(apos), apos);
+				//TODO: remove this and re-put in the JUnit tests
+				result.set(Math.log(Math.abs(a.getDouble(apos) + b.getDouble(apos))+1.0), apos);
 			}
 			
 			return result;
@@ -127,13 +129,23 @@ public class Addition {
 			final int[] apos = ita.getPos();
 			while(ita.hasNext()){
 				//adding elements
-				result.set(a.getDouble(apos) + b.getDouble(apos), apos);
+				//TODO: remove this and re-put in the JUnit tests
+				result.set(Math.log(Math.abs(a.getDouble(apos) + b.getDouble(apos))+1.0), apos);
+				
 			}
 			
 			return result;
 		}
 	}
 	
+	public static void main(String[] args){
+		Dataset dataset3 = DatasetFactory.createRange(3*3*3);//3210 tranposed tensor
+		dataset3 = dataset3.reshape(3,3,3);
+		dataset3 = dataset3.getTransposedView(2,1,0);
+		dataset3 = dataset3.getTransposedView(2,1,0);
+		myAdd(dataset3,dataset3);
+		
+	}
 
 		
 		

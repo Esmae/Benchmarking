@@ -141,7 +141,7 @@ public class MyBenchmarkAdd {
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	public Dataset testAddTransposeMine(myState theState){
-		return Addition.myAdd(theState.datasetTa,theState.datasetTb);
+		return Addition.myAdd(theState.datasetTa,theState.datasetTa);
 	}
 	/**
 	 * Benchmarking adding a transposed view of a transposed view of a tensor to itself, with my iterator
