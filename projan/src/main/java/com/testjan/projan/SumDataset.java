@@ -2,6 +2,7 @@ package com.testjan.projan;
 
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
 
 import org.apache.commons.lang.ArrayUtils;
 import org.eclipse.january.dataset.AbstractDataset;
@@ -47,7 +48,9 @@ public class SumDataset {
 			aaxes[i] = i;
 		}
 		Integer[] aaxesobj = ArrayUtils.toObject(aaxes);
+		List<Integer> aList = Arrays.asList(aaxesobj);
 		Collections.sort(Arrays.asList(aaxesobj),new StrideSort(astride));//sorts aaxes
+		aaxesobj = (Integer[]) aList.toArray();
 		aaxes = ArrayUtils.toPrimitive(aaxesobj);
 		//creating the strideIterator
 		MyStrideIterator ita = new MyStrideIterator(shape, astride, aaxes);
@@ -76,7 +79,9 @@ public class SumDataset {
 			aaxes[i] = i;
 		}
 		Integer[] aaxesobj = ArrayUtils.toObject(aaxes);
+		List<Integer> aList = Arrays.asList(aaxesobj);
 		Collections.sort(Arrays.asList(aaxesobj),new StrideSort(astride));//sorts aaxes
+		aaxesobj = (Integer[]) aList.toArray();
 		aaxes = ArrayUtils.toPrimitive(aaxesobj);
 		//creating the strideIterator
 		MyStrideIterator ita = new MyStrideIterator(shape, astride, aaxes);

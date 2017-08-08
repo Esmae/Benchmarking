@@ -148,13 +148,13 @@ public class MyBenchmarkAdd {
 	 * @param theState - contains the datasets
 	 * @return
 	 */
-	@Benchmark
+	/*@Benchmark
 	@BenchmarkMode(Mode.Throughput)
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	public Dataset testAddTTMine(myState theState){
 		return Addition.myAdd(theState.datasetTTa,theState.datasetTTa);
-	}
+	}*/
 	
 	
 	
@@ -167,19 +167,19 @@ public class MyBenchmarkAdd {
 	 * @param theState - contains the datasets
 	 * @return
 	 */
-	@Benchmark
+/*	@Benchmark
 	@BenchmarkMode(Mode.Throughput)
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	public Dataset testAddMine_untranposed(myState theState){
 		return Addition.myAdd(theState.dataset1,theState.dataset1);
 	}
-	/**
+	*//**
 	 * Benchmarking adding two tensors (with strides - as they have been transposed)
 	 * using iterator in myAdd
 	 * @param theState - contains the datasets
 	 * @return
-	 */
+	 *//*
 	@Benchmark
 	@BenchmarkMode(Mode.Throughput)
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
@@ -187,12 +187,12 @@ public class MyBenchmarkAdd {
 	public Dataset testAddMine_0123(myState theState){
 		return Addition.myAdd(theState.dataset2,theState.dataset2);
 	}
-	/**
+	*//**
 	 * Benchmarking adding two tensors (with strides - as they have been transposed)
 	 * using iterator in myAdd
 	 * @param theState - contains the datasets
 	 * @return
-	 */
+	 *//*
 	@Benchmark
 	@BenchmarkMode(Mode.Throughput)
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
@@ -200,12 +200,12 @@ public class MyBenchmarkAdd {
 	public Dataset testAddMine_3210(myState theState){
 		return Addition.myAdd(theState.dataset3,theState.dataset3);
 	}
-	/**
+	*//**
 	 * Benchmarking adding two tensors (with strides - as they have been transposed)
 	 * using iterator in myAdd
 	 * @param theState - contains the datasets
 	 * @return
-	 */
+	 *//*
 	@Benchmark
 	@BenchmarkMode(Mode.Throughput)
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
@@ -214,12 +214,12 @@ public class MyBenchmarkAdd {
 		return Addition.myAdd(theState.dataset4,theState.dataset4);
 	}
 	
-	/**
+	*//**
 	 * Benchmarking adding two tensors (with strides - as they have been transposed)
 	 * using iterator in myAdd2
 	 * @param theState - contains the datasets
 	 * @return
-	 */
+	 *//*
 	@Benchmark
 	@BenchmarkMode(Mode.Throughput)
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
@@ -227,12 +227,12 @@ public class MyBenchmarkAdd {
 	public Dataset testAddMine2_untranposed(myState theState){
 		return Addition.myAdd2(theState.dataset1,theState.dataset1);
 	}
-	/**
+	*//**
 	 * Benchmarking adding two tensors (with strides - as they have been transposed)
 	 * using iterator in myAdd2
 	 * @param theState - contains the datasets
 	 * @return
-	 */
+	 *//*
 	@Benchmark
 	@BenchmarkMode(Mode.Throughput)
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
@@ -240,12 +240,12 @@ public class MyBenchmarkAdd {
 	public Dataset testAddMine2_0123(myState theState){
 		return Addition.myAdd2(theState.dataset2,theState.dataset2);
 	}
-	/**
+	*//**
 	 * Benchmarking adding two tensors (with strides - as they have been transposed)
 	 * using iterator in myAdd2
 	 * @param theState - contains the datasets
 	 * @return
-	 */
+	 *//*
 	@Benchmark
 	@BenchmarkMode(Mode.Throughput)
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
@@ -253,19 +253,19 @@ public class MyBenchmarkAdd {
 	public Dataset testAddMine2_3210(myState theState){
 		return Addition.myAdd2(theState.dataset3,theState.dataset3);
 	}
-	/**
+	*//**
 	 * Benchmarking adding two tensors (with strides - as they have been transposed)
 	 * using iterator in myAdd2
 	 * @param theState - contains the datasets
 	 * @return
-	 */
+	 *//*
 	@Benchmark
 	@BenchmarkMode(Mode.Throughput)
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	public Dataset testAddMine2_3210x2(myState theState){
 		return Addition.myAdd2(theState.dataset4,theState.dataset4);
-	}
+	}*/
 	
 	
 	

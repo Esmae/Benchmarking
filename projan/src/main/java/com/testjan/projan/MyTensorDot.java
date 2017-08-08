@@ -2,6 +2,7 @@ package com.testjan.projan;
 
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
 
 import org.apache.commons.lang.ArrayUtils;
 import org.eclipse.january.dataset.AbstractDataset;
@@ -74,16 +75,24 @@ public class MyTensorDot {
 			//want to order based on the strides of a
 			Integer[] aaxesobj = ArrayUtils.toObject(aaxes);
 			Integer[] baxesobj = ArrayUtils.toObject(baxes);
-			Collections.sort(Arrays.asList(aaxesobj),new StrideSort(astride));//sorts aaxes
-			Collections.sort(Arrays.asList(baxesobj),new StrideSortTwo(astride,aaxes,baxes));//sorts baxes, based on how aaxes was sorted
+			List<Integer> aList = Arrays.asList(aaxesobj);
+			List<Integer> bList = Arrays.asList(baxesobj);
+			Collections.sort(aList,new StrideSort(astride));//sorts aaxes
+			Collections.sort(bList,new StrideSortTwo(astride,aaxes,baxes));//sorts baxes, based on how aaxes was sorted
+			aaxesobj = (Integer[]) aList.toArray();
+			baxesobj = (Integer[]) bList.toArray();
 			aaxes = ArrayUtils.toPrimitive(aaxesobj);
 			baxes = ArrayUtils.toPrimitive(baxesobj);
 			
 		}else{//want to order based on the strides of b
 			Integer[] aaxesobj = ArrayUtils.toObject(aaxes);
 			Integer[] baxesobj = ArrayUtils.toObject(baxes);
+			List<Integer> aList = Arrays.asList(aaxesobj);
+			List<Integer> bList = Arrays.asList(baxesobj);
 			Collections.sort(Arrays.asList(baxesobj),new StrideSort(bstride));//sorts baxes
 			Collections.sort(Arrays.asList(aaxesobj),new StrideSortTwo(bstride,baxes,aaxes));//sorts aaxes based on how baxes was sorted
+			aaxesobj = (Integer[]) aList.toArray();
+			baxesobj = (Integer[]) bList.toArray();
 			aaxes = ArrayUtils.toPrimitive(aaxesobj);
 			baxes = ArrayUtils.toPrimitive(baxesobj);
 		}
