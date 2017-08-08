@@ -75,7 +75,7 @@ public class Addition {
 			while(ita.hasNext()){
 				//adding elements
 				//TODO: remove this and re-put in the JUnit tests
-				result.set(Math.pow(a.getDouble(apos) + b.getDouble(apos),0.0375), apos);
+				result.set(Math.tan(a.getDouble(apos) + b.getDouble(apos)), apos);
 			}
 			
 			return result;
