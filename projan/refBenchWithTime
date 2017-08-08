@@ -87,3 +87,4 @@ Benchmark,Mode,Threads,Samples,Score,Score Error (99.9%),Unit
 "com.testjan.projan.MyBenchmarkMult.testRef","thrpt",1,200,231790352.246634,6066823.319102,"ops/s"
 "com.testjan.projan.MyBenchmarkMult.testRef","thrpt",1,200,216701894.984820,6827020.976281,"ops/s"
 "com.testjan.projan.MyBenchmarkMult.testRef","thrpt",1,200,232308616.253334,5914573.948687,"ops/s"
+"com.testjan.projan.MyBenchmarkMult.testRef","thrpt",1,200,219019967.813904,10275816.032367,"ops/s"
