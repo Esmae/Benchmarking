@@ -126,7 +126,7 @@ public class MyBenchmarkAdd {
 	/**
 	 * Benchmarking adding a transposed view of a tensor to itself, with original iterator
 	 * @param theState - contains the datasets
-	 * @return
+	 * @return 
 	 */
 	@Benchmark
 	@BenchmarkMode(Mode.Throughput)
