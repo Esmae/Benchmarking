@@ -9,13 +9,15 @@ import org.junit.rules.ExpectedException;
 /**
  * Testing my implementation of a positionIterator which is based on the orignal
  * PositionIterator but iterates through the axes in a given order
- */
+ */ 
 public class TestMyPosIterator {
 	
 	private static MyPositionIterator ita = new MyPositionIterator(new int[]{2,2,3},new int[]{2,0,1});
 	private static int[] expectShape = {2,2,3};
-	private static int[] expectAxesOrder = {2,0,1};
-	private static int[] expectPos = {0,-1,0};
+	private static int[] expectAxesOrder1 = {0,1,2};
+	private static int[] expectAxesOrder2 = {2,0,1};
+	private static int[] expectPos1 = {0,0,-1};
+	private static int[] expectPos2 = {0,-1,0};
 	private static int expectRank = 3;
 	private static int[][] positions = {{0,0,0},{0,1,0},{1,0,0},{1,1,0},{0,0,1},{0,1,1},{1,0,1},{1,1,1},{0,0,2},{0,1,2},{1,0,2},{1,1,2}};
 	 
@@ -23,14 +25,29 @@ public class TestMyPosIterator {
 	public ExpectedException thrown = ExpectedException.none();
 	
 	/**
-	 * Testing the MyPositionIterator constructor
+	 * Testing a MyPositionIterator constructor
 	 */
 	@Test
-	public void testConstructor(){
+	public void testConstructor1(){
+		MyPositionIterator itaC = new MyPositionIterator(new int[]{2,2,3});
+		Assert.assertArrayEquals(expectShape,itaC.getShape());//testing the shape
+		Assert.assertArrayEquals(expectAxesOrder1,itaC.getAxesOrder());//testing the axesorder
+		Assert.assertArrayEquals(expectPos1,itaC.getPos());//testing the position
+		Assert.assertEquals(expectRank,itaC.getRank());//testing the shape
+	}
+	
+	
+	
+	
+	/**
+	 * Testing a MyPositionIterator constructor
+	 */
+	@Test
+	public void testConstructor2(){
 		MyPositionIterator itaC = new MyPositionIterator(new int[]{2,2,3},new int[]{2,0,1});
 		Assert.assertArrayEquals(expectShape,itaC.getShape());//testing the shape
-		Assert.assertArrayEquals(expectAxesOrder,itaC.getAxesOrder());//testing the axesorder
-		Assert.assertArrayEquals(expectPos,itaC.getPos());//testing the position
+		Assert.assertArrayEquals(expectAxesOrder2,itaC.getAxesOrder());//testing the axesorder
+		Assert.assertArrayEquals(expectPos2,itaC.getPos());//testing the position
 		Assert.assertEquals(expectRank,itaC.getRank());//testing the shape
 		thrown.expect(IllegalArgumentException.class);
 		thrown.expectMessage("The Axes given don't match the shape of the dataset");
@@ -62,6 +79,6 @@ public class TestMyPosIterator {
 			itaR.hasNext();
 		}
 		itaR.reset();//should reset the position
-		Assert.assertArrayEquals(expectPos, itaR.getPos());
+		Assert.assertArrayEquals(expectPos2, itaR.getPos());
 	}
 } 

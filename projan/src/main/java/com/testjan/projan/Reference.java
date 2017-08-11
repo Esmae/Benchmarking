@@ -1,42 +1,38 @@
 package com.testjan.projan;
-/*
- * used to create some reference benchmarking data
- * creates Dataset of a size given by the parameter passed to the constructor
- * Puts random numbers in the Dataset then sums the numbers
- */
-
-import java.util.Random;
 
 import org.eclipse.january.dataset.Dataset;
-import org.eclipse.january.dataset.DatasetFactory;
+import org.eclipse.january.dataset.Random;
 
+/**
+ * used to create some reference benchmarking data. Initalises a Dataset full of
+ * random doubles, of a shape given by the parameter passed to the constructor
+ * 
+ */
 public class Reference {
 
-	private static Random randGenerator = new Random(9658);
 	private Dataset refDataset;
 	private double size;
-	
+
 	/**
-	 * initialise a 1D dataset with size number of elements
-	 * @param theSize
+	 * Initialises a Dataset
+	 * 
+	 * @param theShape
+	 *            - the shape of the dataset
 	 */
-	public Reference(double theSize){
-		refDataset = DatasetFactory.createRange(theSize);
-		for(int i=0;i<theSize;i++){
-			refDataset.set(randGenerator.nextDouble(), i);
-		}
-		size = theSize;
-		
+	public Reference(int[] theShape) {
+		refDataset = Random.rand(theShape);
+		size = refDataset.getSize();
 	}
-	
+
 	/**
-	 * sums up all the elements in the dataset
+	 * Sums up all the elements in the dataset
+	 * 
 	 * @return the sum
 	 */
-	public double addNum(){
+	public double addNum() {
 		double sum = 0;
-		for(int i=0; i<size;i++){
-			sum += refDataset.getDouble(i);
+		for (int i = 0; i < size; i++) {
+			sum += refDataset.getElementDoubleAbs(i);
 		}
 		return sum;
 	}

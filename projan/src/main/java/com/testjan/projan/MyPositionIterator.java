@@ -5,7 +5,7 @@ package com.testjan.projan;
  */
 
 public class MyPositionIterator {
-	final private int[] shape;
+	final private int[] shape;//shape of the dataset
 	final private int[] axesOrder;// first axis given will be the outer loop,
 									// the last axis given will be the inner
 									// loop
@@ -15,11 +15,12 @@ public class MyPositionIterator {
 
 	/**
 	 * Constructor for a Position Iterator
-	 * @param theShape
+	 * @param theShape - shape of the dataset
 	 */
 	public MyPositionIterator(int[] theShape){
 		int[] theAxesOrder = new int[theShape.length];
 		for(int i=0;i<theAxesOrder.length;i++){
+			//default axesOrder is 0,1,2...
 			theAxesOrder[i] = i;
 		}
 		endrank = theShape.length - 1;
@@ -38,8 +39,8 @@ public class MyPositionIterator {
 	 * Throws an IllegalArgumentException if the axes don't match the shape of
 	 * the dataset
 	 * 
-	 * @param theShape
-	 * @param theAxesOrder
+	 * @param theShape -shape of the dataset
+	 * @param theAxesOrder - the order to iterate the axes through
 	 */
 	public MyPositionIterator(int[] theShape, int[] theAxesOrder) {
 		if (theShape.length != theAxesOrder.length) {
@@ -53,13 +54,12 @@ public class MyPositionIterator {
 	}
 
 	/**
-	 * returns true if there is another iteration, and moves onto the next
-	 * Position
 	 * 
-	 * @return
+	 * @return : true if there is another iteration, and moves onto the next
+	 * Position
 	 */
 	public boolean hasNext() {
-		// increment the last axis given in axesOrder first
+		// increments the last axis given in axesOrder first
 		for (int j = endrank; j >= 0; j--) {
 			int axis = axesOrder[j];
 			pos[axis] += 1;
@@ -74,7 +74,7 @@ public class MyPositionIterator {
 	}
 
 	/**
-	 * Resets the iterator position so it can be used again All elements of pos
+	 * Resets the iterator position so it can be used again. All elements of pos
 	 * are set to zero apart from the element which will be first incremented in
 	 * hasNext which is set to -1
 	 */
@@ -93,13 +93,13 @@ public class MyPositionIterator {
 		return shape;
 	}
 	/**
-	 * @return axesOrder
+	 * @return axesOrder 
 	 */
 	public int[] getAxesOrder() {
 		return axesOrder;
 	}
 	/**
-	 * @return pos
+	 * @return pos 
 	 */
 	public int[] getPos() {
 		return pos;

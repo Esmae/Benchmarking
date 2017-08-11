@@ -67,18 +67,57 @@ public class MyBenchmarkMult {
 		}
 
 	}
+	
+	@State(Scope.Thread) 
+	public static class myStateCDE{
+		
+		//the datasets used for comparing ordering strides 
+		//when adding two datasets that don't have the same strides
+		Dataset datasetc;
+		Dataset datasetd;
+		Dataset datasete;
+		
+		Dataset dataset1;
+		Dataset dataset2;
+		
+		
+		
+		@Setup(Level.Trial)
+		public void doSetup(){
+			
+
+			//creating the datasets for comparing ordering the strides
+			datasetc = DatasetFactory.createRange(13*18*22*18);
+			datasetc = datasetc.reshape(18,13,22,18);
+			
+			datasetd = DatasetFactory.createRange(18*13*22*18);
+			datasetd = datasetd.reshape(18,13,22,18);
+			datasetd = datasetd.getTransposedView(0,1,2,3);//creating strides, not really getting a transpose
+			
+			datasete = DatasetFactory.createRange(18*13*18*22);
+			datasete = datasete.reshape(18,13,22,18);
+			datasete = datasete.getTransposedView(3,1,2,0);
+			
+			dataset1 = DatasetFactory.createRange(100*100*100);
+			dataset1 = dataset1.reshape(100,100,100);
+			
+			dataset2 = DatasetFactory.createRange(100*99*100);
+			dataset2 = dataset2.reshape(100,99,100);
+			
+		}
+		
+	}
 
 	@State(Scope.Thread)
 	public static class myRefState {
 
 		Reference myRef;
 
-		private double size;// the number of elements in the reference
-									// dataset
+		private int[] shape = new int[]{10,10,10};//the shape of the dataset
 
 		@Setup(Level.Trial)
 		public void doRefSetup() {
-			myRef = new Reference(size);
+			myRef = new Reference(shape);
 		}
 	}
 
@@ -117,7 +156,7 @@ public class MyBenchmarkMult {
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	public Dataset testTenDotMine1212(myState theState) {
-		return MyTensorDot.tensorDotProduct(theState.dataset1, theState.dataset2, theState.axesOrder12,
+		return MyTensorDot.tensorDotProduct1(theState.dataset1, theState.dataset2, theState.axesOrder12,
 				theState.axesOrder12);
 	}
 	/**
@@ -143,8 +182,79 @@ public class MyBenchmarkMult {
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	public Dataset testTenDotMine2121(myState theState) {
-		return MyTensorDot.tensorDotProduct(theState.dataset1, theState.dataset2, theState.axesOrder21,
+		return MyTensorDot.tensorDotProduct1(theState.dataset1, theState.dataset2, theState.axesOrder21,
 				theState.axesOrder21);
+	}
+	
+	@Benchmark
+	@BenchmarkMode(Mode.Throughput)
+	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
+	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
+	public Dataset testTenDot1_untranposed(myStateCDE theState){
+		return MyTensorDot.tensorDotProduct1(theState.datasetc, theState.datasetc, new int[]{0, 1},new int[]{3,1});
+	}
+	
+	@Benchmark
+	@BenchmarkMode(Mode.Throughput)
+	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
+	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
+	public Dataset testTenDot2_untranposed(myStateCDE theState){
+		return MyTensorDot.tensorDotProduct2(theState.datasetc, theState.datasetc, new int[]{0, 1},new int[]{3,1});
+	}
+/*	//NEXT
+	@Benchmark
+	@BenchmarkMode(Mode.Throughput)
+	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
+	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
+	public Dataset testTenDot1_tranposed(myStateCDE theState){
+		return MyTensorDot.tensorDotProduct1(theState.datasetd, theState.datasetd, new int[]{0, 1},new int[]{3,1});
+	}
+	
+	@Benchmark
+	@BenchmarkMode(Mode.Throughput)
+	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
+	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
+	public Dataset testTenDot2_tranposed(myStateCDE theState){
+		return MyTensorDot.tensorDotProduct2(theState.datasetd, theState.datasetd, new int[]{0, 1},new int[]{3,1});
+	}
+	//NEXT
+	@Benchmark
+	@BenchmarkMode(Mode.Throughput)
+	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
+	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
+	public Dataset testTenDot1_mixedDE(myStateCDE theState){
+		return MyTensorDot.tensorDotProduct1(theState.datasetd, theState.datasete, new int[]{2, 3},new int[]{2,3});
+	}
+	@Benchmark
+	@BenchmarkMode(Mode.Throughput)
+	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
+	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
+	public Dataset testTenDot1_mixedED(myStateCDE theState){
+		return MyTensorDot.tensorDotProduct1(theState.datasete, theState.datasetd, new int[]{2, 3},new int[]{2,3});
+	}
+	
+	@Benchmark
+	@BenchmarkMode(Mode.Throughput)
+	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
+	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
+	public Dataset testTenDot2_mixed(myStateCDE theState){
+		return MyTensorDot.tensorDotProduct2(theState.datasetd, theState.datasete, new int[]{2, 3},new int[]{2,3});*/
+	//}
+	//NEXT
+	@Benchmark
+	@BenchmarkMode(Mode.Throughput)
+	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
+	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
+	public Dataset testTenDot1_mixed12(myStateCDE theState){
+		return MyTensorDot.tensorDotProduct1(theState.dataset1, theState.dataset2, new int[]{0, 1},new int[]{2,0});
+	}
+	
+	@Benchmark
+	@BenchmarkMode(Mode.Throughput)
+	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
+	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
+	public Dataset testTenDot2_mixed12(myStateCDE theState){
+		return MyTensorDot.tensorDotProduct2(theState.dataset1, theState.dataset2, new int[]{0, 1},new int[]{2,0});
 	}
 	
 }	

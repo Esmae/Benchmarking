@@ -7,105 +7,121 @@ import java.util.List;
 import org.apache.commons.lang.ArrayUtils;
 import org.eclipse.january.dataset.AbstractDataset;
 import org.eclipse.january.dataset.Dataset;
-import org.eclipse.january.dataset.DatasetFactory;
 import org.eclipse.january.dataset.IndexIterator;
 
 /**
- * Class for testing the summation of values in a dataset   
- * using different iterators
+ * Class for testing the summation of values in a dataset using different
+ * iterators
  *
  */
 public class SumDataset {
+
 	/**
-	 * summing using the IndexIterator in project january
-	 * @param a: the dataset
-	 * @return
+	 * Summing using the IndexIterator in Project January
+	 * 
+	 * @param a:
+	 *            the dataset
+	 * @return the sum
 	 */
-	public static double sumOrigIterator(Dataset a){
+	public static double sumOrigIterator(Dataset a) {
 		double sum = 0;
 		IndexIterator ita = a.getIterator();
-		while(ita.hasNext()){
+		while (ita.hasNext()) {
 			sum += a.getElementDoubleAbs(ita.index);
 		}
 		return sum;
 	}
+
 	/**
-	 * summing using MyStrideIterator: based on the StrideIterator in project January
-	 * summs along the strides in a more optimal order
-	 * @param a: the dataset
-	 * @return
+	 * Summing using MyStrideIterator: based on the StrideIterator in project
+	 * January Summs along the strides so increments axes with smallest stride
+	 * first Uses hasNext() in MyStrideIterator
+	 * 
+	 * @param a:
+	 *            the dataset
+	 * @return the sum
 	 */
-	public static double sumMyStrideIterator(Dataset a){
+	public static double sumMyStrideIterator(Dataset a) {
 		double sum = 0;
 		int[] shape = a.getShape();
-		//getting the strides of the dataSets
+		// getting the strides of the dataSets
 		int[] offset = new int[1];
-		final int[] astride= AbstractDataset.createStrides(a, offset);
-		//want to order based on the strides of a
+		final int[] astride = AbstractDataset.createStrides(a, offset);
+		// creating aaxes array: 0,1,2...
 		int rank = shape.length;
 		int[] aaxes = new int[rank];
-		for(int i=0;i<rank;i++){
+		for (int i = 0; i < rank; i++) {
 			aaxes[i] = i;
 		}
+
+		// want to order based on the strides of a
 		Integer[] aaxesobj = ArrayUtils.toObject(aaxes);
 		List<Integer> aList = Arrays.asList(aaxesobj);
-		Collections.sort(Arrays.asList(aaxesobj),new StrideSort(astride));//sorts aaxes
+		Collections.sort(Arrays.asList(aaxesobj), new StrideSort(astride));// sorts
+																			// aaxes
 		aaxesobj = (Integer[]) aList.toArray();
 		aaxes = ArrayUtils.toPrimitive(aaxesobj);
-		//creating the strideIterator
+		// creating the strideIterator
 		MyStrideIterator ita = new MyStrideIterator(shape, astride, aaxes);
-		while(ita.hasNext()){
+		while (ita.hasNext()) {
 			sum += a.getElementDoubleAbs(ita.index);
 		}
 		return sum;
 	}
-	
+
 	/**
-	 * summing using MyStrideIterator: based on the StrideIterator in project January
-	 * summs along the strides in a more optimal order
-	 * @param a: the dataset
-	 * @return
+	 * Summing using MyStrideIterator: based on the StrideIterator in project
+	 * January summs along the strides so increments axes with smallest stride
+	 * first Uses hasNext2() in MyStrideIterator
+	 * 
+	 * @param a:
+	 *            the dataset
+	 * @return the sum
 	 */
-	public static double sumMyStrideIterator2(Dataset a){
+	public static double sumMyStrideIterator2(Dataset a) {
 		double sum = 0;
 		int[] shape = a.getShape();
-		//getting the strides of the dataSets
+		// getting the strides of the dataSets
 		int[] offset = new int[1];
-		final int[] astride= AbstractDataset.createStrides(a, offset);
-		//want to order based on the strides of a
+		final int[] astride = AbstractDataset.createStrides(a, offset);
+		// creating aaxes array: 0,1,2..
 		int rank = shape.length;
 		int[] aaxes = new int[rank];
-		for(int i=0;i<rank;i++){
+		for (int i = 0; i < rank; i++) {
 			aaxes[i] = i;
 		}
+		// want to order based on the strides of a
 		Integer[] aaxesobj = ArrayUtils.toObject(aaxes);
 		List<Integer> aList = Arrays.asList(aaxesobj);
-		Collections.sort(Arrays.asList(aaxesobj),new StrideSort(astride));//sorts aaxes
+		Collections.sort(Arrays.asList(aaxesobj), new StrideSort(astride));// sorts
+																			// aaxes
 		aaxesobj = (Integer[]) aList.toArray();
 		aaxes = ArrayUtils.toPrimitive(aaxesobj);
-		//creating the strideIterator
+		// creating the strideIterator
 		MyStrideIterator ita = new MyStrideIterator(shape, astride, aaxes);
-		while(ita.hasNext2()){
+		while (ita.hasNext2()) {
 			sum += a.getElementDoubleAbs(ita.index);
 		}
 		return sum;
 	}
-	
+
 	/**
-	 * Sums the elements in the dataset in index order
-	 * Doesn't use an iterator object
-	 * @param a: the dataset
-	 * @return
+	 * Sums the elements in the dataset in index order Doesn't use an iterator
+	 * object
+	 * 
+	 * @param a:
+	 *            the dataset
+	 * @return the sum
 	 */
-	public static double sumMyIndexIterator(Dataset a){
+	public static double sumMyIndexIterator(Dataset a) {
 		double sum = 0;
 		int size = a.getSize();
 		int index = 0;
-		while(index<size){
+		while (index < size) {
 			sum += a.getElementDoubleAbs(index);
-			index ++;
+			index++; // increments the 1DIndex
 		}
 		return sum;
 	}
-	
+
 }
