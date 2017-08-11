@@ -397,3 +397,5 @@ com.testjan.projan.MyBenchmarkAdd.testAddMine_3210,thrpt,1,150,5.37350679092e-09
 com.testjan.projan.MyBenchmarkAdd.testAddMine_3210x2,thrpt,1,150,7.61724229286e-09,1.96785800792e-10,ops/s,60
 com.testjan.projan.MyBenchmarkAdd.testAddMine_3210,thrpt,1,150,3.20014277534e-09,4.06626478841e-11,ops/s,60
 com.testjan.projan.MyBenchmarkAdd.testAddMine_3210x2,thrpt,1,150,4.81728452361e-09,8.15536900876e-11,ops/s,60
+com.testjan.projan.MyBenchmarkAdd.testAddMine_3210,thrpt,1,100,8.5735660783e-10,1.53987454198e-11,ops/s,60
+com.testjan.projan.MyBenchmarkAdd.testAddMine_3210x2,thrpt,1,100,9.43824757573e-10,1.79527202195e-11,ops/s,60
