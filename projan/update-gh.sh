@@ -44,7 +44,7 @@ python normFromRef.py
  #adding the new files and changing files so they are ready to commit 
   git add -f --ignore-removal .
 #commiting the added changes
-  git commit -m "Travis build pushed to Benchmarking gh-pages"
+  git commit -m "Travis build pushed to Benchmarking gh-pages [skip ci]"
 #pushes the changes the github on the gh-pages branch of Benchmarking
   git push -fq https://${TOKEN}@github.com/Esmae/Benchmarking.git gh-pages > /dev/null
 
