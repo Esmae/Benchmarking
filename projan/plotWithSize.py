@@ -1,4 +1,3 @@
-import numpy as np
 import matplotlib as mpl
 mpl.use("Agg")
 from matplotlib import pyplot as mplot
@@ -22,16 +21,17 @@ def plot_size(sizeData, colour, theLabel):
 #mplot.figure(0)   
 mplot.xscale('log')
 mplot.yscale('log')
-plot_size("testIndexTranspose", "r", 'Index Iterator')
-plot_size("testMineTranspose","k",'My Iterator')
-plot_size("testOrigTranspose", "g", 'Original Iterator')
+plot_size("testIndex", "r", 'Index Iterator')
+#plot_size("testMine","k",'My Iterator')
+#plot_size("testOrig", "g", 'Original Iterator')
 #labelling the graph 
 mplot.xlabel('Axes Length')
 mplot.ylabel('Throughput Score/ op/s')
-mplot.title('Score with Size - Summing rank 4 tensors (transposed)')
+mplot.title('Score with Size - Summing rank 4 tensors (untransposed)')
 mplot.legend()
 #saving the plot as a png file
-mplot.savefig("plotSizeSumTransposeTesting.eps",format='eps')
+#mplot.savefig("plotSizeSumUntransposeTesting.eps",format='eps')
+mplot.savefig("plotSizeSumUntransposeTestingIndex.eps", format='eps')
 
 #plotting for tranposed tensors
 #mplot.figure(1)
