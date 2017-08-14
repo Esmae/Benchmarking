@@ -8,7 +8,7 @@ from matplotlib import pyplot as mplot
 import csv 
 
 
-def PlotData(filename,savefigure,savefigure10):
+def plot_data(filename,savefigure,savefigure10):
     #declaring the lists
     listScore = []
     with open(filename) as csvfile:
@@ -22,12 +22,12 @@ def PlotData(filename,savefigure,savefigure10):
     #plotting the graph
     arrCommit = np.arange(i)
     mplot.plot(arrCommit,listScore,'k')
-    #labeling the graph
+    #labelling the graph
     mplot.xlabel('Relative commit number (highest is most recent)')
     mplot.ylabel('Relative Throughput Score/ op/s')
     mplot.title('Score over time')
     
-    #saving the plot as a png file
+    #saving the plot
     mplot.savefig(savefigure)
     
     #plotting a figure with only the most recent 10 results in
@@ -44,9 +44,9 @@ def PlotData(filename,savefigure,savefigure10):
         mplot.xlabel('Relative commit number (highest is most recent)')
         mplot.ylabel('Relative Throughput Score/ op/s')
         mplot.title('Score over last 10')
-        #saving the plot as a png file
+        #saving the plot
     mplot.savefig(savefigure10)
 
     
     
-PlotData("Benchmarking/projan/dataWithTime","TimePlot.png","TimePlotTen.png")
+plot_data("Benchmarking/projan/dataWithTime","TimePlot.png","TimePlotTen.png")

@@ -70,7 +70,6 @@ com/testjan/projan/generated/MyBenchmarkSum_jmhType_B1.java
 com/testjan/projan/generated/MyBenchmarkMult_myState_jmhType_B1.java
 com/testjan/projan/generated/MyBenchmarkSum_testSumMyStrideIta2_jmhTest.class
 com/testjan/projan/generated/MyBenchmarkMult_myRefState_jmhType.java
-com/testjan/projan/generated/MyBenchmarkSum_testSumMyIndexItaT_jmhTest.class
 com/testjan/projan/generated/MyBenchmarkMult_myStateCDE_jmhType_B3.class
 com/testjan/projan/generated/MyBenchmarkMult_myState_jmhType_B3.class
 com/testjan/projan/generated/MyBenchmarkAdd_myStateCDE_jmhType_B1.java
@@ -87,7 +86,6 @@ com/testjan/projan/generated/MyBenchmarkAdd_myStateCDE_jmhType_B2.java
 com/testjan/projan/generated/MyBenchmarkMult_myState_jmhType.class
 com/testjan/projan/generated/MyBenchmarkAdd_myStateCDE_jmhType_B3.class
 com/testjan/projan/generated/MyBenchmarkSum_testSumMyStrideItaT2_jmhTest.class
-com/testjan/projan/generated/MyBenchmarkSum_testSumMyIndexItaT_jmhTest.java
 com/testjan/projan/generated/MyBenchmarkAdd_jmhType_B3.java
 com/testjan/projan/StrideSortLong.class
 com/testjan/projan/generated/MyBenchmarkSum_testSumOrigIta_jmhTest.java
@@ -110,6 +108,7 @@ com/testjan/projan/generated/MyBenchmarkMult_myRefState_jmhType_B3.java
 com/testjan/projan/generated/MyBenchmarkAdd_testAddMine2_1032_jmhTest.java
 META-INF/CompilerHints
 com/testjan/projan/generated/MyBenchmarkSum_jmhType_B2.java
+com/testjan/projan/generated/MyBenchmarkSum_testSumTransposeMyIndexIta_jmhTest.java
 com/testjan/projan/generated/MyBenchmarkAdd_addMine2_jmhTest.class
 com/testjan/projan/generated/MyBenchmarkAdd_myStateCDE_jmhType_B2.class
 com/testjan/projan/generated/MyBenchmarkAdd_testAddOrig_jmhTest.java
@@ -122,6 +121,7 @@ com/testjan/projan/generated/MyBenchmarkMult_testTenDotMine2121_jmhTest.java
 com/testjan/projan/generated/MyBenchmarkAdd_testAddTransposeOrig_jmhTest.java
 com/testjan/projan/generated/MyBenchmarkAdd_jmhType_B1.java
 com/testjan/projan/MyStrideIterator.class
+com/testjan/projan/generated/MyBenchmarkSum_testSumTransposeMyIndexIta_jmhTest.class
 com/testjan/projan/generated/MyBenchmarkSum_jmhType_B3.java
 com/testjan/projan/generated/MyBenchmarkAdd_myStateAB1_jmhType.java
 com/testjan/projan/MyBenchmarkMult$myState.class

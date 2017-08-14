@@ -136,7 +136,7 @@ public class MyBenchmarkSum {
 	@BenchmarkMode(Mode.Throughput)
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
-	public double testSumMyIndexItaT(myState theState){
+	public double testSumTransposeMyIndexIta(myState theState){
 		return SumDataset.sumMyIndexIterator(theState.datasetT);
 	}
 	
