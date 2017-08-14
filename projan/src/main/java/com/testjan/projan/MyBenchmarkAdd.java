@@ -146,7 +146,7 @@ public class MyBenchmarkAdd {
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	public Dataset addMine(myStateAB1 theState){
-		return Addition.myAddPartOne(theState.dataset1,theState.dataset1);
+		return Addition.myAddPartOne(theState.dataseta,theState.datasetb);
 	}
 	
 	/**
@@ -159,7 +159,7 @@ public class MyBenchmarkAdd {
 	@BenchmarkMode(Mode.Throughput)
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
-	public Dataset addMine2(myStateAB1 theState){
+	public Dataset addTwoMine(myStateAB1 theState){
 		return Addition.myAdd2PartOne(theState.dataset1,theState.dataset1);
 	}
 	
@@ -190,26 +190,26 @@ public class MyBenchmarkAdd {
 	 * @param theState - contains the datasets
 	 * @return
 	 */
-	@Benchmark
+	/*@Benchmark
 	@BenchmarkMode(Mode.Throughput)
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	public Dataset testAddMine_1032(myStateCDE theState){
 		return Addition.myAddPartOne(theState.datasetc,theState.datasete);
-	}
+	}*/
 	/**
 	 * Benchmarking adding two tensors, both have strides
 	 * using iterator in myAdd - they have different strides
 	 * @param theState - contains the datasets
 	 * @return
 	 */
-	@Benchmark
+/*	@Benchmark
 	@BenchmarkMode(Mode.Throughput)
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	public Dataset testAddTransposeMine_1032(myStateCDE theState){
 		return Addition.myAddPartOne(theState.datasetd,theState.datasete);
-	}
+	}*/
 	
 	
 	
@@ -226,13 +226,13 @@ public class MyBenchmarkAdd {
 	 * @param theState - contains the datasets
 	 * @return
 	 */
-	@Benchmark
+	/*@Benchmark
 	@BenchmarkMode(Mode.Throughput)
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	public Dataset testAddTransposeMine2(myStateAB1 theState){
 		return Addition.myAdd2PartOne(theState.datasetTa,theState.datasetTb);
-	}
+	}*/
 	/**
 	 * Benchmarking adding two tensors, one has been tranposed one hasn't
 	 * using iterator in myAdd2 - they have different strides
@@ -252,13 +252,13 @@ public class MyBenchmarkAdd {
 	 * @param theState - contains the datasets
 	 * @return
 	 */
-	@Benchmark
+/*	@Benchmark
 	@BenchmarkMode(Mode.Throughput)
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	public Dataset testAddTransposeMine2_1032(myStateCDE theState){
 		return Addition.myAdd2PartOne(theState.datasetd,theState.datasete);
-	}
+	}*/
 	
 	/*@Benchmark
 	@BenchmarkMode(Mode.Throughput)
