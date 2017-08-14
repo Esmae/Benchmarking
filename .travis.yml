@@ -9,9 +9,9 @@ install: "pip install -r requirements.txt"
 script:
 - mvn clean install -f projan/pom.xml
 - java -jar projan/target/projan-0.0.1-SNAPSHOT.jar com.testjan.projan.MyBenchmarkMult.testRef -i 20 -rf csv -rff refBench
-- java -jar projan/target/projan-0.0.1-SNAPSHOT.jar com.testjan.projan.MyBenchmarkSum.testSumTransposeMyIndexIta -i 10 -p S=10,20,30,40,50,60 -rf csv -rff testIndexTranspose
-- java -jar projan/target/projan-0.0.1-SNAPSHOT.jar com.testjan.projan.MyBenchmarkSum.testSumTransposeOrigIta -i 10 -p S=10,20,30,40,50,60 -rf csv -rff testOrigTranspose
-- java -jar projan/target/projan-0.0.1-SNAPSHOT.jar com.testjan.projan.MyBenchmarkSum.testSumTransposeMyStrideIta -i 10 -p S=10,20,30,40,50,60 -rf csv -rff testMineTranspose
+- java -jar projan/target/projan-0.0.1-SNAPSHOT.jar com.testjan.projan.MyBenchmarkSum.testSumTransposeMyIndexIta -i 10 -p S=10,15,20,25,30,35,40,45,50,55,60 -rf csv -rff testIndexTranspose
+- java -jar projan/target/projan-0.0.1-SNAPSHOT.jar com.testjan.projan.MyBenchmarkSum.testSumTransposeOrigIta -i 10 -p S=10,15,20,25,30,35,40,45,50,55,60 -rf csv -rff testOrigTranspose
+- java -jar projan/target/projan-0.0.1-SNAPSHOT.jar com.testjan.projan.MyBenchmarkSum.testSumTransposeMyStrideIta -i 10 -p S=10,15,20,25,30,35,40,45,50,55,60 -rf csv -rff testMineTranspose
 #don't want an email every time I commit
 notifications:
   email: false
