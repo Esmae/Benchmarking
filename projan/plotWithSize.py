@@ -4,7 +4,7 @@ mpl.use("Agg")
 from matplotlib import pyplot as mplot
 import csv
 
-def plot_size(sizeData, colour):
+def plot_size(sizeData, colour, theLabel):
     #declaring the lists
     listScoreLog = []
     listPar = []
@@ -17,12 +17,12 @@ def plot_size(sizeData, colour):
            listScoreLog.append(np.log(float(row['Score'])))
            listPar.append(row['Param: S'])
     #plotting the graph
-    mplot.plot(listPar,listScoreLog,colour)
+    mplot.plot(listPar,listScoreLog,colour, label = theLabel)
   
     
-plot_size("testIndex","k")
-plot_size("testOrig","r")
-plot_size("testMine", "g")
+plot_size("testIndex","k",'Simple Index')
+plot_size("testOrig","r", 'Original Iterator')
+plot_size("testMine", "g", 'My Iterator')
 #labelling the graph 
 mplot.xlabel('Axes Length')
 mplot.ylabel('ln(Throughput Score/ op/s)')
