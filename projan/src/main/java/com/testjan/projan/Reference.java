@@ -8,7 +8,7 @@ import org.eclipse.january.dataset.Random;
  * 
  */
 public class Reference {
-
+ 
 	private Dataset refDataset;
 	private double size;
 
