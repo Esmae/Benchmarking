@@ -1,7 +1,12 @@
 "Benchmark","Mode","Threads","Samples","Score","Score Error (99.9%)","Unit","Param: S"
-"com.testjan.projan.MyBenchmarkSum.testSumTransposeMyIndexIta","thrpt",1,100,96771.413842,1832.463356,"ops/s",10
-"com.testjan.projan.MyBenchmarkSum.testSumTransposeMyIndexIta","thrpt",1,100,6030.246082,109.134471,"ops/s",20
-"com.testjan.projan.MyBenchmarkSum.testSumTransposeMyIndexIta","thrpt",1,100,1124.686042,26.963610,"ops/s",30
-"com.testjan.projan.MyBenchmarkSum.testSumTransposeMyIndexIta","thrpt",1,100,332.457344,6.514952,"ops/s",40
-"com.testjan.projan.MyBenchmarkSum.testSumTransposeMyIndexIta","thrpt",1,100,132.646410,4.937200,"ops/s",50
-"com.testjan.projan.MyBenchmarkSum.testSumTransposeMyIndexIta","thrpt",1,100,66.388062,1.248134,"ops/s",60
+"com.testjan.projan.MyBenchmarkSum.testSumTransposeMyIndexIta","thrpt",1,100,97028.255108,1786.789276,"ops/s",10
+"com.testjan.projan.MyBenchmarkSum.testSumTransposeMyIndexIta","thrpt",1,100,19326.028446,334.208072,"ops/s",15
+"com.testjan.projan.MyBenchmarkSum.testSumTransposeMyIndexIta","thrpt",1,100,6180.012963,63.426189,"ops/s",20
+"com.testjan.projan.MyBenchmarkSum.testSumTransposeMyIndexIta","thrpt",1,100,2545.175571,18.643514,"ops/s",25
+"com.testjan.projan.MyBenchmarkSum.testSumTransposeMyIndexIta","thrpt",1,100,1225.608076,12.882997,"ops/s",30
+"com.testjan.projan.MyBenchmarkSum.testSumTransposeMyIndexIta","thrpt",1,100,606.187084,12.060664,"ops/s",35
+"com.testjan.projan.MyBenchmarkSum.testSumTransposeMyIndexIta","thrpt",1,100,347.129001,6.934735,"ops/s",40
+"com.testjan.projan.MyBenchmarkSum.testSumTransposeMyIndexIta","thrpt",1,100,212.214254,5.624770,"ops/s",45
+"com.testjan.projan.MyBenchmarkSum.testSumTransposeMyIndexIta","thrpt",1,100,140.129343,2.950847,"ops/s",50
+"com.testjan.projan.MyBenchmarkSum.testSumTransposeMyIndexIta","thrpt",1,100,94.105063,2.094723,"ops/s",55
+"com.testjan.projan.MyBenchmarkSum.testSumTransposeMyIndexIta","thrpt",1,100,67.084139,1.818819,"ops/s",60
