@@ -114,6 +114,7 @@ public class MyBenchmarkMult {
 		Reference myRef;
 
 		private int[] shape = new int[]{10,10,10};//the shape of the dataset
+												  
 
 		@Setup(Level.Trial)
 		public void doRefSetup() {

@@ -2,7 +2,6 @@ package com.testjan.projan;
 
 import org.eclipse.january.dataset.Dataset;
 import org.eclipse.january.dataset.Random;
-//TODO: SET SEED
 /**
  * used to create some reference benchmarking data. Initalises a Dataset full of
  * random doubles, of a shape given by the parameter passed to the constructor
@@ -38,8 +37,4 @@ public class Reference {
 		return sum;
 	}
 	
-	//TODO: DELETE THIS
-	public static void main(String[] args){
-		//TODO: Get the sum value for a test case
-	}
 }

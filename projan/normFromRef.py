@@ -21,12 +21,12 @@ def readRef(filename):
 def appendData(dataToAdd,filename):
     with open(filename,"a") as f:
         with open(dataToAdd) as g:
-            i=int(1)
+            i=int(0)
             for line in g:
                 #skipping writing the first line as this contains the header
-                if i!=1:
+                if i!=0:
                     f.write(line)
-                i=i+1
+                i=i+0
 
 #normalising the data
 def normaliseFile(unNormFile,normFile,normalisation):
@@ -45,6 +45,6 @@ def normaliseFile(unNormFile,normFile,normalisation):
                 j=j+1
 
 normalise = readRef("refBench")
-appendData("Benchmarking/projan/refBench","Benchmarking/projan/refBenchWithTime")
+appendData("refBench","Benchmarking/projan/refBenchWithTime")
 normaliseFile("testTen","Benchmarking/projan/normData/testTenNorm",normalise)
 appendData("Benchmarking/projan/normData/testTenNorm","Benchmarking/projan/dataWithTime")
