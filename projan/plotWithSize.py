@@ -1,5 +1,5 @@
 import matplotlib as mpl
-mpl.use("App")
+mpl.use("Agg")
 from matplotlib import pyplot as mplot
 import csv
 
