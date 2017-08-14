@@ -4,7 +4,7 @@ mpl.use("Agg")
 from matplotlib import pyplot as mplot
 import csv
 
-def plot_size(sizeData, savefigure):
+def plot_size(sizeData, colour):
     #declaring the lists
     listScoreLog = []
     listPar = []
@@ -12,16 +12,21 @@ def plot_size(sizeData, savefigure):
         reader = csv.DictReader(csvfile)
         for row in reader:
             #storing the values in the Score and Parameters columns in lists
-            listScoreLog.append(np.log(row['Score']))
-            listPar.append(row['Param: S'])
+           # x = float(row['Score'])
+           # print(type(x))
+           listScoreLog.append(np.log(float(row['Score'])))
+           listPar.append(row['Param: S'])
     #plotting the graph
-    mplot.plot(listPar,listScore,'k')
-    #labelling the graph 
-    mplot.xlabel('Axes Length')
-    mplot.ylabel('ln(Throughput Score/ op/s)')
-    mplot.title('Score with Size - rank 4 tensors')
+    mplot.plot(listPar,listScoreLog,colour)
+  
     
-    #saving the plot as a png file
-    mplot.savefig(savefigure,format='eps')
-    
-plot_size("Benchmarking/projan/testIndex","Benchmarking/projan/plotSize.eps")
+plot_size("testIndex","k")
+plot_size("testOrig","r")
+plot_size("testMine", "g")
+#labelling the graph 
+mplot.xlabel('Axes Length')
+mplot.ylabel('ln(Throughput Score/ op/s)')
+mplot.title('Score with Size - rank 4 tensors')
+mplot.legend()
+#saving the plot as a png file
+mplot.savefig("plotSize.eps",format='eps')

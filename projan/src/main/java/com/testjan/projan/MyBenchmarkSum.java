@@ -62,7 +62,7 @@ public class MyBenchmarkSum {
 	@BenchmarkMode(Mode.Throughput)
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
-	public double testSumOrigItaT(myState theState){
+	public double testTranposeSumOrigIta(myState theState){
 		return SumDataset.sumOrigIterator(theState.datasetT);
 	}
 	/**
@@ -86,7 +86,7 @@ public class MyBenchmarkSum {
 	@BenchmarkMode(Mode.Throughput)
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
-	public double testSumMyStrideItaT(myState theState){
+	public double testTransposeSumMyStrideIta(myState theState){
 		return SumDataset.sumMyStrideIterator(theState.datasetT);
 	}
 	
