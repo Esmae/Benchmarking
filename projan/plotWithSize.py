@@ -14,32 +14,34 @@ def plot_size(sizeData, colour, theLabel):
             #storing the values in the Score and Parameters columns in lists
            # x = float(row['Score'])
            # print(type(x))
-           listScoreLog.append(np.log(float(row['Score'])))
+           listScoreLog.append(row['Score'])
            listPar.append(row['Param: S'])
     #plotting the graph
     mplot.plot(listPar,listScoreLog,colour, label = theLabel)
   
 #mplot.figure(0)   
-#plot_size("testIndex","k",'Simple Index')
-#plot_size("testOrig","r", 'Original Iterator')
-#plot_size("testMine", "g", 'My Iterator')
+mplot.xscale('log')
+mplot.yscale('log')
+plot_size("testIndexTranspose", "r", 'Index Iterator')
+plot_size("testMineTranspose","k",'My Iterator')
+plot_size("testOrigTranspose", "g", 'Original Iterator')
 #labelling the graph 
-#mplot.xlabel('Axes Length')
-#mplot.ylabel('ln(Throughput Score/ op/s)')
-#mplot.title('Score with Size - rank 4 tensors')
-#mplot.legend()
+mplot.xlabel('Axes Length')
+mplot.ylabel('Throughput Score/ op/s')
+mplot.title('Score with Size - Summing rank 4 tensors (transposed)')
+mplot.legend()
 #saving the plot as a png file
-#mplot.savefig("plotSize.eps",format='eps')
+mplot.savefig("plotSizeSumTransposeTesting.eps",format='eps')
 
 #plotting for tranposed tensors
 #mplot.figure(1)
-plot_size("testIndexTranspose","k",'Simple Index')
-plot_size("testOrigTranspose","r", 'Original Iterator')
-plot_size("testMineTranspose", "g", 'My Iterator')
+#plot_size("testAddOrig","k",'Original Iterator')
+#plot_size("testAddMine","r", 'My Iterator')
+#plot_size("testMineTranspose", "g", 'My Iterator')
 #labelling the graph 
-mplot.xlabel('Axes Length')
-mplot.ylabel('ln(Throughput Score/ op/s)')
-mplot.title('Score with Size - rank 4 transposed tensors')
-mplot.legend()
+#mplot.xlabel('Axes Length')
+#mplot.ylabel('ln(Throughput Score/ op/s)')
+#mplot.title('Score with Size - rank 4 transposed tensors')
+#mplot.legend()
 #saving the plot as a png file
-mplot.savefig("plotSizeTransposed.eps",format='eps')
+#mplot.savefig("plotSizeTransposed.eps",format='eps')

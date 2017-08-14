@@ -4,10 +4,9 @@ if [ "$TRAVIS_COMMIT_MESSAGE" != "Travis build pushed to Benchmarking gh-pages [
 #moving scripts to be run into home
  # cp -R testTen $HOME
  # cp -R refBench $HOME
-  cp -R testAddOrig $HOME
-  cp -R testAddMine $HOME
-  cp -R testAddTransposeOrig $HOME
-  cp -R testAddTransposeMine $HOME
+  cp -R testOrig $HOME
+  cp -R testMine $HOME
+  cp -R testIndex $HOME
   cp -R projan/normFromRef.py $HOME
   cp -R projan/timePlot.py $HOME
   cp -R projan/plotWithSize.py $HOME
@@ -32,10 +31,10 @@ if [ "$TRAVIS_COMMIT_MESSAGE" != "Travis build pushed to Benchmarking gh-pages [
 #putting the files in local repo
 #  cp -Rf testTen* Benchmarking/projan/data
 #  cp -Rf refBench Benchmarking/projan
-   cp -Rf testAddOrig Benchmarking/projan  
-   cp -Rf testAddMine Benchmarking/projan
-   cp -Rf testAddTransposeOrig Benchmarking/projan
-   cp -Rf testAddTransposeMine Benchmarking/projan
+   cp -Rf testOrig Benchmarking/projan  
+   cp -Rf testMine Benchmarking/projan
+   cp -Rf testIndex Benchmarking/projan
+  
 
   
   
