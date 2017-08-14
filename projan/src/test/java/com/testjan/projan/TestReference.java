@@ -9,7 +9,7 @@ import org.junit.Test;
  */
 public class TestReference {
 	
-	private static int[] testShape;
+	private static int[] testShape = new int[]{10,10,10};
 	private double expectSum = 491.6736;
 	
 	/**
