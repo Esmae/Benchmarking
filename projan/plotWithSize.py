@@ -12,14 +12,14 @@ def plot_size(sizeData, savefigure):
         reader = csv.DictReader(csvfile)
         for row in reader:
             #storing the values in the Score and Parameters columns in lists
-            listScore.append(np.log(row['Score']))
+            listScoreLog.append(np.log(row['Score']))
             listPar.append(row['Param: S'])
     #plotting the graph
     mplot.plot(listPar,listScore,'k')
     #labelling the graph 
     mplot.xlabel('Axes Length')
-    mplot.ylabel('Throughput Score/ op/s')
-    mplot.title('Score with Size - for rank 4 tensors')
+    mplot.ylabel('ln(Throughput Score/ op/s)')
+    mplot.title('Score with Size - rank 4 tensors')
     
     #saving the plot as a png file
     mplot.savefig(savefigure,format='eps')
