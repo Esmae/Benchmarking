@@ -1,0 +1,12 @@
+"Benchmark","Mode","Threads","Samples","Score","Score Error (99.9%)","Unit","Param: S"
+"com.testjan.projan.MyBenchmarkAdd.testAddTransposeMine","thrpt",1,100,3332.639794,119.721423,"ops/s",10
+"com.testjan.projan.MyBenchmarkAdd.testAddTransposeMine","thrpt",1,100,672.507898,17.871284,"ops/s",15
+"com.testjan.projan.MyBenchmarkAdd.testAddTransposeMine","thrpt",1,100,188.114233,12.565312,"ops/s",20
+"com.testjan.projan.MyBenchmarkAdd.testAddTransposeMine","thrpt",1,100,83.183809,3.085901,"ops/s",25
+"com.testjan.projan.MyBenchmarkAdd.testAddTransposeMine","thrpt",1,100,31.426071,1.702117,"ops/s",30
+"com.testjan.projan.MyBenchmarkAdd.testAddTransposeMine","thrpt",1,100,16.742228,1.604906,"ops/s",35
+"com.testjan.projan.MyBenchmarkAdd.testAddTransposeMine","thrpt",1,100,6.801576,0.497789,"ops/s",40
+"com.testjan.projan.MyBenchmarkAdd.testAddTransposeMine","thrpt",1,100,2.762983,0.221694,"ops/s",45
+"com.testjan.projan.MyBenchmarkAdd.testAddTransposeMine","thrpt",1,100,1.726027,0.148769,"ops/s",50
+"com.testjan.projan.MyBenchmarkAdd.testAddTransposeMine","thrpt",1,100,1.004147,0.042102,"ops/s",55
+"com.testjan.projan.MyBenchmarkAdd.testAddTransposeMine","thrpt",1,100,0.686169,0.027576,"ops/s",60

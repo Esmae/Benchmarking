@@ -1,0 +1,12 @@
+"Benchmark","Mode","Threads","Samples","Score","Score Error (99.9%)","Unit","Param: S"
+"com.testjan.projan.MyBenchmarkAdd.addMine","thrpt",1,100,3588.652939,138.602853,"ops/s",10
+"com.testjan.projan.MyBenchmarkAdd.addMine","thrpt",1,100,721.999176,33.742235,"ops/s",15
+"com.testjan.projan.MyBenchmarkAdd.addMine","thrpt",1,100,205.937890,10.099592,"ops/s",20
+"com.testjan.projan.MyBenchmarkAdd.addMine","thrpt",1,100,80.889628,5.910191,"ops/s",25
+"com.testjan.projan.MyBenchmarkAdd.addMine","thrpt",1,100,40.722678,2.903378,"ops/s",30
+"com.testjan.projan.MyBenchmarkAdd.addMine","thrpt",1,100,16.902565,1.562734,"ops/s",35
+"com.testjan.projan.MyBenchmarkAdd.addMine","thrpt",1,100,11.505134,0.902440,"ops/s",40
+"com.testjan.projan.MyBenchmarkAdd.addMine","thrpt",1,100,8.026011,0.584335,"ops/s",45
+"com.testjan.projan.MyBenchmarkAdd.addMine","thrpt",1,100,4.796351,0.334694,"ops/s",50
+"com.testjan.projan.MyBenchmarkAdd.addMine","thrpt",1,100,3.881091,0.151333,"ops/s",55
+"com.testjan.projan.MyBenchmarkAdd.addMine","thrpt",1,100,2.585165,0.142261,"ops/s",60
