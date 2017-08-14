@@ -10,6 +10,8 @@ script:
 - mvn clean install -f projan/pom.xml
 - java -jar projan/target/projan-0.0.1-SNAPSHOT.jar com.testjan.projan.MyBenchmarkMult.testRef -i 20 -rf csv -rff refBench
 - java -jar projan/target/projan-0.0.1-SNAPSHOT.jar com.testjan.projan.MyBenchmarkSum.testSumMyIndexIta -i 10 -p S=10,20,30,40,50,60 -rf csv -rff testIndex
+- java -jar projan/target/projan-0.0.1-SNAPSHOT.jar com.testjan.projan.MyBenchmarkSum.testSumOrigIta -i 10 -p S=10,20,30,40,50,60 -rf csv -rff testOrig
+- java -jar projan/target/projan-0.0.1-SNAPSHOT.jar com.testjan.projan.MyBenchmarkSum.testSumMyStrideIta -i 10 -p S=10,20,30,40,50,60 -rf csv -rff testMine
 #don't want an email every time I commit
 notifications:
   email: false
