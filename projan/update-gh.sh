@@ -4,9 +4,10 @@ if [ "$TRAVIS_COMMIT_MESSAGE" != "Travis build pushed to Benchmarking gh-pages [
 #moving scripts to be run into home
  # cp -R testTen $HOME
  # cp -R refBench $HOME
-  cp -R testIndexTranspose $HOME
-  cp -R testOrigTranspose $HOME
-  cp -R testMineTranspose $HOME
+  cp -R testAddOrig $HOME
+  cp -R testAddMine $HOME
+  cp -R testAddTransposeOrig $HOME
+  cp -R testAddTransposeMine $HOME
   cp -R projan/normFromRef.py $HOME
   cp -R projan/timePlot.py $HOME
   cp -R projan/plotWithSize.py $HOME
@@ -31,16 +32,17 @@ if [ "$TRAVIS_COMMIT_MESSAGE" != "Travis build pushed to Benchmarking gh-pages [
 #putting the files in local repo
 #  cp -Rf testTen* Benchmarking/projan/data
 #  cp -Rf refBench Benchmarking/projan
-   cp -Rf testIndexTranspose Benchmarking/projan  
-   cp -Rf testOrigTranspose Benchmarking/projan
-   cp -Rf testMineTranspose Benchmarking/projan
+   cp -Rf testAddOrig Benchmarking/projan  
+   cp -Rf testAddMine Benchmarking/projan
+   cp -Rf testAddTransposeOrig Benchmarking/projan
+   cp -Rf testAddTransposeMine Benchmarking/projan
 
   
   
   #calls the python script that creates the 'with time' plot
   #echo -e "calling timePlot"
   #python timePlot.py
-  python plotWithSize.py
+ # python plotWithSize.py
 
   #putting the new 'with time' plot in the repo (possibly overwritting the latest one)
   #cp -Rf TimePlot.png Benchmarking/projan/figures
