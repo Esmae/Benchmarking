@@ -33,7 +33,7 @@ def plot_size(sizeData, colour, theLabel):
 
 #plotting for tranposed tensors
 #mplot.figure(1)
-plot_size("testIndexTranpose","k",'Simple Index')
+plot_size("testIndexTranspose","k",'Simple Index')
 plot_size("testOrigTranspose","r", 'Original Iterator')
 plot_size("testMineTranspose", "g", 'My Iterator')
 #labelling the graph 
