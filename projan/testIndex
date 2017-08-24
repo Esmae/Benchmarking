@@ -1,12 +1,12 @@
 "Benchmark","Mode","Threads","Samples","Score","Score Error (99.9%)","Unit","Param: S"
-"com.testjan.projan.MyBenchmarkSum.testSumMyIndexIta","thrpt",1,100,99927.551351,1253.948970,"ops/s",10
-"com.testjan.projan.MyBenchmarkSum.testSumMyIndexIta","thrpt",1,100,19435.126158,553.189892,"ops/s",15
-"com.testjan.projan.MyBenchmarkSum.testSumMyIndexIta","thrpt",1,100,6220.586477,61.725184,"ops/s",20
-"com.testjan.projan.MyBenchmarkSum.testSumMyIndexIta","thrpt",1,100,2557.907902,24.348679,"ops/s",25
-"com.testjan.projan.MyBenchmarkSum.testSumMyIndexIta","thrpt",1,100,1233.718691,11.904971,"ops/s",30
-"com.testjan.projan.MyBenchmarkSum.testSumMyIndexIta","thrpt",1,100,650.195636,16.985519,"ops/s",35
-"com.testjan.projan.MyBenchmarkSum.testSumMyIndexIta","thrpt",1,100,357.571216,9.539405,"ops/s",40
-"com.testjan.projan.MyBenchmarkSum.testSumMyIndexIta","thrpt",1,100,232.674228,3.336232,"ops/s",45
-"com.testjan.projan.MyBenchmarkSum.testSumMyIndexIta","thrpt",1,100,139.833827,3.632768,"ops/s",50
-"com.testjan.projan.MyBenchmarkSum.testSumMyIndexIta","thrpt",1,100,96.518133,1.228473,"ops/s",55
-"com.testjan.projan.MyBenchmarkSum.testSumMyIndexIta","thrpt",1,100,68.403111,1.425131,"ops/s",60
+"com.testjan.projan.MyBenchmarkSum.testSumMyIndexIta","thrpt",1,100,101455.550950,536.548558,"ops/s",10
+"com.testjan.projan.MyBenchmarkSum.testSumMyIndexIta","thrpt",1,100,20001.180054,125.292721,"ops/s",15
+"com.testjan.projan.MyBenchmarkSum.testSumMyIndexIta","thrpt",1,100,6356.661100,14.741093,"ops/s",20
+"com.testjan.projan.MyBenchmarkSum.testSumMyIndexIta","thrpt",1,100,2610.283108,4.966451,"ops/s",25
+"com.testjan.projan.MyBenchmarkSum.testSumMyIndexIta","thrpt",1,100,1260.847830,2.862554,"ops/s",30
+"com.testjan.projan.MyBenchmarkSum.testSumMyIndexIta","thrpt",1,100,669.795877,3.996829,"ops/s",35
+"com.testjan.projan.MyBenchmarkSum.testSumMyIndexIta","thrpt",1,100,379.052994,3.767019,"ops/s",40
+"com.testjan.projan.MyBenchmarkSum.testSumMyIndexIta","thrpt",1,100,234.112917,2.019620,"ops/s",45
+"com.testjan.projan.MyBenchmarkSum.testSumMyIndexIta","thrpt",1,100,152.783732,2.132140,"ops/s",50
+"com.testjan.projan.MyBenchmarkSum.testSumMyIndexIta","thrpt",1,100,103.631516,1.598410,"ops/s",55
+"com.testjan.projan.MyBenchmarkSum.testSumMyIndexIta","thrpt",1,100,73.144392,1.518949,"ops/s",60
