@@ -29,4 +29,4 @@ mplot.ylabel('Throughput Score/ op/s')
 mplot.title('Score with Size - Summing rank 4 tensors (untransposed)')
 mplot.legend()
 #saving the plot as a svg file
-mplot.savefig("plotSizeSumUntransposeTesting.svg",format='svg')
+mplot.savefig("Benchmarking/projan/plotSizeSumUntransposeTesting.svg",format='svg')
