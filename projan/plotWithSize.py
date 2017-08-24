@@ -18,30 +18,15 @@ def plot_size(sizeData, colour, theLabel):
     #plotting the graph
     mplot.plot(listPar,listScoreLog,colour, label = theLabel)
   
-#mplot.figure(0)   
 mplot.xscale('log')
 mplot.yscale('log')
-#plot_size("testIndex", "r", 'Index Iterator')
+plot_size("testIndex", "r", 'Index Iterator')
 plot_size("testAddMine","k",'My Iterator')
 plot_size("testAddOrig", "g", 'Original Iterator')
 #labelling the graph 
 mplot.xlabel('Axes Length')
 mplot.ylabel('Throughput Score/ op/s')
-mplot.title('Score with Size - Adding rank 4 tensors (untransposed)')
+mplot.title('Score with Size - Summing rank 4 tensors (untransposed)')
 mplot.legend()
-#saving the plot as a png file
-mplot.savefig("plotSizeAddUntransposeTesting.svg",format='svg')
-#mplot.savefig("plotSizeSumUntransposeTestingIndex.png", format='png')
-
-#plotting for tranposed tensors
-#mplot.figure(1)
-#plot_size("testAddOrig","k",'Original Iterator')
-#plot_size("testAddMine","r", 'My Iterator')
-#plot_size("testMineTranspose", "g", 'My Iterator')
-#labelling the graph 
-#mplot.xlabel('Axes Length')
-#mplot.ylabel('ln(Throughput Score/ op/s)')
-#mplot.title('Score with Size - rank 4 transposed tensors')
-#mplot.legend()
-#saving the plot as a png file
-#mplot.savefig("plotSizeTransposed.eps",format='eps')
+#saving the plot as a svg file
+mplot.savefig("plotSizeSumUntransposeTesting.svg",format='svg')
