@@ -21,16 +21,16 @@ def plot_size(sizeData, colour, theLabel):
 #mplot.figure(0)   
 mplot.xscale('log')
 mplot.yscale('log')
-#plot_size("testIndexTranspose", "r", 'Index Iterator')
-plot_size("testAddTransposeMine","k",'My Iterator')
-plot_size("testAddTransposeOrig", "g", 'Original Iterator')
+#plot_size("testIndex", "r", 'Index Iterator')
+plot_size("testAddMine","k",'My Iterator')
+plot_size("testAddOrig", "g", 'Original Iterator')
 #labelling the graph 
 mplot.xlabel('Axes Length')
 mplot.ylabel('Throughput Score/ op/s')
-mplot.title('Score with Size - Adding rank 4 tensors (transposed)')
+mplot.title('Score with Size - Adding rank 4 tensors (untransposed)')
 mplot.legend()
 #saving the plot as a png file
-mplot.savefig("plotSizeAddTransposeTesting.emf",format='emf')
+mplot.savefig("plotSizeAddUntransposeTesting.svg",format='svg')
 #mplot.savefig("plotSizeSumUntransposeTestingIndex.png", format='png')
 
 #plotting for tranposed tensors
