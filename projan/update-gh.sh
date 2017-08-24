@@ -45,7 +45,7 @@ if [ "$TRAVIS_COMMIT_MESSAGE" != "Travis build pushed to Benchmarking gh-pages [
  # plotting the throughput score against different sizes of dataset
  python plotWithSize.py
 
-  #putting the new 'with time' plot in the repo (possibly overwritting the latest one)
+  #putting the new 'with time' plot in the repo (overwritting the latest one)
   #cp -Rf TimePlot.png Benchmarking/projan/figures
   #cp -Rf TimePlotTen.png Benchmarking/projan/figures
   
