@@ -25,7 +25,7 @@ public class SumDataset {
 	 */
 	public static double sumOrigIterator(Dataset a) {
 		double sum = 0;
-		IndexIterator ita = a.getIterator();
+		IndexIterator ita = a.getIterator(true);//true: will change the position as well as the memory index for untransposed datasets
 		while (ita.hasNext()) {
 			sum += a.getElementDoubleAbs(ita.index);
 		}

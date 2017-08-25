@@ -154,7 +154,7 @@ public class MyStrideIterator {
 		Arrays.fill(pos, 0);
 		int thisStride = strideOrder[endrank];
 		pos[thisStride] = -1;
-		//the first call of hasNext() will increment indea by +stride[thisStride]
+		//the first call of hasNext() will increment index by +stride[thisStride]
 		index = -1 * stride[thisStride];
 	}
 }
