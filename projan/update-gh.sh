@@ -58,4 +58,4 @@
   git push -fq https://${TOKEN}@github.com/Esmae/Benchmarking.git gh-pages > /dev/null
 
   echo -e "Success? \n"
-fi
+
