@@ -74,7 +74,7 @@
 * *I used  eclemma in eclipse to test for coverage*
 * Can also use Expectedexception rule: allows you to verify your code has thrown a specified exception
   
-  @Rule
+  @Rule <br />
   public ExpectedException thrown = ExpectedException.none();
   
   Returns a rule that expects no exception to be thrown, so won’t affect existing tests
