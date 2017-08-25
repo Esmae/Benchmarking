@@ -1,4 +1,4 @@
-if [ "$TRAVIS_COMMIT_MESSAGE" != "Travis build pushed to Benchmarking gh-pages [skip ci]" ]; then
+
  echo -e "Starting to update Benchmarking gh-pages\n"
 #moving files created in build into home
 #moving scripts to be run into home
@@ -58,4 +58,4 @@ if [ "$TRAVIS_COMMIT_MESSAGE" != "Travis build pushed to Benchmarking gh-pages [
   git push -fq https://${TOKEN}@github.com/Esmae/Benchmarking.git gh-pages > /dev/null
 
   echo -e "Success? \n"
-fi
+
