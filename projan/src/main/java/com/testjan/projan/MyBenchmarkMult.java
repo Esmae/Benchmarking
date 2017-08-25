@@ -1,7 +1,4 @@
 package com.testjan.projan;
-/*
- * Benchmarks the TensorDotProduct method in LinearAlgebra in Project January
- */
 
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.BenchmarkMode;
@@ -21,7 +18,9 @@ import java.util.concurrent.TimeUnit;
 import org.eclipse.january.dataset.Dataset;
 import org.eclipse.january.dataset.DatasetFactory;
 
-
+/**
+ * Benchmarks the TensorDotProduct method in LinearAlgebra in Project January
+ */
 @State(Scope.Thread)
 public class MyBenchmarkMult {
 
@@ -186,39 +185,69 @@ public class MyBenchmarkMult {
 		return MyTensorDot.tensorDotProduct1(theState.dataset1, theState.dataset2, theState.axesOrder21,
 				theState.axesOrder21);
 	}
-	
+	/**
+	 * Benchmarking dotProd1 for untransposed dataset
+	 * @param theState - contains the datasets
+	 * @return 
+	 */
 	@Benchmark
 	@BenchmarkMode(Mode.Throughput)
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
-	public Dataset testTenDot1_untranposed(myStateCDE theState){
+	public Dataset testTenDot1_untransposed(myStateCDE theState){
 		return MyTensorDot.tensorDotProduct1(theState.datasetc, theState.datasetc, new int[]{0, 1},new int[]{3,1});
 	}
 	
+	/**
+	 * Benchmarking dotProd2 for untransposed dataset
+	 * @param theState - contains the datasets
+	 * @return
+	 */
 	@Benchmark
 	@BenchmarkMode(Mode.Throughput)
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
-	public Dataset testTenDot2_untranposed(myStateCDE theState){
+	public Dataset testTenDot2_untransposed(myStateCDE theState){
 		return MyTensorDot.tensorDotProduct2(theState.datasetc, theState.datasetc, new int[]{0, 1},new int[]{3,1});
 	}
-/*	//NEXT
+	
+	
+	//NEXT
+	/**
+	 * Benchmarking dotProd1 for untransposed datasets with strides 
+	 * @param theState - contains the datasets
+	 * @return
+	 */
 	@Benchmark
 	@BenchmarkMode(Mode.Throughput)
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
-	public Dataset testTenDot1_tranposed(myStateCDE theState){
+	public Dataset testTenDot1_transposed(myStateCDE theState){
 		return MyTensorDot.tensorDotProduct1(theState.datasetd, theState.datasetd, new int[]{0, 1},new int[]{3,1});
 	}
 	
+	/**
+	 * Benchmarking dotProd2 for untransposed datasets with strides
+	 * @param theState - contains the datasets
+	 * @return
+	 */
 	@Benchmark
 	@BenchmarkMode(Mode.Throughput)
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
-	public Dataset testTenDot2_tranposed(myStateCDE theState){
+	public Dataset testTenDot2_transposed(myStateCDE theState){
 		return MyTensorDot.tensorDotProduct2(theState.datasetd, theState.datasetd, new int[]{0, 1},new int[]{3,1});
 	}
+	
+	
+	
 	//NEXT
+	
+	/**
+	 * Benchmarking a transposed dataset and an untransposed dataset with strides  for dotProd1 (order 1)
+	 * @param theState - contains the datasets
+	 * @return
+	 */
 	@Benchmark
 	@BenchmarkMode(Mode.Throughput)
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
@@ -226,6 +255,12 @@ public class MyBenchmarkMult {
 	public Dataset testTenDot1_mixedDE(myStateCDE theState){
 		return MyTensorDot.tensorDotProduct1(theState.datasetd, theState.datasete, new int[]{2, 3},new int[]{2,3});
 	}
+	
+	/**
+	 * Benchmarking a transposed dataset and an untransposed dataset with strides  for dotProd1 (order 2)
+	 * @param theState - contains the datasets
+	 * @return
+	 */
 	@Benchmark
 	@BenchmarkMode(Mode.Throughput)
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
@@ -234,14 +269,29 @@ public class MyBenchmarkMult {
 		return MyTensorDot.tensorDotProduct1(theState.datasete, theState.datasetd, new int[]{2, 3},new int[]{2,3});
 	}
 	
+	
+	/**
+	 * Benchmarking a transposed dataset and an untransposed dataset with strides  for dotProd2
+	 * @param theState - contains the datasets
+	 * @return
+	 */
 	@Benchmark
 	@BenchmarkMode(Mode.Throughput)
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 	public Dataset testTenDot2_mixed(myStateCDE theState){
-		return MyTensorDot.tensorDotProduct2(theState.datasetd, theState.datasete, new int[]{2, 3},new int[]{2,3});*/
-	//}
+		return MyTensorDot.tensorDotProduct2(theState.datasetd, theState.datasete, new int[]{2, 3},new int[]{2,3});
+	}
+	
+	
+	
 	//NEXT
+	
+	/**
+	 * Benchmarking 2 different untransposed dataset in dotProd1
+	 * @param theState - contains the datasets
+	 * @return
+	 */
 	@Benchmark
 	@BenchmarkMode(Mode.Throughput)
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
@@ -250,6 +300,11 @@ public class MyBenchmarkMult {
 		return MyTensorDot.tensorDotProduct1(theState.dataset1, theState.dataset2, new int[]{0, 1},new int[]{2,0});
 	}
 	
+	/**
+	 * Benchmarking 2 different untransposed dataset in dotProd2
+	 * @param theState - contains the datasets
+	 * @return
+	 */
 	@Benchmark
 	@BenchmarkMode(Mode.Throughput)
 	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)

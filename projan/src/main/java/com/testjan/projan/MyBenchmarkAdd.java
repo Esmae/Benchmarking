@@ -17,7 +17,7 @@ import org.openjdk.jmh.annotations.Warmup;
 
 
 /**
- * Benchmarks the addition of two tensors (identical), before and after taking a transpose view
+ * Benchmarks the addition of two tensors (identical, though not necessarily the same object), before and after taking a transpose view
  * 
  *
  */
@@ -111,6 +111,9 @@ public class MyBenchmarkAdd {
 			dataset = dataset.reshape(S,S,S,S);
 		}
 	}
+	
+	
+	
 	/**
 	 * Benchmarking adding a tensor to itself, with original iterator
 	 * @param theState - contains the datasets
@@ -260,69 +263,7 @@ public class MyBenchmarkAdd {
 		return Addition.myAdd2PartOne(theState.datasetd,theState.datasete);
 	}*/
 	
-	/*@Benchmark
-	@BenchmarkMode(Mode.Throughput)
-	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
-	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
-	public Dataset testError1(myState theState){
-		return Addition.myAddPartOne(theState.dataset, theState.dataset);
-	}
-	
-	@Benchmark
-	@BenchmarkMode(Mode.Throughput)
-	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
-	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
-	public Dataset testError2(myState theState){
-		return Addition.myAdd2PartOne(theState.dataset, theState.dataset);
-	}
-	
-	
-	*//**
-	 * Benchmarking the sorting in Addition
-	 *//*
-	@Benchmark
-	@BenchmarkMode(Mode.Throughput)
-	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
-	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
-	public int[] testSortOne(myState theState){
-		return Addition.sortOne(theState.axes, theState.strides);
-	}
-	
-	*//**
-	 * Benchmarking the sorting in Addition
-	 *//*
-	@Benchmark
-	@BenchmarkMode(Mode.Throughput)
-	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
-	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
-	public int[] testSortTwo(myState theState){
-		return Addition.sortTwo(theState.axes, theState.multstrides);
-	}
-	
-	*//**
-	 * Benchmarking the first part of the Addition method
-	 *//*
-	@Benchmark
-	@BenchmarkMode(Mode.Throughput)
-	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
-	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
-	public int testAddSepOne(myState theState){
-		return Addition.myAddSepOne(theState.dataset, theState.dataset);
-	}
-	
-	
-	*//**
-	 * Benchmarking the first part of the Addition method
-	 *//*
-	@Benchmark
-	@BenchmarkMode(Mode.Throughput)
-	@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
-	@Measurement(iterations = 20, time = 100, timeUnit = TimeUnit.MILLISECONDS)
-	public int testAddSepTwo(myState theState){
-		return Addition.myAddSepTwo(theState.dataset, theState.dataset);
-	}
-	
-	*//**
+	/**
 	 * Benchmarking the last part of the Addition methods
 	 *//*
 	@Benchmark
