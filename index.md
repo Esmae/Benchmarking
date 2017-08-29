@@ -129,7 +129,7 @@
 <body>
 
 <img src="projan/indeximages/sumpos.png" alt="Summing rank 4 untransposed tensors with position updated" style="width:1204px;height:536px;">
-<img src="projan/indeximages/sumtrans.png" alt="Summing rank 4 transposed tensors" style="width:1204px;height:536px;">
+<img src="projan/indeximages/sumtrans.png" alt="Summing rank 4 transposed tensors" style="width:1204px;height:406px;">
     
 </body>
 </html>
@@ -154,7 +154,7 @@
 <body>
 
 <img src="projan/indeximages/adduntrans.png" alt="Adding untranposed tensors" style="width:1204px;height:536px;">
-<img src="projan/indeximages/addtrans.png" alt="Adding tranposed tensors" style="width:1204px;height:536px;">
+<img src="projan/indeximages/addtrans.png" alt="Adding tranposed tensors" style="width:1204px;height:464px;">
     
 </body>
 </html>
