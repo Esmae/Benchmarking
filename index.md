@@ -92,12 +92,17 @@ Strides from a dataset are only created once a transposeView is taken, the datas
 * I wrote this in 2 slightly different ways, so MyStrideIterator has 2 hasNext functions. HasNext runs faster than hasNext2.
 
 ## Summation Results:
-* Benchmarked these 3 iterators (original, simple index, and the fast MyIterator), for 4D datasets from size of 10x10x10x10 to 60x60x60x60. 
+* Benchmarked these 3 iterators (original, simple index, and the fast MyIterator), for 4D datasets from size of 10x10x10x10 to 60x60x60x60.
+![alt text](https://github.com/Esmae/Benchmarking/blob/gh-pages/projan/sumindex.png "Summing a rank 4 tensor")
 * For untransposed datasets **(see figure)**, Original iterator runs ~3x faster than MyIterator across the whole range measured. This is because in my Original Iterator method I've used an Index Iterator which is an abstract class, and the actual Iterator type created in memory depends upon the dataset. If the dataset doesn't have any strides it creates a simple Contiguous Iterator. The hasNext function in this iterator just simply increments the 1D memory index, so the run speed of the Original Iterator is similar to my simple Index iterator.
+![alt text](https://github.com/Esmae/Benchmarking/blob/gh-pages/projan/sumuntrans.png "Summing rank 4 untransposed tensors")
 * When the Original Iterator is run so that the position is updated as well (by using a.getIterator(true)), myIterator and Original Iterator run at similar speeds.
-* **See other figures**
+**put other figure and caption here**
+![alt text](https://github.com/Esmae/Benchmarking/blob/gh-pages/projan/sumtrans.png "Summing rank 4 transposed tensors")
 
-![alt text](https://github.com/Esmae/Benchmarking/blob/gh-pages/projan/Picture1.png "Summing a rank 4 tensor")
+
+
+
 
 ## Adding Datasets
 * Looking at adding one dataset to another dataset and producing a third dataset (the datasets must have the same shape)
@@ -105,8 +110,10 @@ Strides from a dataset are only created once a transposeView is taken, the datas
 * My first addition method (myAddPartOne) just orders based on the strides of the first dataset, whilst my second addition method (myAdd2PartOne) compares the strides of the two datasets (multiplies the corresponding strides together to create a strideMult array and orders the strides based on this). Both use MyPositionIterator, which iterates through the axis based on the axes order given to the constructor. 
 
 ## Addition Results
-* **(See figures)**
 * For cases where the tensors have the same shape but not the same strides, myAdd2PartOne runs faster than myAddPartOne. *At least in the cases that I've tested.* 
+![alt text](https://github.com/Esmae/Benchmarking/blob/gh-pages/projan/adduntrans.png "Adding untranposed tensors")
+![alt text](https://github.com/Esmae/Benchmarking/blob/gh-pages/projan/addtrans.png "Adding tranposed tensors")
+
 
 ## Tensor Dot Product
 * Also looked at the tensorDotProduct, which is the same as numpy.tensordot (would recommend reading that documentation to find out more about what this operation is.) 
