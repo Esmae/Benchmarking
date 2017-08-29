@@ -84,7 +84,8 @@ public class MyBenchmarkAdd {
 			
 			datasetd = DatasetFactory.createRange(60*50*65*60);
 			datasetd = datasetd.reshape(60,50,65,60);
-			datasetd = datasetd.getTransposedView(0,1,2,3);//creating strides, not really getting a transpose
+			datasetd = datasetd.getTransposedView(3,2,1,0);
+			datasetd = datasetd.getTransposedView(3,2,1,0);//creating strides, not really getting a transpose
 			
 			datasete = DatasetFactory.createRange(50*60*60*65);
 			datasete = datasete.reshape(60,50,65,60);

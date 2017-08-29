@@ -21,8 +21,11 @@ def plot_size(sizeData, colour, theLabel):
 mplot.xscale('log')
 mplot.yscale('log')
 plot_size("testIndex", "r", 'Index Iterator')
+#adding another line to the same graph
 plot_size("testMine","k",'My Iterator')
+#adding another line to the same graph
 plot_size("testOrig", "g", 'Original Iterator')
+
 #labelling the graph 
 mplot.xlabel('Axes Length')
 mplot.ylabel('Throughput Score/ op/s')

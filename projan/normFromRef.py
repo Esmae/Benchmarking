@@ -44,7 +44,11 @@ def normaliseFile(unNormFile,normFile,normalisation):
                 writer.writerow(row)
                 j=j+1
 
+#getting the normalisation
 normalise = readRef("refBench")
+#appending the reference data to file
 appendData("refBench","Benchmarking/projan/refBenchWithTime")
+#normalising the data just taken
 normaliseFile("testTen","Benchmarking/projan/normData/testTenNorm",normalise)
+#appending the normalised data to file
 appendData("Benchmarking/projan/normData/testTenNorm","Benchmarking/projan/dataWithTime")

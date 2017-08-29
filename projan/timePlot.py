@@ -48,5 +48,5 @@ def plot_data(filename,savefigure,savefigure10):
     mplot.savefig(savefigure10)
 
     
-    
+#plotting the data
 plot_data("Benchmarking/projan/dataWithTime","TimePlot.png","TimePlotTen.png")

@@ -91,7 +91,8 @@ public class MyBenchmarkMult {
 			
 			datasetd = DatasetFactory.createRange(18*13*22*18);
 			datasetd = datasetd.reshape(18,13,22,18);
-			datasetd = datasetd.getTransposedView(0,1,2,3);//creating strides, not really getting a transpose
+			datasetd = datasetd.getTransposedView(3,2,1,0);
+			datasetd = datasetd.getTransposedView(3,2,1,0);//creating strides, not really getting a transpose
 			
 			datasete = DatasetFactory.createRange(18*13*18*22);
 			datasete = datasete.reshape(18,13,22,18);
