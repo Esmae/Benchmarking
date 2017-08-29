@@ -10,20 +10,20 @@
 
 ## Contents
 [Maven Project](#maven-project)
-### GitHub
-### Benchmarking
-### Travis CI
-### Pushing to GitHub
-### JUnit
-### Original Eclipse January Iterator
-### Summing Datasets
-### Summation Results
-### Adding Datasets
-### Addition Results
-### Tensor Dot Product
-### Tensor Dot Product Results
-### Scripts
-### Changing what is run on Travis
+[GitHub](#github)
+[Benchmarking](#benchmarking)
+[Travis CI](#travis-ci)
+[Pushing to GitHub](#pushing-to-github)
+[Junit](#junit)
+[Original Eclipse January Iterator](#original-eclipse-january-iterator)
+[Summing Datasets](#summing-datasets)
+[Summation Results](#summation-results)
+[Adding Datasets](#adding-datasets)
+[Addition Results](#addition-results)
+[Tensor Dot Product](#tensor-dot-product)
+[Tensor Dot Product Results](#tensor-dot-product-results)
+[Scripts](#scripts)
+[Changing what is run on Travis](#changing-what-is-run-on-Travis)
 
 ## Maven Project
 ### Build automation tool, normally for Java projects
