@@ -8,23 +8,22 @@
 * Set up Travis CI so that it builds my project, runs the junit tests and if passses those will then run the benchmarking
 * Wrote some python scripts that are called after success in Travis  - store data and plot graphs, Travis then pushes back to GitHub
 
-##Contents
+## Contents
 [Maven Project](#Maven Project)
-###Maven Project
-###GitHub
-###Benchmarking
-###Travis CI
-###Pushing to GitHub
-###JUnit
-###Original Eclipse January Iterator
-###Summing Datasets
-###Summation Results
-###Adding Datasets
-###Addition Results
-###Tensor Dot Product
-###Tensor Dot Product Results
-###Scripts
-###Changing what is run on Travis
+### GitHub
+### Benchmarking
+### Travis CI
+### Pushing to GitHub
+### JUnit
+### Original Eclipse January Iterator
+### Summing Datasets
+### Summation Results
+### Adding Datasets
+### Addition Results
+### Tensor Dot Product
+### Tensor Dot Product Results
+### Scripts
+### Changing what is run on Travis
 
 ## Maven Project
 ### Build automation tool, normally for Java projects
