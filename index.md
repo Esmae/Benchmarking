@@ -122,8 +122,6 @@
 </body>
 </html>
 
-![alt text](https://github.com/Esmae/Benchmarking/blob/gh-pages/projan/indeximages/sumindex.png "Summing a rank 4 tensor")
-![alt text](https://github.com/Esmae/Benchmarking/blob/gh-pages/projan/indeximages/sumuntrans.png "Summing rank 4 untransposed tensors")
 * When the Original Iterator is run so that the position is updated as well (by using a.getIterator(true)), myIterator and Original Iterator run at similar speeds.
 <html>
 <body>
@@ -133,12 +131,6 @@
     
 </body>
 </html>
-
-![alt text](https://github.com/Esmae/Benchmarking/blob/gh-pages/projan/indeximages/sumpos.png "Summing rank 4 untransposed tensors with position updated")
-
-![alt text](https://github.com/Esmae/Benchmarking/blob/gh-pages/projan/indeximages/sumtrans.png "Summing rank 4 transposed tensors")
-
-
 
 
 
@@ -158,8 +150,6 @@
     
 </body>
 </html>
-![alt text](https://github.com/Esmae/Benchmarking/blob/gh-pages/projan/indeximages/adduntrans.png "Adding untranposed tensors")
-![alt text](https://github.com/Esmae/Benchmarking/blob/gh-pages/projan/indeximages/addtrans.png "Adding tranposed tensors")
 
 
 ## Tensor Dot Product
