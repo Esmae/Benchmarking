@@ -8,6 +8,24 @@
 * Set up Travis CI so that it builds my project, runs the junit tests and if passses those will then run the benchmarking
 * Wrote some python scripts that are called after success in Travis  - store data and plot graphs, Travis then pushes back to GitHub
 
+##Contents
+[Maven Project](#Maven Project)
+###Maven Project
+###GitHub
+###Benchmarking
+###Travis CI
+###Pushing to GitHub
+###JUnit
+###Original Eclipse January Iterator
+###Summing Datasets
+###Summation Results
+###Adding Datasets
+###Addition Results
+###Tensor Dot Product
+###Tensor Dot Product Results
+###Scripts
+###Changing what is run on Travis
+
 ## Maven Project
 ### Build automation tool, normally for Java projects
 * POM (Project Object Model): provides the configuration for the project
@@ -89,7 +107,7 @@
 
 ## Summing Datasets
 * I wrote a simple index iterator (not as a class), useful as a reference – can't run faster than this. Just increments the 1D memory index. My method sumMyIndexIterator, uses this iterator to add up all the elements in a dataset and returns the value.
-* I also wrote a stride iterator (as a class), based on the stride iterator in Eclipse January. My iterator uses the strides of each axis to determine the order in which to iterate through the axis. 
+* I also wrote a stride iterator (as a class), based on the stride iterator in Eclipse January. My iterator uses the strides of each axis to determine the order in which to iterate through the axis. The axis with the smallest stride is incremented along first and the axis with the largest stride is incremented last.
 * I wrote this in 2 slightly different ways, so MyStrideIterator has 2 hasNext functions. HasNext runs faster than hasNext2.
 
 ## Summation Results:
@@ -128,7 +146,7 @@
 * Most of my testing was done with identical tensors (though not necessarily the same objects), however I did some testing with different tensors and it looks as though the second variation performs better than the first in these scenarios. 
 * In both cases, an improvement on the original tensor dot product was achieved 
 
-## Python scripts
+## Scripts
 * There are 3 python scripts in this project. The .travis.yml file calls update-gh.sh which pulls down a recent copy of the repo, calls the python files and does some data copying and renaming before pushing back to github.
 * NormFromRef:  contains 3 functions, one which reads in the reference data for the normalisation, one which normalises data and one that appends data to a file.
 * TimePlot:  contatins 1 function, reads in the dataWithTime and plots a graph of relative throughput score against relative commit number for all time and for the last 10 values. 
