@@ -97,6 +97,8 @@ Strides from a dataset are only created once a transposeView is taken, the datas
 * When the Original Iterator is run so that the position is updated as well (by using a.getIterator(true)), myIterator and Original Iterator run at similar speeds.
 * **See other figures**
 
+![alt text](https://github.com/Esmae/Benchmarking/blob/gh-pages/projan/Picture1.png "Summing a rank 4 tensor")
+
 ## Adding Datasets
 * Looking at adding one dataset to another dataset and producing a third dataset (the datasets must have the same shape)
 * The 'Original' Eclipse January Iterator method I benchmarked uses PositionIterator
