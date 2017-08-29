@@ -9,7 +9,8 @@
 * Wrote some python scripts that are called after success in Travis  - store data and plot graphs, Travis then pushes back to GitHub
 
 ## Contents
-[Maven Project](#Maven Project)
+[Maven Project](#maven-project)
+# Maven Project
 ### GitHub
 ### Benchmarking
 ### Travis CI
