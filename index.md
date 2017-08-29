@@ -10,7 +10,6 @@
 
 ## Contents
 [Maven Project](#maven-project)
-# Maven Project
 ### GitHub
 ### Benchmarking
 ### Travis CI
