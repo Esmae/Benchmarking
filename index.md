@@ -116,8 +116,8 @@
 <html>
 <body>
 
-<img src="projan/indeximages/sumindex.png" alt="Summing a rank 4 tensor" style="width:600px;height:500px;">
-<img src="projan/indeximages/sumuntrans.png" alt="Summing rank 4 untranposed tensors" style="width:600px;height:500px;">
+<img src="projan/indeximages/sumindex.png" alt="Summing a rank 4 tensor" style="width:1204px;height:536px;">
+<img src="projan/indeximages/sumuntrans.png" alt="Summing rank 4 untranposed tensors" style="width:1806px;height:804px;">
     
 </body>
 </html>
