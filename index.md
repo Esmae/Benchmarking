@@ -112,6 +112,16 @@
 ## Summation Results:
 * Benchmarked these 3 iterators (original, simple index, and the fast MyIterator), for 4D datasets from size of 10x10x10x10 to 60x60x60x60.
 * For untransposed datasets, Original iterator runs ~3x faster than MyIterator across the whole range measured. This is because in my Original Iterator method I've used an Index Iterator which is an abstract class, and the actual Iterator type created in memory depends upon the dataset. If the dataset doesn't have any strides it creates a simple Contiguous Iterator. The hasNext function in this iterator just simply increments the 1D memory index, so the run speed of the Original Iterator is similar to my simple Index Iterator.
+
+<html>
+<body>
+
+<img src="projan/indeximages/sumindex.png" alt="Summing a rank 4 tensor" style="width:600px;height:500px;">
+<img src="projan/indeximages/sumuntrans.png" alt="Summing rank 4 untranposed tensors" style="width:600px;height:500px;">
+    
+</body>
+</html>
+
 ![alt text](https://github.com/Esmae/Benchmarking/blob/gh-pages/projan/indeximages/sumindex.png "Summing a rank 4 tensor")
 ![alt text](https://github.com/Esmae/Benchmarking/blob/gh-pages/projan/indeximages/sumuntrans.png "Summing rank 4 untransposed tensors")
 * When the Original Iterator is run so that the position is updated as well (by using a.getIterator(true)), myIterator and Original Iterator run at similar speeds.
