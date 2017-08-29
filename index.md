@@ -9,21 +9,21 @@
 * Wrote some python scripts that are called after success in Travis  - store data and plot graphs, Travis then pushes back to GitHub
 
 ## Contents
-[Maven Project](#maven-project)
-[GitHub](#github)
-[Benchmarking](#benchmarking)
-[Travis CI](#travis-ci)
-[Pushing to GitHub](#pushing-to-github)
-[Junit](#junit)
-[Original Eclipse January Iterator](#original-eclipse-january-iterator)
-[Summing Datasets](#summing-datasets)
-[Summation Results](#summation-results)
-[Adding Datasets](#adding-datasets)
-[Addition Results](#addition-results)
-[Tensor Dot Product](#tensor-dot-product)
-[Tensor Dot Product Results](#tensor-dot-product-results)
-[Scripts](#scripts)
-[Changing what is run on Travis](#changing-what-is-run-on-Travis)
+[Maven Project](#maven-project) <br />
+[GitHub](#github) <br />
+[Benchmarking](#benchmarking) <br />
+[Travis CI](#travis-ci) <br />
+[Pushing to GitHub](#pushing-to-github) <br />
+[Junit](#junit) <br />
+[Original Eclipse January Iterator](#original-eclipse-january-iterator) <br />
+[Summing Datasets](#summing-datasets) <br />
+[Summation Results](#summation-results) <br />
+[Adding Datasets](#adding-datasets) <br />
+[Addition Results](#addition-results) <br />
+[Tensor Dot Product](#tensor-dot-product) <br />
+[Tensor Dot Product Results](#tensor-dot-product-results) <br />
+[Scripts](#scripts) <br />
+[Changing what is run on Travis](#changing-what-is-run-on-Travis) 
 
 ## Maven Project
 ### Build automation tool, normally for Java projects
