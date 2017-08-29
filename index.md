@@ -117,7 +117,7 @@
 <body>
 
 <img src="projan/indeximages/sumindex.png" alt="Summing a rank 4 tensor" style="width:1204px;height:536px;">
-<img src="projan/indeximages/sumuntrans.png" alt="Summing rank 4 untranposed tensors" style="width:1806px;height:804px;">
+<img src="projan/indeximages/sumuntrans.png" alt="Summing rank 4 untranposed tensors" style="width:1204px;height:536px;">
     
 </body>
 </html>
@@ -125,6 +125,15 @@
 ![alt text](https://github.com/Esmae/Benchmarking/blob/gh-pages/projan/indeximages/sumindex.png "Summing a rank 4 tensor")
 ![alt text](https://github.com/Esmae/Benchmarking/blob/gh-pages/projan/indeximages/sumuntrans.png "Summing rank 4 untransposed tensors")
 * When the Original Iterator is run so that the position is updated as well (by using a.getIterator(true)), myIterator and Original Iterator run at similar speeds.
+<html>
+<body>
+
+<img src="projan/indeximages/sumpos.png" alt="Summing rank 4 untransposed tensors with position updated" style="width:1204px;height:536px;">
+<img src="projan/indeximages/sumtrans.png" alt="Summing rank 4 transposed tensors" style="width:1204px;height:536px;">
+    
+</body>
+</html>
+
 ![alt text](https://github.com/Esmae/Benchmarking/blob/gh-pages/projan/indeximages/sumpos.png "Summing rank 4 untransposed tensors with position updated")
 
 ![alt text](https://github.com/Esmae/Benchmarking/blob/gh-pages/projan/indeximages/sumtrans.png "Summing rank 4 transposed tensors")
@@ -140,6 +149,15 @@
 
 ## Addition Results
 * For cases where the tensors have the same shape but not the same strides, myAdd2PartOne runs faster than myAddPartOne. *At least in the cases that I've tested.* 
+
+<html>
+<body>
+
+<img src="projan/indeximages/adduntrans.png" alt="Adding untranposed tensors" style="width:1204px;height:536px;">
+<img src="projan/indeximages/addtrans.png" alt="Adding tranposed tensors" style="width:1204px;height:536px;">
+    
+</body>
+</html>
 ![alt text](https://github.com/Esmae/Benchmarking/blob/gh-pages/projan/indeximages/adduntrans.png "Adding untranposed tensors")
 ![alt text](https://github.com/Esmae/Benchmarking/blob/gh-pages/projan/indeximages/addtrans.png "Adding tranposed tensors")
 
