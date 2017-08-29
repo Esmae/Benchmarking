@@ -35,7 +35,7 @@
 * Should close all other applications if possible when running benchmarks as they can take time away from the CPU. *Notice this on my machine, e.g. if I scroll down a web page I notice the throughput score of my benchmarking decrease.*
 * If need to initialize some variables for the benchmarking run, need to put them in an internal static state class. Don’t use constants as the JVM can optimise this.
   
-  @Param({“5”, “10”})
+  @Param({“5”, “10”}) <br />
   public int size
 
   This will run the benchmarking with size=5, and then size = 10
