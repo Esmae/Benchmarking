@@ -27,24 +27,25 @@
 
 
 ## Benchmarking 
-### Need to stop the JVM from performing optimizations you don’t want:
+### Need to stop the JVM from performing optimizations you don’t want
 * Don’t write void tests – defend against dead code elimination
 * Can use blackholes instead of returning if would need to return more than one object. E.g. blackhole.consume(sum)
 * Don’t use loops
 * Overall class must be marked @State and be public
 * Should close all other applications if possible when running benchmarks as they can take time away from the CPU. *Notice this on my machine, e.g. if I scroll down a web page I notice the throughput score of my benchmarking decrease.*
-* If need to initialize some variables for the benchmarking run, need to put them in internal static state class. Don’t use constants as the JVM can optimise this.
+* If need to initialize some variables for the benchmarking run, need to put them in an internal static state class. Don’t use constants as the JVM can optimise this.
+  
   @Param({“5”, “10”})
   public int size
 
   This will run the benchmarking with size=5, and then size = 10
 * Try to make sure only the objects you need for that run are initialised in the internal class. *I had lots of different benchmarks and wouldn't run all of them at the same time – but realised I was still creating lots of large datasets that wouldn't be used – so split up my internal class into smaller classes.* 
-* Can set up run variables such as number of iterations before method in code e.g. @Measurement(iterations = 5)  or on the command line, -i 10 
-* Want to run different benchmarks on different forks (default setting anyway) so different tests don’t mix their profilings together which would result in the score being dependent on the order in which the benchmarks are called
+* Can set up run variables, such as number of iterations, before method in code e.g. @Measurement(iterations = 5)  or on the command line, -i 10 
+* Want to run different benchmarks on different forks (this is the default setting anyway) so different tests don’t mix their profilings together which would result in the score being dependent on the order in which the benchmarks are called
 * Can change the value of the parameters on the command line as well, e.g. -p size=10,20,30
 * Can have @Setup and @TearDown methods, which are called to setup up the state object before the benchmark and then clean up the state object after the benchmark (Time for this isn’t included)
-* Can specify the benchmarking tests to run on the command line, e.g. by adding com.testjan.projan.MyBenchmarkMult.testRef. If there also existed a testRef2, this would also be run etc. *This is the main reason why a lot of my benchmarks are currently commented out – so they're not run. *
-* *Usually the benchmarking runs are roughly the same between different builds – though not always close enough so that MyIterator will always (or nearly always) be faster than the original, even with the normalisation I was doing. I run a reference benchmark at the start of every build and normalise the data based on the result. I didn't do any testing as to whether the normalisation provided a significant improvement or not.*
+* Can specify the benchmarking tests to run on the command line, e.g. by adding com.testjan.projan.MyBenchmarkMult.testRef. If there also existed a testRef2, this would also be run etc. *This is the main reason why a lot of my benchmarks are currently commented out – so they're not run.*
+* Usually the benchmarking runs are roughly the same between different builds – though not always close enough so that MyIterator will always (or nearly always) be faster than the original, even with the normalisation I was doing. *I run a reference benchmark at the start of every build and normalise the data based on the result. I didn't do any testing as to whether the normalisation provided a significant improvement or not.*
 
 ## Travis CI 
 ### Configured by adding a file called .travis.yml to the root directory of the repository
@@ -58,7 +59,7 @@
 * Limits of Travis:
 	1. 50 mins per build
 	2. If >10 mins with no output -> aborts as assumed error
-	3. Max console output of 4MB of log data
+	3. Max console output: 4MB of log data
 
 ## Pushing to GitHub
 * GitHub Personal API Tokens can be revoked & you can create lots of them
@@ -70,7 +71,8 @@
 
 ## Junit
 * JUnit can test whether an exception has been thrown:
-	@Test(expected = IndexOutOfBoundException.class)
+
+  @Test(expected = IndexOutOfBoundException.class)
 * *I used  eclemma in eclipse to test for coverage*
 * Can also use Expectedexception rule: allows you to verify your code has thrown a specified exception
   
@@ -79,22 +81,21 @@
   
   Returns a rule that expects no exception to be thrown, so won’t affect existing tests
 
-## Original Eclipse January Iterator:
-* Using a 3D tensor/dataset as an example,  with the axis labelled {0,1,2} and a shape of {3,3,3} the original iterators in eclipse january iterate through this dataset by incrementing axis 2 first, then axis 1 and finally axis 0. This is iterating in memory order.
-  i.e.
+## Original Eclipse January Iterator
+* Using a 3D tensor/dataset as an example,  with the axis labelled {0,1,2} and a shape of {3,3,3} the original iterators in eclipse january iterate through this dataset by incrementing axis 2 first, then axis 1 and finally axis 0. This is iterating in memory order. i.e. <br />
   {0,0,0},{0,0,1},{0,0,2},{0,1,0},{0,1,1},{0,1,2},{0,2,0},{0,2,1},{0,2,2},{1,0,0},{1,0,1},{1,0,2},{1,1,0},{1,1,1},{1,1,2},{1,2,0},{1,2,1},{1,2,2},{2,0,0},{2,0,1},{2,0,2},{2,1,0},{2,1,1},{2,1,2},{2,2,0},{2,2,1},{2,2,2}
 * If a transposeView of the dataset was taken, e.g. axis 2 ↔ axis 1, so the axis are now 'labelled' {0,2,1} the original iterator will iterate through this dataset by incrementing axis 1 first, then axis 2 and finally axis 0. When a transposeView is taken, only the view of the dataset changes – the elements stored in memory won't change positions. Therefore when a dataset has been transposed, the original iterator will no longer iterate through the dataset in memory order. This means it will be slower – it is no longer exploiting the fact that accessing elements from the same cache line is cheap. 
-Strides from a dataset are only created once a transposeView is taken, the datasets don't start with strides
+* Strides (the distance in memory between adjacent elements) from a dataset are only created once a transposeView is taken, the datasets don't start with strides
 
 ## Summing Datasets
 * I wrote a simple index iterator (not as a class), useful as a reference – can't run faster than this. Just increments the 1D memory index. My method sumMyIndexIterator, uses this iterator to add up all the elements in a dataset and returns the value.
-* I also wrote a stride iterator (as a class), based on the stride iterator in Eclipse January. My iterator uses the strides of each axis (the distance in memory between adjacent elements) to determine the order in which to iterate through the axis. 
+* I also wrote a stride iterator (as a class), based on the stride iterator in Eclipse January. My iterator uses the strides of each axis to determine the order in which to iterate through the axis. 
 * I wrote this in 2 slightly different ways, so MyStrideIterator has 2 hasNext functions. HasNext runs faster than hasNext2.
 
 ## Summation Results:
 * Benchmarked these 3 iterators (original, simple index, and the fast MyIterator), for 4D datasets from size of 10x10x10x10 to 60x60x60x60.
+* For untransposed datasets, Original iterator runs ~3x faster than MyIterator across the whole range measured. This is because in my Original Iterator method I've used an Index Iterator which is an abstract class, and the actual Iterator type created in memory depends upon the dataset. If the dataset doesn't have any strides it creates a simple Contiguous Iterator. The hasNext function in this iterator just simply increments the 1D memory index, so the run speed of the Original Iterator is similar to my simple Index Iterator.
 ![alt text](https://github.com/Esmae/Benchmarking/blob/gh-pages/projan/indeximages/sumindex.png "Summing a rank 4 tensor")
-* For untransposed datasets **(see figure)**, Original iterator runs ~3x faster than MyIterator across the whole range measured. This is because in my Original Iterator method I've used an Index Iterator which is an abstract class, and the actual Iterator type created in memory depends upon the dataset. If the dataset doesn't have any strides it creates a simple Contiguous Iterator. The hasNext function in this iterator just simply increments the 1D memory index, so the run speed of the Original Iterator is similar to my simple Index iterator.
 ![alt text](https://github.com/Esmae/Benchmarking/blob/gh-pages/projan/indeximages/sumuntrans.png "Summing rank 4 untransposed tensors")
 * When the Original Iterator is run so that the position is updated as well (by using a.getIterator(true)), myIterator and Original Iterator run at similar speeds.
 ![alt text](https://github.com/Esmae/Benchmarking/blob/gh-pages/projan/indeximages/sumpos.png "Summing rank 4 untransposed tensors with position updated")
@@ -137,20 +138,11 @@ Strides from a dataset are only created once a transposeView is taken, the datas
 ### Might want/need to do just some or all of these
 1. Need to change the java commands in .travis.yml file so you're running the benchmarks you want
 2. In update-gh.sh, change which data files and scripts are copied into $HOME
-3. Change the data files you want to normalise – if any
-4. Change the files you want to append the time and date to – if any
-5. Change the files that you're copying over to the local repository
-6. Change the python scripts you're calling if need be
-7. Change what happens to the files that these python scripts create
-8. In the python scripts themselves, change the filenames – both the ones you start with and the ones you create
+3. Change the files you want to append the time and date to in update-gh.sh– if any
+4. Change the files that you're copying over to the local repository in update-gh.sh
+5. Change the python scripts you're calling if need be int update-gh.sh
+6. Change what happens to the files that these python scripts create in update-gh.sh
+7. In the python scripts themselves, change the filenames – both the ones you start with and the ones you create
 
 
-
-
-
-<html>
-<body>
-
-<img src="projan/figures/TimePlot.png" alt="Score over time noRows=50" style="width:600px;height:500px;">
-<img src="projan/figures/TimePlotTen.png" alt="Last 10, noRows=50" style="width:600px;height:500px;">
     
