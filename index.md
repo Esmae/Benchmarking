@@ -64,6 +64,13 @@
 * Can specify the benchmarking tests to run on the command line, e.g. by adding com.testjan.projan.MyBenchmarkMult.testRef. If there also existed a testRef2, this would also be run etc. *This is the main reason why a lot of my benchmarks are currently commented out – so they're not run.*
 * Usually the benchmarking runs are roughly the same between different builds – though not always close enough so that MyIterator will always (or nearly always) be faster than the original, even with the normalisation I was doing. *I run a reference benchmark at the start of every build and normalise the data based on the result. I didn't do any testing as to whether the normalisation provided a significant improvement or not.*
 
+For some more info see:
+http://java-performance.info/jmh/
+http://tutorials.jenkov.com/java-performance/jmh.html
+http://openjdk.java.net/projects/code-tools/jmh/
+http://hg.openjdk.java.net/code-tools/jmh/file/tip/jmh-samples/src/main/java/org/openjdk/jmh/samples/
+
+
 ## Travis CI 
 ### Configured by adding a file called .travis.yml to the root directory of the repository
 * This YAML file tells travis what to do, e.g. the language, which branches to run on, the script commands themselves
