@@ -31,8 +31,12 @@ file_list = sys.argv[1]
 label_list = sys.argv[2]
 title = sys.argv[3]
 
+print(file_list)
+print(label_list)
 while(i<len(file_list)):
-    plot_size(file_list[i], label_list[i])
+    #plot_size(file_list[i], label_list[i])
+    print(file_list[i] + " ")
+    print(label_list[i] + " ")
     i = i + 1
 
 #plot_size("testIndex",'Index Iterator')
@@ -42,9 +46,9 @@ while(i<len(file_list)):
 #plot_size("testOrig",'Original Iterator')
 
 #labelling the graph 
-mplot.xlabel('Axes Length')
-mplot.ylabel('Throughput Score/ op/s')
-mplot.title('Score with Size - Summing rank 4 tensors (untransposed)')
-mplot.legend()
+#mplot.xlabel('Axes Length')
+#mplot.ylabel('Throughput Score/ op/s')
+#mplot.title('Score with Size - Summing rank 4 tensors (untransposed)')
+#mplot.legend()
 #saving the plot as a svg file
-mplot.savefig("Benchmarking/projan/testingfigure1.svg",format='svg')
+#mplot.savefig("Benchmarking/projan/testingfigure1.svg",format='svg')

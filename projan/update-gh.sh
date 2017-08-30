@@ -10,6 +10,8 @@
      f)
        cp -R $OPTARG $HOME
        ;;
+     l)
+       ;;
    esac
  done
 
@@ -47,6 +49,8 @@ OPTIND=1
    case $opt in
      f)
        cp -Rf $OPTARG Benchmarking/projan
+       ;;
+     l)
        ;;
    esac
  done
