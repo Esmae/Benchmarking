@@ -77,7 +77,7 @@
   #python timePlot.py
   
  # plotting the throughput score against different sizes of dataset
- python plotWithSize.py testIndex Index_Iterator testMine My_Iterator testOrig Original_Iterator
+ python plotWithSize.py $ARRAYFILE
 
   #putting the new 'with time' plot in the repo (overwritting the latest one)
   #cp -Rf TimePlot.png Benchmarking/projan/figures

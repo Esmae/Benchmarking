@@ -24,8 +24,10 @@ mplot.yscale('log')
 i = int(1)
 
 while(i<len(sys.argv)):
-    plot_size(sys.argv[i],sys.argv[i+1])
-    i = i + 2
+    print(sys.argv[i])
+    i = i + 1
+    #plot_size(sys.argv[i],sys.argv[i+1])
+    #i = i + 2
 
 #plot_size("testIndex",'Index Iterator')
 #adding another line to the same graph
