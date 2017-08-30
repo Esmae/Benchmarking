@@ -4,9 +4,19 @@
 #moving scripts to be run into home
  # cp -R testTen $HOME
  # cp -R refBench $HOME
-  cp -R testOrig $HOME
-  cp -R testMine $HOME
-  cp -R testIndex $HOME
+
+ while getopts "f:" opt; do
+   case $opt in
+     f)
+       cp -R $OPTARG $HOME
+       ;;
+   esac
+ done
+
+
+#  cp -R testOrig $HOME
+#  cp -R testMine $HOME
+#  cp -R testIndex $HOME
   cp -R projan/normFromRef.py $HOME
   cp -R projan/timePlot.py $HOME
   cp -R projan/plotWithSize.py $HOME
@@ -43,7 +53,7 @@
   #python timePlot.py
   
  # plotting the throughput score against different sizes of dataset
- python plotWithSize.py "$@"
+ python plotWithSize.py testIndex Index_Iterator testMine My_Iterator testOrig Original_Iterator
 
   #putting the new 'with time' plot in the repo (overwritting the latest one)
   #cp -Rf TimePlot.png Benchmarking/projan/figures
