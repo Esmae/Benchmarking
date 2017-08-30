@@ -49,18 +49,18 @@
    esac
  done
   
- ARRAYFILE = ()
- ARRAYLABEL = ()
- COUNTFILE = 0
- COUNTLABEL = 0
+ ARRAYFILE=()
+ ARRAYLABEl=()
+ COUNTFILE=0
+ COUNTLABEL=0
  while getopts "f:l:" opt; do
     case $opt in
       f)
-        ARRAYFILE[$COUNTFILE] = $OPTARG
+        ARRAYFILE[$COUNTFILE]=$OPTARG
         COUNTFILE=$(($COUNTFILE + 1))
         ;;
       l)
-        ARRAYLABEL[$COUNTLABEL] = $OPTARG
+        ARRAYLABEL[$COUNTLABEL]=$OPTARG
         COUNTLABEL=$(($COUNTLABEL + 1))
         ;;
     esac
