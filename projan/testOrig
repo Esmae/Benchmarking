@@ -1,4 +1,4 @@
 "Benchmark","Mode","Threads","Samples","Score","Score Error (99.9%)","Unit","Param: S"
-"com.testjan.projan.MyBenchmarkSum.testSumOrigIta","thrpt",1,10,17959.117293,2707.832091,"ops/s",10
-"com.testjan.projan.MyBenchmarkSum.testSumOrigIta","thrpt",1,10,3654.982894,406.360598,"ops/s",15
-"com.testjan.projan.MyBenchmarkSum.testSumOrigIta","thrpt",1,10,1192.510224,181.241007,"ops/s",20
+"com.testjan.projan.MyBenchmarkSum.testSumOrigIta","thrpt",1,10,19284.209928,1303.882240,"ops/s",10
+"com.testjan.projan.MyBenchmarkSum.testSumOrigIta","thrpt",1,10,3894.489490,442.978047,"ops/s",15
+"com.testjan.projan.MyBenchmarkSum.testSumOrigIta","thrpt",1,10,1228.558154,218.913638,"ops/s",20
