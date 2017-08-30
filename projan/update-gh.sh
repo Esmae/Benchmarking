@@ -41,6 +41,8 @@
    cp -Rf testMine Benchmarking/projan
    cp -Rf testIndex Benchmarking/projan
 
+OPTIND=1
+
  while getopts "f:" opt; do
    case $opt in
      f)
@@ -53,6 +55,7 @@
  ARRAYLABEl=()
  COUNTFILE=0
  COUNTLABEL=0
+ OPTIND=1
  while getopts "f:l:" opt; do
     case $opt in
       f)
