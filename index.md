@@ -65,10 +65,10 @@
 * Usually the benchmarking runs are roughly the same between different builds – though not always close enough so that MyIterator will always (or nearly always) be faster than the original, even with the normalisation I was doing. *I run a reference benchmark at the start of every build and normalise the data based on the result. I didn't do any testing as to whether the normalisation provided a significant improvement or not.*
 
 For some more info see:
-http://java-performance.info/jmh/
-http://tutorials.jenkov.com/java-performance/jmh.html
-http://openjdk.java.net/projects/code-tools/jmh/
-http://hg.openjdk.java.net/code-tools/jmh/file/tip/jmh-samples/src/main/java/org/openjdk/jmh/samples/
+[Java performance guide](http://java-performance.info/jmh/) <br />
+[jenkov tutorial](http://tutorials.jenkov.com/java-performance/jmh.html) <br />
+[openjdk](http://openjdk.java.net/projects/code-tools/jmh/) <br />
+[openjdk samples](http://hg.openjdk.java.net/code-tools/jmh/file/tip/jmh-samples/src/main/java/org/openjdk/jmh/samples/) <br />
 
 
 ## Travis CI 
