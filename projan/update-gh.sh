@@ -13,10 +13,6 @@
    esac
  done
 
-
-#  cp -R testOrig $HOME
-#  cp -R testMine $HOME
-#  cp -R testIndex $HOME
   cp -R projan/normFromRef.py $HOME
   cp -R projan/timePlot.py $HOME
   cp -R projan/plotWithSize.py $HOME
@@ -44,8 +40,36 @@
    cp -Rf testOrig Benchmarking/projan  
    cp -Rf testMine Benchmarking/projan
    cp -Rf testIndex Benchmarking/projan
-  
 
+ while getopts "f:" opt; do
+   case $opt in
+     f)
+       cp -Rf $OPTARG Benchmarking/projan
+       ;;
+   esac
+ done
+  
+ ARRAYFILE = ()
+ ARRAYLABEL = ()
+ COUNTFILE = 0
+ COUNTLABEL = 0
+ while getopts "f:l:" opt; do
+    case $opt in
+      f)
+        ARRAYFILE[$COUNTFILE] = $OPTARG
+        COUNTFILE=$(($COUNTFILE + 1))
+        ;;
+      l)
+        ARRAYLABEL[$COUNTLABEL] = $OPTARG
+        COUNTLABEL=$(($COUNTLABEL + 1))
+        ;;
+    esac
+ done
+     
+ echo ${ARRAYFILE[*]}
+ echo ${ARRAYLABEL[*]}
+    
+        
   
   
   #calls the python script that creates the 'with time' plot
