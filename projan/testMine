@@ -1,12 +1,4 @@
 "Benchmark","Mode","Threads","Samples","Score","Score Error (99.9%)","Unit","Param: S"
-"com.testjan.projan.MyBenchmarkSum.testSumMyStrideIta","thrpt",1,50,30680.545363,1047.471373,"ops/s",10
-"com.testjan.projan.MyBenchmarkSum.testSumMyStrideIta","thrpt",1,50,6270.878555,193.370960,"ops/s",15
-"com.testjan.projan.MyBenchmarkSum.testSumMyStrideIta","thrpt",1,50,1871.205942,122.404494,"ops/s",20
-"com.testjan.projan.MyBenchmarkSum.testSumMyStrideIta","thrpt",1,50,833.573736,24.300624,"ops/s",25
-"com.testjan.projan.MyBenchmarkSum.testSumMyStrideIta","thrpt",1,50,384.541412,21.404680,"ops/s",30
-"com.testjan.projan.MyBenchmarkSum.testSumMyStrideIta","thrpt",1,50,216.620112,3.725137,"ops/s",35
-"com.testjan.projan.MyBenchmarkSum.testSumMyStrideIta","thrpt",1,50,117.513211,7.567721,"ops/s",40
-"com.testjan.projan.MyBenchmarkSum.testSumMyStrideIta","thrpt",1,50,68.451466,4.977917,"ops/s",45
-"com.testjan.projan.MyBenchmarkSum.testSumMyStrideIta","thrpt",1,50,50.814413,3.293083,"ops/s",50
-"com.testjan.projan.MyBenchmarkSum.testSumMyStrideIta","thrpt",1,50,37.519833,0.847825,"ops/s",55
-"com.testjan.projan.MyBenchmarkSum.testSumMyStrideIta","thrpt",1,50,25.760737,0.850039,"ops/s",60
+"com.testjan.projan.MyBenchmarkSum.testSumMyStrideIta","thrpt",1,10,30857.887635,2429.399379,"ops/s",10
+"com.testjan.projan.MyBenchmarkSum.testSumMyStrideIta","thrpt",1,10,5524.092990,1061.883281,"ops/s",15
+"com.testjan.projan.MyBenchmarkSum.testSumMyStrideIta","thrpt",1,10,1954.925372,250.900037,"ops/s",20
