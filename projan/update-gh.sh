@@ -1,5 +1,5 @@
 
- echo -e "Starting to update Benchmarking gh-pages\n"
+ echo -e "Starting to update Benchmarking working-copy\n"
 #moving files created in build into home
 #moving scripts to be run into home
  # cp -R testTen $HOME
@@ -23,7 +23,7 @@
   git config --global user.email "travis@travis-ci.org"
   git config --global user.name "Travis"
   #cloning the relevant repo
-  git clone --quiet --branch=gh-pages https://${TOKEN}@github.com/Esmae/Benchmarking.git  Benchmarking> /dev/null
+  git clone --quiet --branch=working-copy https://${TOKEN}@github.com/Esmae/Benchmarking.git  Benchmarking> /dev/null
   
 #normalising the benchmarking data just collected
 #echo -e "calling normFromRef"
@@ -94,9 +94,9 @@ OPTIND=1
  #adding the new files and changing files so they are ready to commit 
   git add -f --ignore-removal .
 #commiting the added changes
-  git commit -m "Travis build pushed to Benchmarking gh-pages [skip ci]"
-#pushes the changes the github on the gh-pages branch of Benchmarking
-  git push -fq https://${TOKEN}@github.com/Esmae/Benchmarking.git gh-pages > /dev/null
+  git commit -m "Travis build pushed to Benchmarking working-copy [skip ci]"
+#pushes the changes the github on the working-copy branch of Benchmarking
+  git push -fq https://${TOKEN}@github.com/Esmae/Benchmarking.git working-copy > /dev/null
 
   echo -e "Success? \n"
 
