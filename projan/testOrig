@@ -1,12 +1,12 @@
 "Benchmark","Mode","Threads","Samples","Score","Score Error (99.9%)","Unit","Param: S"
-"com.testjan.projan.MyBenchmarkSum.testSumOrigIta","thrpt",1,100,25160.624312,585.646829,"ops/s",10
-"com.testjan.projan.MyBenchmarkSum.testSumOrigIta","thrpt",1,100,5011.956258,201.167721,"ops/s",15
-"com.testjan.projan.MyBenchmarkSum.testSumOrigIta","thrpt",1,100,1266.630378,27.256659,"ops/s",20
-"com.testjan.projan.MyBenchmarkSum.testSumOrigIta","thrpt",1,100,513.282747,9.730901,"ops/s",25
-"com.testjan.projan.MyBenchmarkSum.testSumOrigIta","thrpt",1,100,251.994938,7.199860,"ops/s",30
-"com.testjan.projan.MyBenchmarkSum.testSumOrigIta","thrpt",1,100,129.032014,3.234016,"ops/s",35
-"com.testjan.projan.MyBenchmarkSum.testSumOrigIta","thrpt",1,100,77.221319,1.644018,"ops/s",40
-"com.testjan.projan.MyBenchmarkSum.testSumOrigIta","thrpt",1,100,48.852593,1.242153,"ops/s",45
-"com.testjan.projan.MyBenchmarkSum.testSumOrigIta","thrpt",1,100,31.656340,1.055747,"ops/s",50
-"com.testjan.projan.MyBenchmarkSum.testSumOrigIta","thrpt",1,100,21.933519,0.597704,"ops/s",55
-"com.testjan.projan.MyBenchmarkSum.testSumOrigIta","thrpt",1,100,15.399045,0.541847,"ops/s",60
+"com.testjan.projan.MyBenchmarkSum.testSumOrigIta","thrpt",1,50,20713.948473,2764.777110,"ops/s",10
+"com.testjan.projan.MyBenchmarkSum.testSumOrigIta","thrpt",1,50,5120.911541,217.843447,"ops/s",15
+"com.testjan.projan.MyBenchmarkSum.testSumOrigIta","thrpt",1,50,1650.050554,66.695584,"ops/s",20
+"com.testjan.projan.MyBenchmarkSum.testSumOrigIta","thrpt",1,50,676.540772,30.995328,"ops/s",25
+"com.testjan.projan.MyBenchmarkSum.testSumOrigIta","thrpt",1,50,324.157699,14.929047,"ops/s",30
+"com.testjan.projan.MyBenchmarkSum.testSumOrigIta","thrpt",1,50,169.976438,5.458354,"ops/s",35
+"com.testjan.projan.MyBenchmarkSum.testSumOrigIta","thrpt",1,50,96.994050,3.946368,"ops/s",40
+"com.testjan.projan.MyBenchmarkSum.testSumOrigIta","thrpt",1,50,60.424795,2.898026,"ops/s",45
+"com.testjan.projan.MyBenchmarkSum.testSumOrigIta","thrpt",1,50,40.287421,1.461773,"ops/s",50
+"com.testjan.projan.MyBenchmarkSum.testSumOrigIta","thrpt",1,50,26.639220,1.404567,"ops/s",55
+"com.testjan.projan.MyBenchmarkSum.testSumOrigIta","thrpt",1,50,19.280952,0.986622,"ops/s",60
