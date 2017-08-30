@@ -22,6 +22,7 @@ def plot_size(sizeData,theLabel):
 mplot.xscale('log')
 mplot.yscale('log')
 i = int(1)
+print("hello")
 
 while(i<len(sys.argv)):
     print(sys.argv[i])
@@ -36,9 +37,9 @@ while(i<len(sys.argv)):
 #plot_size("testOrig",'Original Iterator')
 
 #labelling the graph 
-mplot.xlabel('Axes Length')
-mplot.ylabel('Throughput Score/ op/s')
-mplot.title('Score with Size - Summing rank 4 tensors (untransposed)')
-mplot.legend()
+#mplot.xlabel('Axes Length')
+#mplot.ylabel('Throughput Score/ op/s')
+#mplot.title('Score with Size - Summing rank 4 tensors (untransposed)')
+#mplot.legend()
 #saving the plot as a svg file
-mplot.savefig("Benchmarking/projan/testingfigure1.svg",format='svg')
+#mplot.savefig("Benchmarking/projan/testingfigure1.svg",format='svg')
