@@ -57,5 +57,5 @@
 #pushes the changes the github on the gh-pages branch of Benchmarking
   git push -fq https://${TOKEN}@github.com/Esmae/Benchmarking.git gh-pages > /dev/null
 
-  echo -e "Success? \n"
+  
 
