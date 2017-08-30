@@ -84,7 +84,7 @@ OPTIND=1
   #python timePlot.py
   
  # plotting the throughput score against different sizes of dataset
- python plotWithSize.py ${ARRAYFILE[*]} ${ARRAYLABEL[*]} "my_title"
+ python plotWithSize.py "${ARRAYFILE[*]}" "${ARRAYLABEL[*]}" "my_title" 
 
   #putting the new 'with time' plot in the repo (overwritting the latest one)
   #cp -Rf TimePlot.png Benchmarking/projan/figures
